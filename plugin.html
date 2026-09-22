@@ -5,59 +5,56 @@
 <title>VISUELS STUDIO 226 - Photopea Toolbox</title>
 
 <style>
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
     margin:0;
     padding:10px;
     width:320px;
     background:#07111f;
-    color:#fff;
+    color:white;
     font-family:Arial,sans-serif;
 }
 
 .header{
     text-align:center;
     padding:12px;
-    margin-bottom:9px;
+    margin-bottom:8px;
     border-radius:12px;
-    background:linear-gradient(135deg,#071a31,#0d4773);
-    border:1px solid #17689a;
+    background:linear-gradient(135deg,#07182d,#0c5685);
+    border:1px solid #1b6f9f;
 }
 
 .logo{
     font-size:17px;
     font-weight:900;
-    letter-spacing:.8px;
+    letter-spacing:.7px;
 }
 
-.subtitle{
-    color:#73d9ff;
+.sub{
+    margin-top:3px;
     font-size:10px;
-    margin-top:4px;
+    color:#79ddff;
 }
 
 .section{
-    background:#0b1b2d;
-    border:1px solid #173650;
+    background:#0b1b2c;
+    border:1px solid #193a55;
     border-radius:10px;
     padding:8px;
-    margin-bottom:8px;
+    margin-bottom:7px;
 }
 
 .title{
-    color:#6edcff;
+    color:#72dcff;
     font-size:10px;
     font-weight:bold;
-    margin-bottom:7px;
-    text-transform:uppercase;
+    margin-bottom:6px;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr 1fr;
     gap:5px;
 }
 
@@ -65,53 +62,38 @@ button{
     border:0;
     border-radius:7px;
     padding:9px 4px;
-    background:#122b43;
-    color:#fff;
+    color:white;
+    background:#122d47;
     font-size:10px;
     font-weight:bold;
     cursor:pointer;
 }
 
 button:hover{
-    background:#1d557c;
+    background:#1c557d;
 }
 
-.blue{
-    background:#086da5;
-}
-
-.gold{
-    background:#9a6700;
-}
-
-.purple{
-    background:#67328d;
-}
-
-.green{
-    background:#16744d;
-}
-
-.red{
-    background:#9a3030;
-}
+.blue{background:#0873ad}
+.gold{background:#9a6900}
+.purple{background:#66348e}
+.green{background:#14774d}
+.red{background:#963838}
 
 input{
     width:100%;
     padding:8px;
     border-radius:7px;
-    border:1px solid #244762;
-    background:#06121f;
-    color:#fff;
-    outline:none;
+    border:1px solid #244863;
+    background:#06131f;
+    color:white;
     margin-bottom:6px;
 }
 
 .status{
     text-align:center;
     font-size:10px;
-    color:#72e2a4;
-    padding:4px;
+    color:#70e2a3;
+    padding:3px;
 }
 </style>
 </head>
@@ -120,152 +102,144 @@ input{
 
 <div class="header">
     <div class="logo">VISUELS STUDIO 226</div>
-    <div class="subtitle">PHOTOPEA TOOLBOX</div>
+    <div class="sub">PHOTOPEA TOOLBOX</div>
 </div>
 
 
-<!-- MODELES -->
+<!-- ================= MODÈLES ================= -->
 
 <div class="section">
 
-<div class="title">🎨 Modèles d'affiches</div>
+<div class="title">🎨 MODÈLES D'AFFICHES</div>
 
 <div class="grid">
 
-<button class="blue" onclick="modelePromo()">🔥 PROMO</button>
+<button class="blue" onclick="poster('promo')">
+🔥 PROMO
+</button>
 
-<button class="blue" onclick="modeleFormation()">🎓 FORMATION</button>
+<button class="blue" onclick="poster('formation')">
+🎓 FORMATION
+</button>
 
-<button class="blue" onclick="modeleRestaurant()">🍔 RESTAURANT</button>
+<button class="blue" onclick="poster('restaurant')">
+🍔 RESTAURANT
+</button>
 
-<button class="blue" onclick="modeleBusiness()">💼 BUSINESS</button>
+<button class="blue" onclick="poster('business')">
+💼 BUSINESS
+</button>
 
-<button class="blue" onclick="modeleTelephone()">📱 TÉLÉPHONE</button>
+<button class="blue" onclick="poster('telephone')">
+📱 TÉLÉPHONE
+</button>
 
-<button class="blue" onclick="modeleEvenement()">🎉 ÉVÉNEMENT</button>
+<button class="blue" onclick="poster('event')">
+🎉 ÉVÉNEMENT
+</button>
 
-<button class="blue" onclick="modeleAnniversaire()">🎂 ANNIVERSAIRE</button>
+<button class="blue" onclick="poster('birthday')">
+🎂 ANNIVERSAIRE
+</button>
 
-<button class="blue" onclick="modeleTech()">💻 TECHNO</button>
+<button class="blue" onclick="poster('tech')">
+💻 TECHNO
+</button>
 
 </div>
 </div>
 
 
-<!-- STICKERS -->
+<!-- ================= STICKERS ================= -->
 
 <div class="section">
 
-<div class="title">🏷️ Stickers</div>
+<div class="title">🏷️ STICKERS</div>
 
 <div class="grid">
 
 <button class="gold" onclick="sticker('PROMO')">PROMO</button>
-
 <button class="gold" onclick="sticker('-30%')">-30%</button>
-
 <button class="gold" onclick="sticker('-50%')">-50%</button>
-
 <button class="gold" onclick="sticker('NOUVEAU')">NOUVEAU</button>
-
 <button class="gold" onclick="sticker('OFFRE')">OFFRE</button>
-
 <button class="gold" onclick="sticker('GRATUIT')">GRATUIT</button>
 
 </div>
 </div>
 
 
-<!-- TEXTE -->
+<!-- ================= TEXTE ================= -->
 
 <div class="section">
 
-<div class="title">🔤 Texte professionnel</div>
+<div class="title">🔤 TEXTE</div>
 
-<input id="texte" placeholder="Écris ton texte ici">
+<input id="texte" placeholder="Écris ton texte">
 
 <div class="grid">
 
-<button onclick="texteNormal()">➕ TEXTE</button>
-
-<button onclick="texteXXL()">🔠 XXL</button>
-
-<button class="purple" onclick="texte3D()">🧊 3D</button>
-
-<button class="purple" onclick="texteChrome()">✨ CHROME</button>
+<button onclick="addText()">➕ TEXTE</button>
+<button onclick="bigText()">🔠 XXL</button>
+<button class="purple" onclick="text3D()">🧊 3D</button>
+<button class="purple" onclick="chromeText()">✨ CHROME</button>
 
 </div>
 </div>
 
 
-<!-- EFFETS -->
+<!-- ================= OUTILS ================= -->
 
 <div class="section">
 
-<div class="title">✨ Effets</div>
+<div class="title">✨ OUTILS</div>
 
 <div class="grid">
 
-<button onclick="dupliquer()">📋 Dupliquer</button>
+<button onclick="duplicate()">📋 DUPLIQUER</button>
+<button onclick="center()">🎯 CENTRER</button>
 
-<button onclick="centrer()">🎯 Centrer</button>
+<button onclick="formatDoc(1080,1350)">
+POST
+</button>
 
-<button onclick="ombre()">🌑 Ombre</button>
-
-<button onclick="glow()">💡 Glow</button>
+<button onclick="formatDoc(1080,1920)">
+STORY
+</button>
 
 </div>
 </div>
 
 
-<!-- FORMATS -->
+<!-- ================= SIGNATURE ================= -->
 
 <div class="section">
 
-<div class="title">📐 Formats</div>
+<div class="title">✍️ IDENTITÉ</div>
 
-<div class="grid">
+<button class="green"
+style="width:100%"
+onclick="signature()">
 
-<button onclick="format(1080,1350)">POST 4:5</button>
-
-<button onclick="format(1080,1920)">STORY</button>
-
-<button onclick="format(1080,1080)">CARRÉ</button>
-
-<button onclick="format(2480,3508)">A4</button>
-
-</div>
-</div>
-
-
-<!-- SIGNATURE -->
-
-<div class="section">
-
-<div class="title">✍️ Identité</div>
-
-<button class="green" style="width:100%" onclick="signature()">
 ✍️ AJOUTER MA SIGNATURE
+
 </button>
 
 </div>
 
 
-<!-- EXPORT -->
+<!-- ================= EXPORT ================= -->
 
 <div class="section">
 
-<div class="title">💾 Export rapide</div>
+<div class="title">💾 EXPORT</div>
 
 <div class="grid">
 
-<button onclick="exporter('png')">PNG</button>
-
-<button onclick="exporter('jpg')">JPG</button>
-
-<button onclick="exporter('webp')">WEBP</button>
-
-<button onclick="exporter('psd')">PSD</button>
+<button onclick="exportFile('png')">PNG</button>
+<button onclick="exportFile('jpg')">JPG</button>
+<button onclick="exportFile('webp')">WEBP</button>
+<button onclick="exportFile('psd')">PSD</button>
 
 </div>
 </div>
@@ -279,7 +253,7 @@ input{
 <script>
 
 /* =====================================================
-   COMMUNICATION AVEC PHOTOPEA
+   ENVOI À PHOTOPEA
 ===================================================== */
 
 function send(code){
@@ -292,1305 +266,608 @@ function send(code){
 
 
 /* =====================================================
-   OUTILS COMMUNS
+   CRÉATION DES AFFICHES
 ===================================================== */
 
-function couleur(r,g,b){
+function poster(type){
 
-    return `
-    var c = new SolidColor();
-    c.rgb.red = ${r};
-    c.rgb.green = ${g};
-    c.rgb.blue = ${b};
-    `;
+let data={
+
+promo:{
+title:"GRANDE PROMO",
+subtitle:"DES OFFRES EXCEPTIONNELLES",
+badge:"-50%",
+product:"VOTRE PRODUIT",
+description:"Qualité • Style • Performance",
+price:"7 500 F",
+old:"au lieu de 10 000 F",
+cta:"COMMANDER MAINTENANT",
+contact:"+226 79 03 94 62",
+bg:[5,14,35],
+accent:[255,105,25],
+second:[20,100,190]
+},
+
+formation:{
+title:"FORMATION",
+subtitle:"APPRENEZ • PRATIQUEZ • CRÉEZ",
+badge:"NOUVEAU",
+product:"PHOTOSHOP",
+description:"DESIGN GRAPHIQUE PROFESSIONNEL",
+price:"FORMATION PRO",
+old:"Cours pratiques",
+cta:"INSCRIVEZ-VOUS",
+contact:"+226 79 03 94 62",
+bg:[8,18,48],
+accent:[40,210,255],
+second:[30,100,190]
+},
+
+restaurant:{
+title:"MENU DU JOUR",
+subtitle:"SAVEURS • QUALITÉ • PLAISIR",
+badge:"CHEF",
+product:"PLAT SPÉCIAL",
+description:"Une expérience gourmande",
+price:"2 500 F",
+old:"",
+cta:"COMMANDER",
+contact:"+226 79 03 94 62",
+bg:[45,12,7],
+accent:[255,150,30],
+second:[130,35,15]
+},
+
+business:{
+title:"VOTRE ENTREPRISE",
+subtitle:"DES SERVICES POUR VOTRE ACTIVITÉ",
+badge:"PRO",
+product:"NOS SERVICES",
+description:"Design • Web • Communication",
+price:"SUR MESURE",
+old:"",
+cta:"CONTACTEZ-NOUS",
+contact:"+226 79 03 94 62",
+bg:[5,12,27],
+accent:[40,210,255],
+second:[20,80,150]
+},
+
+telephone:{
+title:"SMARTPHONES",
+subtitle:"TECHNOLOGIE • PERFORMANCE • STYLE",
+badge:"NEW",
+product:"IPHONE • SAMSUNG",
+description:"TECNO • INFINIX • AUTRES",
+price:"PRIX ATTRACTIFS",
+old:"",
+cta:"ACHETER MAINTENANT",
+contact:"+226 46 45 27 57",
+bg:[3,20,38],
+accent:[0,210,255],
+second:[20,90,160]
+},
+
+event:{
+title:"GRAND ÉVÉNEMENT",
+subtitle:"UN MOMENT À NE PAS MANQUER",
+badge:"LIVE",
+product:"SAMEDI 20 JUIN",
+description:"FADA N'GOURMA",
+price:"ENTRÉE LIBRE",
+old:"",
+cta:"RÉSERVEZ VOTRE PLACE",
+contact:"+226 79 03 94 62",
+bg:[28,5,45],
+accent:[255,70,205],
+second:[120,25,150]
+},
+
+birthday:{
+title:"JOYEUX ANNIVERSAIRE",
+subtitle:"UNE JOURNÉE EXCEPTIONNELLE",
+badge:"12 ANS",
+product:"MOHAMED",
+description:"UNE FÊTE • DES SOUVENIRS • DE LA JOIE",
+price:"2026",
+old:"",
+cta:"CÉLÉBRONS ENSEMBLE",
+contact:"+226 79 03 94 62",
+bg:[45,7,35],
+accent:[255,80,160],
+second:[170,30,90]
+},
+
+tech:{
+title:"TECHNOLOGIE",
+subtitle:"INNOVATION • PERFORMANCE",
+badge:"NEXT",
+product:"NOUVELLE GÉNÉRATION",
+description:"SMARTPHONE • ORDINATEUR • ACCESSOIRES",
+price:"DÉCOUVRIR",
+old:"",
+cta:"ACHETER MAINTENANT",
+contact:"+226 79 03 94 62",
+bg:[2,8,20],
+accent:[0,220,255],
+second:[10,80,160]
 }
 
+};
 
-/* =====================================================
-   MODELE PROMO
-===================================================== */
+let d=data[type];
 
-function modelePromo(){
+if(!d)return;
 
-send(`
 
-app.documents.add(
-    1080,
-    1350,
-    72,
-    "PROMO - VISUELS STUDIO 226"
-);
+/* CONSTRUCTION */
 
-var doc = app.activeDocument;
-
-
-/* FOND */
-
-var fond = doc.artLayers.add();
-
-fond.name = "01 - FOND";
-
-var fondColor = new SolidColor();
-
-fondColor.rgb.red = 7;
-fondColor.rgb.green = 20;
-fondColor.rgb.blue = 45;
-
-doc.selection.selectAll();
-
-doc.selection.fill(fondColor);
-
-doc.selection.deselect();
-
-
-/* TITRE */
-
-var titre = doc.artLayers.add();
-
-titre.kind = LayerKind.TEXT;
-
-titre.name = "02 - TITRE";
-
-titre.textItem.contents = "GRANDE PROMOTION";
-
-titre.textItem.size = 88;
-
-titre.textItem.font = "Arial-BoldMT";
-
-var jaune = new SolidColor();
-
-jaune.rgb.red = 255;
-jaune.rgb.green = 190;
-jaune.rgb.blue = 20;
-
-titre.textItem.color = jaune;
-
-titre.textItem.position = [65,150];
-
-
-/* SOUS TITRE */
-
-var sous = doc.artLayers.add();
-
-sous.kind = LayerKind.TEXT;
-
-sous.name = "03 - SOUS TITRE";
-
-sous.textItem.contents =
-"PROFITEZ DE NOS OFFRES";
-
-sous.textItem.size = 42;
-
-sous.textItem.font = "Arial-BoldMT";
-
-var blanc = new SolidColor();
-
-blanc.rgb.red = 255;
-blanc.rgb.green = 255;
-blanc.rgb.blue = 255;
-
-sous.textItem.color = blanc;
-
-sous.textItem.position = [70,275];
-
-
-/* BADGE */
-
-var badge = doc.artLayers.add();
-
-badge.kind = LayerKind.TEXT;
-
-badge.name = "04 - PROMOTION";
-
-badge.textItem.contents = "-50%";
-
-badge.textItem.size = 180;
-
-badge.textItem.font = "Arial-BoldMT";
-
-var rouge = new SolidColor();
-
-rouge.rgb.red = 255;
-rouge.rgb.green = 65;
-rouge.rgb.blue = 45;
-
-badge.textItem.color = rouge;
-
-badge.textItem.position = [110,530];
-
-
-/* PRODUIT */
-
-var produit = doc.artLayers.add();
-
-produit.kind = LayerKind.TEXT;
-
-produit.name = "05 - PRODUIT";
-
-produit.textItem.contents =
-"VOTRE PRODUIT";
-
-produit.textItem.size = 68;
-
-produit.textItem.font = "Arial-BoldMT";
-
-produit.textItem.color = blanc;
-
-produit.textItem.position = [70,850];
-
-
-/* PRIX */
-
-var prix = doc.artLayers.add();
-
-prix.kind = LayerKind.TEXT;
-
-prix.name = "06 - PRIX";
-
-prix.textItem.contents =
-"À PARTIR DE 7 500 F";
-
-prix.textItem.size = 55;
-
-prix.textItem.font = "Arial-BoldMT";
-
-prix.textItem.color = jaune;
-
-prix.textItem.position = [70,960];
-
-
-/* CTA */
-
-var cta = doc.artLayers.add();
-
-cta.kind = LayerKind.TEXT;
-
-cta.name = "07 - CTA";
-
-cta.textItem.contents =
-"COMMANDER MAINTENANT";
-
-cta.textItem.size = 43;
-
-cta.textItem.font = "Arial-BoldMT";
-
-cta.textItem.color = blanc;
-
-cta.textItem.position = [70,1090];
-
-
-/* SIGNATURE */
-
-var sign = doc.artLayers.add();
-
-sign.kind = LayerKind.TEXT;
-
-sign.name = "08 - SIGNATURE";
-
-sign.textItem.contents =
-"Visuels Studio 226";
-
-sign.textItem.size = 24;
-
-sign.textItem.font = "Arial";
-
-sign.textItem.color = blanc;
-
-sign.textItem.position = [770,1295];
-
-`);
-
-}
-
-
-/* =====================================================
-   MODELE FORMATION
-===================================================== */
-
-function modeleFormation(){
-
-send(`
+let script=`
 
 app.documents.add(
 1080,
 1350,
 72,
-"FORMATION - VISUELS STUDIO 226"
+${JSON.stringify(d.title)}
 );
 
-var doc = app.activeDocument;
+var doc=app.activeDocument;
 
 
-/* FOND */
+/* =================================================
+   COULEURS
+================================================= */
 
-var fond = doc.artLayers.add();
+var bg=new SolidColor();
+bg.rgb.red=${d.bg[0]};
+bg.rgb.green=${d.bg[1]};
+bg.rgb.blue=${d.bg[2]};
 
-fond.name = "01 - FOND";
+var accent=new SolidColor();
+accent.rgb.red=${d.accent[0]};
+accent.rgb.green=${d.accent[1]};
+accent.rgb.blue=${d.accent[2]};
 
-var c = new SolidColor();
+var second=new SolidColor();
+second.rgb.red=${d.second[0]};
+second.rgb.green=${d.second[1]};
+second.rgb.blue=${d.second[2]};
 
-c.rgb.red = 8;
-c.rgb.green = 18;
-c.rgb.blue = 48;
+var white=new SolidColor();
+white.rgb.red=255;
+white.rgb.green=255;
+white.rgb.blue=255;
+
+var dark=new SolidColor();
+dark.rgb.red=4;
+dark.rgb.green=12;
+dark.rgb.blue=25;
+
+
+/* =================================================
+   FOND
+================================================= */
+
+var fond=doc.artLayers.add();
+
+fond.name="01 - FOND";
 
 doc.selection.selectAll();
 
-doc.selection.fill(c);
+doc.selection.fill(bg);
 
 doc.selection.deselect();
 
 
-/* TITRE */
+/* =================================================
+   GRANDE ZONE LUMIÈRE
+================================================= */
 
-var titre = doc.artLayers.add();
+var lumiere=doc.artLayers.add();
 
-titre.kind = LayerKind.TEXT;
+lumiere.name="02 - LUMIERE";
 
-titre.name = "02 - TITRE";
+doc.selection.select([
+[0,0],
+[1080,0],
+[1080,430],
+[0,570]
+]);
 
-titre.textItem.contents = "FORMATION";
+doc.selection.fill(second);
 
-titre.textItem.size = 115;
+doc.selection.deselect();
 
-titre.textItem.font = "Arial-BoldMT";
+lumiere.opacity=55;
 
-var cyan = new SolidColor();
 
-cyan.rgb.red = 40;
-cyan.rgb.green = 215;
-cyan.rgb.blue = 255;
+/* =================================================
+   BANDE HAUTE
+================================================= */
 
-titre.textItem.color = cyan;
+var bande=doc.artLayers.add();
 
-titre.textItem.position = [70,170];
+bande.name="03 - BANDE ACCENT";
 
+doc.selection.select([
+[0,0],
+[1080,0],
+[1080,28],
+[0,28]
+]);
 
-/* SOUS TITRE */
+doc.selection.fill(accent);
 
-var sub = doc.artLayers.add();
+doc.selection.deselect();
 
-sub.kind = LayerKind.TEXT;
 
-sub.name = "03 - SOUS TITRE";
+/* =================================================
+   TITRE
+================================================= */
 
-sub.textItem.contents =
-"APPRENEZ • PRATIQUEZ • CRÉEZ";
+var titre=doc.artLayers.add();
 
-sub.textItem.size = 40;
+titre.kind=LayerKind.TEXT;
 
-sub.textItem.font = "Arial-BoldMT";
+titre.name="04 - TITRE PRINCIPAL";
 
-var blanc = new SolidColor();
+titre.textItem.contents=${JSON.stringify(d.title)};
 
-blanc.rgb.red = 255;
-blanc.rgb.green = 255;
-blanc.rgb.blue = 255;
+titre.textItem.size=82;
 
-sub.textItem.color = blanc;
+titre.textItem.font="Arial-BoldMT";
 
-sub.textItem.position = [70,315];
+titre.textItem.color=white;
 
+titre.textItem.position=[55,105];
 
-/* NOM */
 
-var nom = doc.artLayers.add();
+/* =================================================
+   SOUS TITRE
+================================================= */
 
-nom.kind = LayerKind.TEXT;
+var sous=doc.artLayers.add();
 
-nom.name = "04 - NOM FORMATION";
+sous.kind=LayerKind.TEXT;
 
-nom.textItem.contents =
-"PHOTOSHOP\nDESIGN GRAPHIQUE";
+sous.name="05 - SOUS TITRE";
 
-nom.textItem.size = 68;
+sous.textItem.contents=${JSON.stringify(d.subtitle)};
 
-nom.textItem.font = "Arial-BoldMT";
+sous.textItem.size=30;
 
-var jaune = new SolidColor();
+sous.textItem.font="Arial-BoldMT";
 
-jaune.rgb.red = 255;
-jaune.rgb.green = 190;
-jaune.rgb.blue = 25;
+sous.textItem.color=accent;
 
-nom.textItem.color = jaune;
+sous.textItem.position=[60,220];
 
-nom.textItem.position = [70,520];
 
+/* =================================================
+   BADGE
+================================================= */
 
-/* BONUS */
+var badgeFond=doc.artLayers.add();
 
-var bonus = doc.artLayers.add();
+badgeFond.name="06 - FOND BADGE";
 
-bonus.kind = LayerKind.TEXT;
+doc.selection.select([
+[55,285],
+[360,400],
+[55,400],
+[55,285]
+]);
 
-bonus.name = "05 - BONUS";
+doc.selection.fill(accent);
 
-bonus.textItem.contents =
-"BONUS INCLUS";
+doc.selection.deselect();
 
-bonus.textItem.size = 55;
 
-bonus.textItem.font = "Arial-BoldMT";
+var badge=doc.artLayers.add();
 
-bonus.textItem.color = blanc;
+badge.kind=LayerKind.TEXT;
 
-bonus.textItem.position = [70,820];
+badge.name="07 - BADGE";
 
+badge.textItem.contents=${JSON.stringify(d.badge)};
 
-/* CTA */
+badge.textItem.size=52;
 
-var cta = doc.artLayers.add();
+badge.textItem.font="Arial-BoldMT";
 
-cta.kind = LayerKind.TEXT;
+badge.textItem.color=white;
 
-cta.name = "06 - CTA";
+badge.textItem.position=[80,305];
 
-cta.textItem.contents =
-"INSCRIVEZ-VOUS MAINTENANT";
 
-cta.textItem.size = 40;
+/* =================================================
+   ZONE PHOTO
+================================================= */
 
-cta.textItem.font = "Arial-BoldMT";
+var photoCadre=doc.artLayers.add();
 
-cta.textItem.color = cyan;
+photoCadre.name="08 - CADRE PHOTO PRODUIT";
 
-cta.textItem.position = [70,1050];
+doc.selection.select([
+[575,300],
+[1020,300],
+[1020,820],
+[575,820]
+]);
 
+doc.selection.fill(accent);
 
-/* SIGNATURE */
+doc.selection.deselect();
 
-var sign = doc.artLayers.add();
 
-sign.kind = LayerKind.TEXT;
+var photo=doc.artLayers.add();
 
-sign.name = "07 - SIGNATURE";
+photo.name="09 - PHOTO PRODUIT A REMPLACER";
 
-sign.textItem.contents =
-"Visuels Studio 226";
+doc.selection.select([
+[590,315],
+[1005,315],
+[1005,805],
+[590,805]
+]);
 
-sign.textItem.size = 24;
+doc.selection.fill(dark);
 
-sign.textItem.font = "Arial";
+doc.selection.deselect();
 
-sign.textItem.color = blanc;
 
-sign.textItem.position = [770,1295];
+var photoTexte=doc.artLayers.add();
 
-`);
+photoTexte.kind=LayerKind.TEXT;
+
+photoTexte.name="10 - ZONE PHOTO";
+
+photoTexte.textItem.contents="PHOTO\\nPRODUIT";
+
+photoTexte.textItem.size=50;
+
+photoTexte.textItem.font="Arial-BoldMT";
+
+photoTexte.textItem.color=accent;
+
+photoTexte.textItem.position=[690,500];
+
+
+/* =================================================
+   NOM PRODUIT
+================================================= */
+
+var produit=doc.artLayers.add();
+
+produit.kind=LayerKind.TEXT;
+
+produit.name="11 - PRODUIT";
+
+produit.textItem.contents=${JSON.stringify(d.product)};
+
+produit.textItem.size=60;
+
+produit.textItem.font="Arial-BoldMT";
+
+produit.textItem.color=white;
+
+produit.textItem.position=[55,500];
+
+
+/* =================================================
+   DESCRIPTION
+================================================= */
+
+var desc=doc.artLayers.add();
+
+desc.kind=LayerKind.TEXT;
+
+desc.name="12 - DESCRIPTION";
+
+desc.textItem.contents=${JSON.stringify(d.description)};
+
+desc.textItem.size=27;
+
+desc.textItem.font="Arial";
+
+desc.textItem.color=accent;
+
+desc.textItem.position=[60,590];
+
+
+/* =================================================
+   BLOC PRIX
+================================================= */
+
+var prixFond=doc.artLayers.add();
+
+prixFond.name="13 - BLOC PRIX";
+
+doc.selection.select([
+[55,680],
+[535,820],
+[55,820],
+[55,680]
+]);
+
+doc.selection.fill(second);
+
+doc.selection.deselect();
+
+
+var prix=doc.artLayers.add();
+
+prix.kind=LayerKind.TEXT;
+
+prix.name="14 - PRIX";
+
+prix.textItem.contents=${JSON.stringify(d.price)};
+
+prix.textItem.size=58;
+
+prix.textItem.font="Arial-BoldMT";
+
+prix.textItem.color=white;
+
+prix.textItem.position=[80,700];
+
+
+/* =================================================
+   ANCIEN PRIX
+================================================= */
+
+`;
+
+if(d.old){
+
+script+=`
+
+var ancien=doc.artLayers.add();
+
+ancien.kind=LayerKind.TEXT;
+
+ancien.name="15 - ANCIEN PRIX";
+
+ancien.textItem.contents=${JSON.stringify(d.old)};
+
+ancien.textItem.size=24;
+
+ancien.textItem.font="Arial";
+
+ancien.textItem.color=accent;
+
+ancien.textItem.position=[82,775];
+
+`;
 
 }
 
 
-/* =====================================================
-   RESTAURANT
-===================================================== */
+/* SUITE */
 
-function modeleRestaurant(){
+script+=`
 
-send(`
+/* =================================================
+   BOUTON CTA
+================================================= */
 
-app.documents.add(
-1080,
-1350,
-72,
-"RESTAURANT - VISUELS STUDIO 226"
-);
+var bouton=doc.artLayers.add();
 
-var doc = app.activeDocument;
+bouton.name="16 - BOUTON CTA";
 
+doc.selection.select([
+[55,900],
+[535,1005],
+[55,1005],
+[55,900]
+]);
 
-/* FOND */
-
-var fond = doc.artLayers.add();
-
-fond.name = "01 - FOND";
-
-var c = new SolidColor();
-
-c.rgb.red = 45;
-c.rgb.green = 12;
-c.rgb.blue = 7;
-
-doc.selection.selectAll();
-
-doc.selection.fill(c);
+doc.selection.fill(accent);
 
 doc.selection.deselect();
 
 
-/* TITRE */
+var cta=doc.artLayers.add();
 
-var titre = doc.artLayers.add();
+cta.kind=LayerKind.TEXT;
 
-titre.kind = LayerKind.TEXT;
+cta.name="17 - TEXTE CTA";
 
-titre.name = "02 - MENU";
+cta.textItem.contents=${JSON.stringify(d.cta)};
 
-titre.textItem.contents =
-"MENU DU JOUR";
+cta.textItem.size=32;
 
-titre.textItem.size = 100;
+cta.textItem.font="Arial-BoldMT";
 
-titre.textItem.font = "Arial-BoldMT";
+cta.textItem.color=white;
 
-var or = new SolidColor();
+cta.textItem.position=[82,925];
 
-or.rgb.red = 255;
-or.rgb.green = 190;
-or.rgb.blue = 40;
 
-titre.textItem.color = or;
+/* =================================================
+   CONTACT
+================================================= */
 
-titre.textItem.position = [65,170];
+var contact=doc.artLayers.add();
 
+contact.kind=LayerKind.TEXT;
 
-/* PLAT */
+contact.name="18 - CONTACT";
 
-var plat = doc.artLayers.add();
+contact.textItem.contents=${JSON.stringify(d.contact)};
 
-plat.kind = LayerKind.TEXT;
+contact.textItem.size=38;
 
-plat.name = "03 - PLAT";
+contact.textItem.font="Arial-BoldMT";
 
-plat.textItem.contents =
-"PLAT SPÉCIAL";
+contact.textItem.color=white;
 
-plat.textItem.size = 82;
+contact.textItem.position=[55,1080];
 
-plat.textItem.font = "Arial-BoldMT";
 
-var blanc = new SolidColor();
+/* =================================================
+   DISPONIBILITÉ
+================================================= */
 
-blanc.rgb.red = 255;
-blanc.rgb.green = 255;
-blanc.rgb.blue = 255;
+var dispo=doc.artLayers.add();
 
-plat.textItem.color = blanc;
+dispo.kind=LayerKind.TEXT;
 
-plat.textItem.position = [70,510];
+dispo.name="19 - DISPONIBILITE";
 
+dispo.textItem.contents="Disponible maintenant";
 
-/* PRIX */
+dispo.textItem.size=25;
 
-var prix = doc.artLayers.add();
+dispo.textItem.font="Arial";
 
-prix.kind = LayerKind.TEXT;
+dispo.textItem.color=accent;
 
-prix.name = "04 - PRIX";
+dispo.textItem.position=[58,1140];
 
-prix.textItem.contents =
-"2 500 F";
 
-prix.textItem.size = 100;
+/* =================================================
+   ELEMENTS DECORATIFS
+================================================= */
 
-prix.textItem.font = "Arial-BoldMT";
+var decor=doc.artLayers.add();
 
-var rouge = new SolidColor();
+decor.name="20 - DECORATIONS";
 
-rouge.rgb.red = 255;
-rouge.rgb.green = 90;
-rouge.rgb.blue = 45;
+doc.selection.select([
+[55,1210],
+[320,1220],
+[55,1230]
+]);
 
-prix.textItem.color = rouge;
-
-prix.textItem.position = [70,700];
-
-
-/* CONTACT */
-
-var contact = doc.artLayers.add();
-
-contact.kind = LayerKind.TEXT;
-
-contact.name = "05 - CONTACT";
-
-contact.textItem.contents =
-"COMMANDES : +226 XX XX XX XX";
-
-contact.textItem.size = 36;
-
-contact.textItem.font = "Arial-BoldMT";
-
-contact.textItem.color = blanc;
-
-contact.textItem.position = [70,1050];
-
-
-/* SIGNATURE */
-
-var sign = doc.artLayers.add();
-
-sign.kind = LayerKind.TEXT;
-
-sign.name = "06 - SIGNATURE";
-
-sign.textItem.contents =
-"Visuels Studio 226";
-
-sign.textItem.size = 24;
-
-sign.textItem.font = "Arial";
-
-sign.textItem.color = blanc;
-
-sign.textItem.position = [770,1295];
-
-`);
-
-}
-
-
-/* =====================================================
-   BUSINESS
-===================================================== */
-
-function modeleBusiness(){
-
-send(`
-
-app.documents.add(
-1080,
-1350,
-72,
-"BUSINESS - VISUELS STUDIO 226"
-);
-
-var doc = app.activeDocument;
-
-
-/* FOND */
-
-var fond = doc.artLayers.add();
-
-fond.name = "01 - FOND";
-
-var c = new SolidColor();
-
-c.rgb.red = 5;
-c.rgb.green = 12;
-c.rgb.blue = 25;
-
-doc.selection.selectAll();
-
-doc.selection.fill(c);
+doc.selection.fill(accent);
 
 doc.selection.deselect();
 
 
-/* TITRE */
+/* =================================================
+   SIGNATURE
+================================================= */
 
-var titre = doc.artLayers.add();
+var sign=doc.artLayers.add();
 
-titre.kind = LayerKind.TEXT;
+sign.kind=LayerKind.TEXT;
 
-titre.name = "02 - TITRE";
+sign.name="21 - SIGNATURE";
 
-titre.textItem.contents =
-"VOTRE ENTREPRISE";
+sign.textItem.contents="Visuels Studio 226";
 
-titre.textItem.size = 78;
+sign.textItem.size=21;
 
-titre.textItem.font = "Arial-BoldMT";
+sign.textItem.font="Arial";
 
-var cyan = new SolidColor();
+sign.textItem.color=white;
 
-cyan.rgb.red = 50;
-cyan.rgb.green = 215;
-cyan.rgb.blue = 255;
+sign.textItem.position=[790,1295];
 
-titre.textItem.color = cyan;
+`;
 
-titre.textItem.position = [60,170];
-
-
-/* SERVICES */
-
-var services = doc.artLayers.add();
-
-services.kind = LayerKind.TEXT;
-
-services.name = "03 - SERVICES";
-
-services.textItem.contents =
-"DESIGN GRAPHIQUE\nDÉVELOPPEMENT WEB\nCOMMUNICATION DIGITALE";
-
-services.textItem.size = 55;
-
-services.textItem.font = "Arial-BoldMT";
-
-var blanc = new SolidColor();
-
-blanc.rgb.red = 255;
-blanc.rgb.green = 255;
-blanc.rgb.blue = 255;
-
-services.textItem.color = blanc;
-
-services.textItem.position = [70,470];
-
-
-/* CTA */
-
-var cta = doc.artLayers.add();
-
-cta.kind = LayerKind.TEXT;
-
-cta.name = "04 - CTA";
-
-cta.textItem.contents =
-"CONTACTEZ-NOUS";
-
-cta.textItem.size = 70;
-
-cta.textItem.font = "Arial-BoldMT";
-
-var jaune = new SolidColor();
-
-jaune.rgb.red = 255;
-jaune.rgb.green = 190;
-jaune.rgb.blue = 25;
-
-cta.textItem.color = jaune;
-
-cta.textItem.position = [70,950];
-
-
-/* SIGNATURE */
-
-var sign = doc.artLayers.add();
-
-sign.kind = LayerKind.TEXT;
-
-sign.name = "05 - SIGNATURE";
-
-sign.textItem.contents =
-"Visuels Studio 226";
-
-sign.textItem.size = 24;
-
-sign.textItem.font = "Arial";
-
-sign.textItem.color = blanc;
-
-sign.textItem.position = [770,1295];
-
-`);
-
-}
-
-
-/* =====================================================
-   TELEPHONE
-===================================================== */
-
-function modeleTelephone(){
-
-send(`
-
-app.documents.add(
-1080,
-1350,
-72,
-"VENTE TELEPHONE - VISUELS STUDIO 226"
-);
-
-var doc = app.activeDocument;
-
-
-/* FOND */
-
-var fond = doc.artLayers.add();
-
-fond.name = "01 - FOND";
-
-var c = new SolidColor();
-
-c.rgb.red = 4;
-c.rgb.green = 28;
-c.rgb.blue = 52;
-
-doc.selection.selectAll();
-
-doc.selection.fill(c);
-
-doc.selection.deselect();
-
-
-/* TITRE */
-
-var titre = doc.artLayers.add();
-
-titre.kind = LayerKind.TEXT;
-
-titre.name = "02 - TITRE";
-
-titre.textItem.contents =
-"VENTE DE TÉLÉPHONES";
-
-titre.textItem.size = 70;
-
-titre.textItem.font = "Arial-BoldMT";
-
-var cyan = new SolidColor();
-
-cyan.rgb.red = 60;
-cyan.rgb.green = 220;
-cyan.rgb.blue = 255;
-
-titre.textItem.color = cyan;
-
-titre.textItem.position = [50,160];
-
-
-/* MARQUES */
-
-var marques = doc.artLayers.add();
-
-marques.kind = LayerKind.TEXT;
-
-marques.name = "03 - MARQUES";
-
-marques.textItem.contents =
-"IPHONE • SAMSUNG\nTECNO • INFINIX";
-
-marques.textItem.size = 65;
-
-marques.textItem.font = "Arial-BoldMT";
-
-var blanc = new SolidColor();
-
-blanc.rgb.red = 255;
-blanc.rgb.green = 255;
-blanc.rgb.blue = 255;
-
-marques.textItem.color = blanc;
-
-marques.textItem.position = [70,500];
-
-
-/* PRIX */
-
-var prix = doc.artLayers.add();
-
-prix.kind = LayerKind.TEXT;
-
-prix.name = "04 - PRIX";
-
-prix.textItem.contents =
-"PRIX ATTRACTIFS";
-
-prix.textItem.size = 65;
-
-prix.textItem.font = "Arial-BoldMT";
-
-var jaune = new SolidColor();
-
-jaune.rgb.red = 255;
-jaune.rgb.green = 190;
-jaune.rgb.blue = 25;
-
-prix.textItem.color = jaune;
-
-prix.textItem.position = [70,800];
-
-
-/* CONTACT */
-
-var contact = doc.artLayers.add();
-
-contact.kind = LayerKind.TEXT;
-
-contact.name = "05 - CONTACT";
-
-contact.textItem.contents =
-"+226 XX XX XX XX";
-
-contact.textItem.size = 55;
-
-contact.textItem.font = "Arial-BoldMT";
-
-contact.textItem.color = blanc;
-
-contact.textItem.position = [70,1050];
-
-
-/* SIGNATURE */
-
-var sign = doc.artLayers.add();
-
-sign.kind = LayerKind.TEXT;
-
-sign.name = "06 - SIGNATURE";
-
-sign.textItem.contents =
-"Visuels Studio 226";
-
-sign.textItem.size = 24;
-
-sign.textItem.font = "Arial";
-
-sign.textItem.color = blanc;
-
-sign.textItem.position = [770,1295];
-
-`);
-
-}
-
-
-/* =====================================================
-   EVENEMENT
-===================================================== */
-
-function modeleEvenement(){
-
-send(`
-
-app.documents.add(
-1080,
-1350,
-72,
-"EVENEMENT - VISUELS STUDIO 226"
-);
-
-var doc = app.activeDocument;
-
-
-/* FOND */
-
-var fond = doc.artLayers.add();
-
-fond.name = "01 - FOND";
-
-var c = new SolidColor();
-
-c.rgb.red = 28;
-c.rgb.green = 5;
-c.rgb.blue = 45;
-
-doc.selection.selectAll();
-
-doc.selection.fill(c);
-
-doc.selection.deselect();
-
-
-/* TITRE */
-
-var titre = doc.artLayers.add();
-
-titre.kind = LayerKind.TEXT;
-
-titre.name = "02 - TITRE";
-
-titre.textItem.contents =
-"GRAND ÉVÉNEMENT";
-
-titre.textItem.size = 85;
-
-titre.textItem.font = "Arial-BoldMT";
-
-var rose = new SolidColor();
-
-rose.rgb.red = 255;
-rose.rgb.green = 75;
-rose.rgb.blue = 205;
-
-titre.textItem.color = rose;
-
-titre.textItem.position = [55,180];
-
-
-/* DATE */
-
-var date = doc.artLayers.add();
-
-date.kind = LayerKind.TEXT;
-
-date.name = "03 - DATE";
-
-date.textItem.contents =
-"SAMEDI 20 JUIN";
-
-date.textItem.size = 65;
-
-date.textItem.font = "Arial-BoldMT";
-
-var blanc = new SolidColor();
-
-blanc.rgb.red = 255;
-blanc.rgb.green = 255;
-blanc.rgb.blue = 255;
-
-date.textItem.color = blanc;
-
-date.textItem.position = [70,510];
-
-
-/* LIEU */
-
-var lieu = doc.artLayers.add();
-
-lieu.kind = LayerKind.TEXT;
-
-lieu.name = "04 - LIEU";
-
-lieu.textItem.contents =
-"FADA N'GOURMA";
-
-lieu.textItem.size = 55;
-
-lieu.textItem.font = "Arial-BoldMT";
-
-var jaune = new SolidColor();
-
-jaune.rgb.red = 255;
-jaune.rgb.green = 190;
-jaune.rgb.blue = 25;
-
-lieu.textItem.color = jaune;
-
-lieu.textItem.position = [70,700];
-
-
-/* CTA */
-
-var cta = doc.artLayers.add();
-
-cta.kind = LayerKind.TEXT;
-
-cta.name = "05 - CTA";
-
-cta.textItem.contents =
-"RÉSERVEZ VOTRE PLACE";
-
-cta.textItem.size = 45;
-
-cta.textItem.font = "Arial-BoldMT";
-
-cta.textItem.color = blanc;
-
-cta.textItem.position = [70,1050];
-
-
-/* SIGNATURE */
-
-var sign = doc.artLayers.add();
-
-sign.kind = LayerKind.TEXT;
-
-sign.name = "06 - SIGNATURE";
-
-sign.textItem.contents =
-"Visuels Studio 226";
-
-sign.textItem.size = 24;
-
-sign.textItem.font = "Arial";
-
-sign.textItem.color = blanc;
-
-sign.textItem.position = [770,1295];
-
-`);
-
-}
-
-
-/* =====================================================
-   ANNIVERSAIRE
-===================================================== */
-
-function modeleAnniversaire(){
-
-send(`
-
-app.documents.add(
-1080,
-1350,
-72,
-"ANNIVERSAIRE - VISUELS STUDIO 226"
-);
-
-var doc = app.activeDocument;
-
-
-/* FOND */
-
-var fond = doc.artLayers.add();
-
-fond.name = "01 - FOND";
-
-var c = new SolidColor();
-
-c.rgb.red = 45;
-c.rgb.green = 7;
-c.rgb.blue = 35;
-
-doc.selection.selectAll();
-
-doc.selection.fill(c);
-
-doc.selection.deselect();
-
-
-/* TITRE */
-
-var titre = doc.artLayers.add();
-
-titre.kind = LayerKind.TEXT;
-
-titre.name = "02 - TITRE";
-
-titre.textItem.contents =
-"JOYEUX ANNIVERSAIRE";
-
-titre.textItem.size = 72;
-
-titre.textItem.font = "Arial-BoldMT";
-
-var or = new SolidColor();
-
-or.rgb.red = 255;
-or.rgb.green = 190;
-or.rgb.blue = 40;
-
-titre.textItem.color = or;
-
-titre.textItem.position = [50,170];
-
-
-/* NOM */
-
-var nom = doc.artLayers.add();
-
-nom.kind = LayerKind.TEXT;
-
-nom.name = "03 - NOM";
-
-nom.textItem.contents =
-"MOHAMED";
-
-nom.textItem.size = 130;
-
-nom.textItem.font = "Arial-BoldMT";
-
-var blanc = new SolidColor();
-
-blanc.rgb.red = 255;
-blanc.rgb.green = 255;
-blanc.rgb.blue = 255;
-
-nom.textItem.color = blanc;
-
-nom.textItem.position = [70,540];
-
-
-/* AGE */
-
-var age = doc.artLayers.add();
-
-age.kind = LayerKind.TEXT;
-
-age.name = "04 - AGE";
-
-age.textItem.contents =
-"12 ANS";
-
-age.textItem.size = 100;
-
-age.textItem.font = "Arial-BoldMT";
-
-var rose = new SolidColor();
-
-rose.rgb.red = 255;
-rose.rgb.green = 80;
-rose.rgb.blue = 155;
-
-age.textItem.color = rose;
-
-age.textItem.position = [70,760];
-
-
-/* SIGNATURE */
-
-var sign = doc.artLayers.add();
-
-sign.kind = LayerKind.TEXT;
-
-sign.name = "05 - SIGNATURE";
-
-sign.textItem.contents =
-"Visuels Studio 226";
-
-sign.textItem.size = 24;
-
-sign.textItem.font = "Arial";
-
-sign.textItem.color = blanc;
-
-sign.textItem.position = [770,1295];
-
-`);
-
-}
-
-
-/* =====================================================
-   TECHNOLOGIE
-===================================================== */
-
-function modeleTech(){
-
-send(`
-
-app.documents.add(
-1080,
-1350,
-72,
-"TECHNO - VISUELS STUDIO 226"
-);
-
-var doc = app.activeDocument;
-
-
-/* FOND */
-
-var fond = doc.artLayers.add();
-
-fond.name = "01 - FOND";
-
-var c = new SolidColor();
-
-c.rgb.red = 2;
-c.rgb.green = 8;
-c.rgb.blue = 20;
-
-doc.selection.selectAll();
-
-doc.selection.fill(c);
-
-doc.selection.deselect();
-
-
-/* TITRE */
-
-var titre = doc.artLayers.add();
-
-titre.kind = LayerKind.TEXT;
-
-titre.name = "02 - TECHNOLOGIE";
-
-titre.textItem.contents =
-"TECHNOLOGIE";
-
-titre.textItem.size = 110;
-
-titre.textItem.font = "Arial-BoldMT";
-
-var cyan = new SolidColor();
-
-cyan.rgb.red = 0;
-cyan.rgb.green = 220;
-cyan.rgb.blue = 255;
-
-titre.textItem.color = cyan;
-
-titre.textItem.position = [55,180];
-
-
-/* SOUS TITRE */
-
-var sub = doc.artLayers.add();
-
-sub.kind = LayerKind.TEXT;
-
-sub.name = "03 - SOUS TITRE";
-
-sub.textItem.contents =
-"INNOVATION • PERFORMANCE";
-
-sub.textItem.size = 40;
-
-sub.textItem.font = "Arial-BoldMT";
-
-var blanc = new SolidColor();
-
-blanc.rgb.red = 255;
-blanc.rgb.green = 255;
-blanc.rgb.blue = 255;
-
-sub.textItem.color = blanc;
-
-sub.textItem.position = [70,330];
-
-
-/* PRODUIT */
-
-var produit = doc.artLayers.add();
-
-produit.kind = LayerKind.TEXT;
-
-produit.name = "04 - PRODUIT";
-
-produit.textItem.contents =
-"SMARTPHONE\nNOUVELLE GÉNÉRATION";
-
-produit.textItem.size = 63;
-
-produit.textItem.font = "Arial-BoldMT";
-
-produit.textItem.color = blanc;
-
-produit.textItem.position = [70,600];
-
-
-/* CTA */
-
-var cta = doc.artLayers.add();
-
-cta.kind = LayerKind.TEXT;
-
-cta.name = "05 - CTA";
-
-cta.textItem.contents =
-"DÉCOUVRIR MAINTENANT";
-
-cta.textItem.size = 47;
-
-cta.textItem.font = "Arial-BoldMT";
-
-var jaune = new SolidColor();
-
-jaune.rgb.red = 255;
-jaune.rgb.green = 190;
-jaune.rgb.blue = 25;
-
-cta.textItem.color = jaune;
-
-cta.textItem.position = [70,1050];
-
-
-/* SIGNATURE */
-
-var sign = doc.artLayers.add();
-
-sign.kind = LayerKind.TEXT;
-
-sign.name = "06 - SIGNATURE";
-
-sign.textItem.contents =
-"Visuels Studio 226";
-
-sign.textItem.size = 24;
-
-sign.textItem.font = "Arial";
-
-sign.textItem.color = blanc;
-
-sign.textItem.position = [770,1295];
-
-`);
+send(script);
 
 }
 
@@ -1599,33 +876,33 @@ sign.textItem.position = [770,1295];
    STICKERS
 ===================================================== */
 
-function sticker(texte){
+function sticker(text){
 
 send(`
 
-var doc = app.activeDocument;
+var doc=app.activeDocument;
 
-var layer = doc.artLayers.add();
+var layer=doc.artLayers.add();
 
-layer.kind = LayerKind.TEXT;
+layer.kind=LayerKind.TEXT;
 
-layer.name = "STICKER - ${texte}";
+layer.name="STICKER - ${text}";
 
-layer.textItem.contents = ${JSON.stringify(texte)};
+layer.textItem.contents=${JSON.stringify(text)};
 
-layer.textItem.size = 70;
+layer.textItem.size=65;
 
-layer.textItem.font = "Arial-BoldMT";
+layer.textItem.font="Arial-BoldMT";
 
-var c = new SolidColor();
+var c=new SolidColor();
 
-c.rgb.red = 255;
-c.rgb.green = 190;
-c.rgb.blue = 20;
+c.rgb.red=255;
+c.rgb.green=190;
+c.rgb.blue=25;
 
-layer.textItem.color = c;
+layer.textItem.color=c;
 
-layer.textItem.position = [400,400];
+layer.textItem.position=[400,400];
 
 `);
 
@@ -1633,48 +910,43 @@ layer.textItem.position = [400,400];
 
 
 /* =====================================================
-   TEXTE NORMAL
+   TEXTE
 ===================================================== */
 
-function texteNormal(){
+function addText(){
 
-var t =
-document.getElementById("texte").value;
+let t=document.getElementById("texte").value;
 
 if(!t){
-
 alert("Écris ton texte.");
-
 return;
-
 }
 
 send(`
 
-var doc = app.activeDocument;
+var doc=app.activeDocument;
 
-var layer = doc.artLayers.add();
+var layer=doc.artLayers.add();
 
-layer.kind = LayerKind.TEXT;
+layer.kind=LayerKind.TEXT;
 
-layer.name = "TEXTE";
+layer.name="NOUVEAU TEXTE";
 
-layer.textItem.contents =
-${JSON.stringify(t)};
+layer.textItem.contents=${JSON.stringify(t)};
 
-layer.textItem.size = 55;
+layer.textItem.size=55;
 
-layer.textItem.font = "Arial-BoldMT";
+layer.textItem.font="Arial-BoldMT";
 
-var c = new SolidColor();
+var c=new SolidColor();
 
-c.rgb.red = 255;
-c.rgb.green = 255;
-c.rgb.blue = 255;
+c.rgb.red=255;
+c.rgb.green=255;
+c.rgb.blue=255;
 
-layer.textItem.color = c;
+layer.textItem.color=c;
 
-layer.textItem.position = [100,350];
+layer.textItem.position=[100,350];
 
 `);
 
@@ -1685,45 +957,40 @@ layer.textItem.position = [100,350];
    TEXTE XXL
 ===================================================== */
 
-function texteXXL(){
+function bigText(){
 
-var t =
-document.getElementById("texte").value;
+let t=document.getElementById("texte").value;
 
 if(!t){
-
 alert("Écris ton texte.");
-
 return;
-
 }
 
 send(`
 
-var doc = app.activeDocument;
+var doc=app.activeDocument;
 
-var layer = doc.artLayers.add();
+var layer=doc.artLayers.add();
 
-layer.kind = LayerKind.TEXT;
+layer.kind=LayerKind.TEXT;
 
-layer.name = "TEXTE XXL";
+layer.name="TEXTE XXL";
 
-layer.textItem.contents =
-${JSON.stringify(t)};
+layer.textItem.contents=${JSON.stringify(t)};
 
-layer.textItem.size = 120;
+layer.textItem.size=120;
 
-layer.textItem.font = "Arial-BoldMT";
+layer.textItem.font="Arial-BoldMT";
 
-var c = new SolidColor();
+var c=new SolidColor();
 
-c.rgb.red = 255;
-c.rgb.green = 190;
-c.rgb.blue = 20;
+c.rgb.red=255;
+c.rgb.green=190;
+c.rgb.blue=20;
 
-layer.textItem.color = c;
+layer.textItem.color=c;
 
-layer.textItem.position = [70,400];
+layer.textItem.position=[70,400];
 
 `);
 
@@ -1734,74 +1001,68 @@ layer.textItem.position = [70,400];
    TEXTE 3D
 ===================================================== */
 
-function texte3D(){
+function text3D(){
 
-var t =
-document.getElementById("texte").value;
+let t=document.getElementById("texte").value;
 
 if(!t){
-
 alert("Écris ton texte.");
-
 return;
-
 }
 
 send(`
 
-var doc = app.activeDocument;
+var doc=app.activeDocument;
 
 
 /* PROFONDEUR */
 
-var profondeur = doc.artLayers.add();
+var depth=doc.artLayers.add();
 
-profondeur.kind = LayerKind.TEXT;
+depth.kind=LayerKind.TEXT;
 
-profondeur.name = "3D - PROFONDEUR";
+depth.name="3D - PROFONDEUR";
 
-profondeur.textItem.contents =
-${JSON.stringify(t)};
+depth.textItem.contents=${JSON.stringify(t)};
 
-profondeur.textItem.size = 110;
+depth.textItem.size=110;
 
-profondeur.textItem.font = "Arial-BoldMT";
+depth.textItem.font="Arial-BoldMT";
 
-var sombre = new SolidColor();
+var dark=new SolidColor();
 
-sombre.rgb.red = 65;
-sombre.rgb.green = 25;
-sombre.rgb.blue = 5;
+dark.rgb.red=70;
+dark.rgb.green=30;
+dark.rgb.blue=5;
 
-profondeur.textItem.color = sombre;
+depth.textItem.color=dark;
 
-profondeur.textItem.position = [118,418];
+depth.textItem.position=[118,418];
 
 
-/* TEXTE */
+/* FACE */
 
-var texte = doc.artLayers.add();
+var face=doc.artLayers.add();
 
-texte.kind = LayerKind.TEXT;
+face.kind=LayerKind.TEXT;
 
-texte.name = "3D - TEXTE";
+face.name="3D - FACE";
 
-texte.textItem.contents =
-${JSON.stringify(t)};
+face.textItem.contents=${JSON.stringify(t)};
 
-texte.textItem.size = 110;
+face.textItem.size=110;
 
-texte.textItem.font = "Arial-BoldMT";
+face.textItem.font="Arial-BoldMT";
 
-var or = new SolidColor();
+var gold=new SolidColor();
 
-or.rgb.red = 255;
-or.rgb.green = 190;
-or.rgb.blue = 20;
+gold.rgb.red=255;
+gold.rgb.green=190;
+gold.rgb.blue=20;
 
-texte.textItem.color = or;
+face.textItem.color=gold;
 
-texte.textItem.position = [100,400];
+face.textItem.position=[100,400];
 
 `);
 
@@ -1812,45 +1073,40 @@ texte.textItem.position = [100,400];
    CHROME
 ===================================================== */
 
-function texteChrome(){
+function chromeText(){
 
-var t =
-document.getElementById("texte").value;
+let t=document.getElementById("texte").value;
 
 if(!t){
-
 alert("Écris ton texte.");
-
 return;
-
 }
 
 send(`
 
-var doc = app.activeDocument;
+var doc=app.activeDocument;
 
-var layer = doc.artLayers.add();
+var layer=doc.artLayers.add();
 
-layer.kind = LayerKind.TEXT;
+layer.kind=LayerKind.TEXT;
 
-layer.name = "TEXTE CHROME";
+layer.name="TEXTE CHROME";
 
-layer.textItem.contents =
-${JSON.stringify(t)};
+layer.textItem.contents=${JSON.stringify(t)};
 
-layer.textItem.size = 110;
+layer.textItem.size=110;
 
-layer.textItem.font = "Arial-BoldMT";
+layer.textItem.font="Arial-BoldMT";
 
-var chrome = new SolidColor();
+var c=new SolidColor();
 
-chrome.rgb.red = 225;
-chrome.rgb.green = 235;
-chrome.rgb.blue = 245;
+c.rgb.red=225;
+c.rgb.green=235;
+c.rgb.blue=245;
 
-layer.textItem.color = chrome;
+layer.textItem.color=c;
 
-layer.textItem.position = [100,400];
+layer.textItem.position=[100,400];
 
 `);
 
@@ -1861,15 +1117,13 @@ layer.textItem.position = [100,400];
    DUPLIQUER
 ===================================================== */
 
-function dupliquer(){
+function duplicate(){
 
 send(`
 
-var layer = app.activeDocument.activeLayer;
+if(app.activeDocument.activeLayer){
 
-if(layer){
-
-layer.duplicate();
+app.activeDocument.activeLayer.duplicate();
 
 }
 
@@ -1882,67 +1136,25 @@ layer.duplicate();
    CENTRER
 ===================================================== */
 
-function centrer(){
+function center(){
 
 send(`
 
-var layer = app.activeDocument.activeLayer;
+var layer=app.activeDocument.activeLayer;
 
 if(layer){
 
-var b = layer.bounds;
+var b=layer.bounds;
 
-var largeur = b[2] - b[0];
+var w=b[2]-b[0];
 
-var hauteur = b[3] - b[1];
+var h=b[3]-b[1];
 
-var x = (app.activeDocument.width - largeur)/2 - b[0];
+var x=(app.activeDocument.width-w)/2-b[0];
 
-var y = (app.activeDocument.height - hauteur)/2 - b[1];
+var y=(app.activeDocument.height-h)/2-b[1];
 
 layer.translate(x,y);
-
-}
-
-`);
-
-}
-
-
-/* =====================================================
-   OMBRE
-===================================================== */
-
-function ombre(){
-
-send(`
-
-var layer = app.activeDocument.activeLayer;
-
-if(layer){
-
-layer.applyDropShadow();
-
-}
-
-`);
-
-}
-
-
-/* =====================================================
-   GLOW
-===================================================== */
-
-function glow(){
-
-send(`
-
-var layer = app.activeDocument.activeLayer;
-
-if(layer){
-
-layer.applyOuterGlow();
 
 }
 
@@ -1955,15 +1167,15 @@ layer.applyOuterGlow();
    FORMATS
 ===================================================== */
 
-function format(w,h){
+function formatDoc(w,h){
 
 send(`
 
 app.activeDocument.resizeImage(
-    UnitValue(${w},"px"),
-    UnitValue(${h},"px"),
-    null,
-    ResampleMethod.BICUBIC
+UnitValue(${w},"px"),
+UnitValue(${h},"px"),
+null,
+ResampleMethod.BICUBIC
 );
 
 `);
@@ -1979,31 +1191,29 @@ function signature(){
 
 send(`
 
-var doc = app.activeDocument;
+var doc=app.activeDocument;
 
-var layer = doc.artLayers.add();
+var layer=doc.artLayers.add();
 
-layer.kind = LayerKind.TEXT;
+layer.kind=LayerKind.TEXT;
 
-layer.name = "SIGNATURE - VISUELS STUDIO 226";
+layer.name="SIGNATURE VISUELS STUDIO 226";
 
-layer.textItem.contents =
-"Visuels Studio 226";
+layer.textItem.contents="Visuels Studio 226";
 
-layer.textItem.size = 24;
+layer.textItem.size=22;
 
-layer.textItem.font = "Arial";
+layer.textItem.font="Arial";
 
-var c = new SolidColor();
+var c=new SolidColor();
 
-c.rgb.red = 255;
-c.rgb.green = 255;
-c.rgb.blue = 255;
+c.rgb.red=255;
+c.rgb.green=255;
+c.rgb.blue=255;
 
-layer.textItem.color = c;
+layer.textItem.color=c;
 
-layer.textItem.position =
-[780,1295];
+layer.textItem.position=[780,1295];
 
 `);
 
@@ -2014,40 +1224,32 @@ layer.textItem.position =
    EXPORT
 ===================================================== */
 
-function exporter(type){
+function exportFile(type){
 
-var format;
+let format;
 
-if(type === "png"){
-
-format = "png";
-
+if(type==="png"){
+format="png";
 }
 
-else if(type === "jpg"){
-
-format = "jpg:0.9";
-
+if(type==="jpg"){
+format="jpg:0.9";
 }
 
-else if(type === "webp"){
-
-format = "webp:0.9";
-
+if(type==="webp"){
+format="webp:0.9";
 }
 
-else{
-
-format = "psd:true";
-
+if(type==="psd"){
+format="psd:true";
 }
 
 send(`
 
 app.activeDocument.saveToOE(
-    ${JSON.stringify(format)},
-    0,
-    true
+${JSON.stringify(format)},
+0,
+true
 );
 
 `);
