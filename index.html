@@ -1,81 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>VISUELS STUDIO 226</title>
-
-<style>
-body {
-    margin: 0;
-    padding: 16px;
-    background: #111;
-    color: white;
-    font-family: Arial, sans-serif;
-    width: 260px;
-}
-
-h1 {
-    font-size: 17px;
-    margin: 0;
-}
-
-.subtitle {
-    color: #999;
-    font-size: 12px;
-    margin: 5px 0 18px;
-}
-
-button {
-    width: 100%;
-    padding: 11px;
-    margin-bottom: 8px;
-    border: 0;
-    border-radius: 7px;
-    cursor: pointer;
-    font-weight: bold;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>VISUELS STUDIO 226</title>
 </head>
-
 <body>
-
-<h1>VISUELS STUDIO 226</h1>
-<div class="subtitle">Photopea Toolbox</div>
-
-<button id="signature">✍️ Ajouter ma signature</button>
-<button>✨ Effets</button>
-<button>📐 Formats</button>
-<button>🖼️ Mockups</button>
-<button>🔤 Texte</button>
-<button>🎨 Couleurs</button>
-<button>💾 Export rapide</button>
-
-<script>
-
-function envoyerAPhotopea(script) {
-    window.parent.postMessage(script, "*");
-}
-
-document.getElementById("signature").addEventListener("click", function() {
-
-    const script = `
-        var doc = app.activeDocument;
-
-        var layer = doc.artLayers.add();
-        layer.kind = LayerKind.TEXT;
-
-        layer.name = "Signature - Visuels Studio 226";
-        layer.textItem.contents = "Visuels Studio 226";
-        layer.textItem.size = 18;
-        layer.textItem.position = [40, 40];
-
-        app.echoToOE("SIGNATURE_AJOUTEE");
-    `;
-
-    envoyerAPhotopea(script);
-});
-
-</script>
-
+    <h1>VISUELS STUDIO 226</h1>
+    <p>Photopea Toolbox est en ligne.</p>
 </body>
 </html>
