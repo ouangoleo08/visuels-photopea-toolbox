@@ -5,65 +5,57 @@
 <title>VISUELS STUDIO 226 - Photopea Toolbox</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
 
-html,body{
-    margin:0;
-    padding:0;
-    width:100%;
-    min-height:100%;
-}
-
 body{
-    width:320px;
+    margin:0;
     padding:10px;
-    background:
-        radial-gradient(circle at top,#12395a 0,#07111f 42%,#040911 100%);
+    width:330px;
+    background:#050b13;
     color:#fff;
     font-family:Arial,Helvetica,sans-serif;
 }
 
 .header{
+    padding:16px 10px;
+    margin-bottom:10px;
     text-align:center;
-    padding:15px 10px;
-    margin-bottom:9px;
-    border-radius:15px;
+    border-radius:16px;
     background:
-        linear-gradient(145deg,#0a2038,#0b6797 55%,#06263d);
-    border:1px solid #269bd2;
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
+        linear-gradient(135deg,#071b2e,#075b88,#07182a);
+    border:1px solid #219bd0;
+    box-shadow:0 8px 25px rgba(0,0,0,.45);
 }
 
 .logo{
     font-size:17px;
     font-weight:900;
-    letter-spacing:.7px;
+    letter-spacing:.8px;
 }
 
 .sub{
     margin-top:4px;
-    font-size:10px;
-    color:#83e5ff;
-    letter-spacing:1px;
+    font-size:9px;
+    letter-spacing:1.5px;
+    color:#79dcff;
 }
 
 .section{
-    background:rgba(8,24,40,.96);
-    border:1px solid #1c405b;
-    border-radius:12px;
-    padding:9px;
     margin-bottom:8px;
-    box-shadow:0 5px 15px rgba(0,0,0,.18);
+    padding:9px;
+    border-radius:12px;
+    background:#0a1725;
+    border:1px solid #18364e;
 }
 
 .title{
-    color:#75ddff;
+    margin-bottom:7px;
+    color:#73dcff;
     font-size:10px;
     font-weight:900;
-    margin-bottom:7px;
-    letter-spacing:.4px;
 }
 
 .grid{
@@ -76,65 +68,55 @@ button{
     border:1px solid rgba(255,255,255,.08);
     border-radius:8px;
     padding:10px 4px;
-    color:white;
-    background:linear-gradient(145deg,#163650,#10283d);
+    color:#fff;
+    background:#132b40;
     font-size:10px;
     font-weight:800;
     cursor:pointer;
-    transition:.15s;
 }
 
 button:hover{
-    transform:translateY(-1px);
-    background:#1e5277;
-}
-
-button:active{
-    transform:scale(.97);
+    background:#1d5275;
 }
 
 .blue{
-    background:linear-gradient(145deg,#087fc0,#07537e);
+    background:linear-gradient(145deg,#087fbd,#064b72);
 }
 
 .gold{
-    background:linear-gradient(145deg,#bd8200,#795000);
+    background:linear-gradient(145deg,#bb7e00,#704a00);
 }
 
 .purple{
-    background:linear-gradient(145deg,#8144ad,#512775);
+    background:linear-gradient(145deg,#8144ad,#51286f);
 }
 
 .green{
-    background:linear-gradient(145deg,#198e5d,#0e5e3e);
+    background:linear-gradient(145deg,#168d5a,#0b5b3b);
 }
 
 .red{
-    background:linear-gradient(145deg,#b64747,#722626);
+    background:linear-gradient(145deg,#ad4141,#6d2424);
 }
 
 input{
     width:100%;
+    margin-bottom:7px;
     padding:10px;
     border-radius:8px;
-    border:1px solid #28536d;
-    background:#06131f;
-    color:white;
-    margin-bottom:7px;
+    border:1px solid #28506a;
+    background:#06111c;
+    color:#fff;
     outline:none;
 }
 
-input:focus{
-    border-color:#43caff;
-    box-shadow:0 0 0 2px rgba(67,202,255,.12);
+.status{
+    padding:5px;
+    text-align:center;
+    color:#70e5a1;
+    font-size:10px;
 }
 
-.status{
-    text-align:center;
-    font-size:10px;
-    color:#71e5a3;
-    padding:5px;
-}
 </style>
 </head>
 
@@ -142,89 +124,150 @@ input:focus{
 
 <div class="header">
     <div class="logo">VISUELS STUDIO 226</div>
-    <div class="sub">PHOTOPEA TOOLBOX</div>
+    <div class="sub">PHOTOPEA TOOLBOX • PRO POSTER ENGINE</div>
 </div>
 
-<!-- ================= MODÈLES ================= -->
+
+<!-- =====================================================
+     AFFICHES
+===================================================== -->
 
 <div class="section">
 
-<div class="title">🎨 MODÈLES D'AFFICHES</div>
+<div class="title">🔥 CRÉER UNE VRAIE AFFICHE</div>
 
 <div class="grid">
 
-<button class="blue" onclick="poster('promo')">
+<button class="blue" onclick="createPoster('promo')">
 🔥 PROMO
 </button>
 
-<button class="blue" onclick="poster('formation')">
+<button class="blue" onclick="createPoster('formation')">
 🎓 FORMATION
 </button>
 
-<button class="blue" onclick="poster('restaurant')">
+<button class="blue" onclick="createPoster('restaurant')">
 🍔 RESTAURANT
 </button>
 
-<button class="blue" onclick="poster('business')">
+<button class="blue" onclick="createPoster('business')">
 💼 BUSINESS
 </button>
 
-<button class="blue" onclick="poster('telephone')">
-📱 TÉLÉPHONE
+<button class="blue" onclick="createPoster('telephone')">
+📱 SMARTPHONE
 </button>
 
-<button class="blue" onclick="poster('event')">
+<button class="blue" onclick="createPoster('event')">
 🎉 ÉVÉNEMENT
 </button>
 
-<button class="blue" onclick="poster('birthday')">
+<button class="blue" onclick="createPoster('birthday')">
 🎂 ANNIVERSAIRE
 </button>
 
-<button class="blue" onclick="poster('tech')">
+<button class="blue" onclick="createPoster('tech')">
 💻 TECHNO
 </button>
 
 </div>
+
 </div>
 
-<!-- ================= STICKERS ================= -->
+
+<!-- =====================================================
+     IMAGE
+===================================================== -->
 
 <div class="section">
 
-<div class="title">🏷️ STICKERS</div>
+<div class="title">🖼️ IMAGE PRINCIPALE</div>
 
 <div class="grid">
 
-<button class="gold" onclick="sticker('PROMO')">PROMO</button>
-<button class="gold" onclick="sticker('-30%')">-30%</button>
-<button class="gold" onclick="sticker('-50%')">-50%</button>
-<button class="gold" onclick="sticker('NOUVEAU')">NOUVEAU</button>
-<button class="gold" onclick="sticker('OFFRE')">OFFRE</button>
-<button class="gold" onclick="sticker('GRATUIT')">GRATUIT</button>
+<button class="green" onclick="openImage()">
+➕ IMPORTER
+</button>
+
+<button onclick="replaceImage()">
+🔄 REMPLACER
+</button>
 
 </div>
+
 </div>
 
-<!-- ================= TEXTE ================= -->
+
+<!-- =====================================================
+     TEXTE
+===================================================== -->
 
 <div class="section">
 
-<div class="title">🔤 TEXTE</div>
+<div class="title">🔤 TEXTE PROFESSIONNEL</div>
 
-<input id="texte" placeholder="Écris ton texte">
+<input
+id="texte"
+placeholder="Écris ton texte..."
+>
 
 <div class="grid">
 
-<button onclick="addText()">➕ TEXTE</button>
-<button onclick="bigText()">🔠 XXL</button>
-<button class="purple" onclick="text3D()">🧊 3D</button>
-<button class="purple" onclick="chromeText()">✨ CHROME</button>
+<button onclick="addText()">
+➕ TEXTE
+</button>
+
+<button onclick="bigText()">
+🔠 XXL
+</button>
+
+<button class="purple" onclick="text3D()">
+🧊 3D
+</button>
+
+<button class="purple" onclick="chromeText()">
+✨ CHROME
+</button>
 
 </div>
+
 </div>
 
-<!-- ================= OUTILS ================= -->
+
+<!-- =====================================================
+     STICKERS
+===================================================== -->
+
+<div class="section">
+
+<div class="title">🏷️ BADGES PUBLICITAIRES</div>
+
+<div class="grid">
+
+<button class="gold" onclick="sticker('PROMO')">
+PROMO
+</button>
+
+<button class="gold" onclick="sticker('-30%')">
+-30%
+</button>
+
+<button class="gold" onclick="sticker('-50%')">
+-50%
+</button>
+
+<button class="gold" onclick="sticker('NOUVEAU')">
+NOUVEAU
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     OUTILS
+===================================================== -->
 
 <div class="section">
 
@@ -232,21 +275,30 @@ input:focus{
 
 <div class="grid">
 
-<button onclick="duplicate()">📋 DUPLIQUER</button>
-<button onclick="center()">🎯 CENTRER</button>
+<button onclick="duplicate()">
+📋 DUPLIQUER
+</button>
+
+<button onclick="center()">
+🎯 CENTRER
+</button>
 
 <button onclick="formatDoc(1080,1350)">
-POST
+📱 POST
 </button>
 
 <button onclick="formatDoc(1080,1920)">
-STORY
+📲 STORY
 </button>
 
 </div>
+
 </div>
 
-<!-- ================= SIGNATURE ================= -->
+
+<!-- =====================================================
+     SIGNATURE
+===================================================== -->
 
 <div class="section">
 
@@ -255,15 +307,17 @@ STORY
 <button
 class="green"
 style="width:100%"
-onclick="signature()">
-
-✍️ AJOUTER MA SIGNATURE
-
+onclick="signature()"
+>
+✍️ VISUELS STUDIO 226
 </button>
 
 </div>
 
-<!-- ================= EXPORT ================= -->
+
+<!-- =====================================================
+     EXPORT
+===================================================== -->
 
 <div class="section">
 
@@ -271,94 +325,112 @@ onclick="signature()">
 
 <div class="grid">
 
-<button onclick="exportFile('png')">PNG</button>
-<button onclick="exportFile('jpg')">JPG</button>
-<button onclick="exportFile('webp')">WEBP</button>
-<button onclick="exportFile('psd')">PSD</button>
+<button onclick="exportFile('png')">
+PNG
+</button>
+
+<button onclick="exportFile('jpg')">
+JPG
+</button>
+
+<button onclick="exportFile('webp')">
+WEBP
+</button>
+
+<button onclick="exportFile('psd')">
+PSD
+</button>
 
 </div>
+
 </div>
+
 
 <div id="status" class="status">
-● Connecté à Photopea
+● Photopea Toolbox prêt
 </div>
 
 
 <script>
 
+
 /* =====================================================
-   COMMUNICATION PHOTOPEA
+   COMMUNICATION AVEC PHOTOPEA
 ===================================================== */
 
 function send(code){
 
-    try{
+    window.parent.postMessage(code,"*");
 
-        window.parent.postMessage(code,"*");
-
-        document.getElementById("status").innerText =
-        "● Action envoyée à Photopea";
-
-    }catch(e){
-
-        document.getElementById("status").innerText =
-        "● Erreur d'envoi";
-
-    }
-}
-
-
-/* =====================================================
-   COULEUR RGB
-===================================================== */
-
-function rgb(r,g,b){
-
-return `
-var c=new SolidColor();
-c.rgb.red=${r};
-c.rgb.green=${g};
-c.rgb.blue=${b};
-c;
-`;
+    document.getElementById("status").innerText =
+        "● Composition envoyée à Photopea";
 
 }
 
 
 /* =====================================================
-   DONNÉES DES MODÈLES
+   IMAGES RÉELLES
 ===================================================== */
 
-const MODELES={
+const IMAGES={
+
+promo:
+"https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1400&q=90",
+
+formation:
+"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=90",
+
+restaurant:
+"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=90",
+
+business:
+"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=90",
+
+telephone:
+"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1400&q=90",
+
+event:
+"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=90",
+
+birthday:
+"https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1400&q=90",
+
+tech:
+"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1400&q=90"
+
+};
+
+
+/* =====================================================
+   DONNÉES DES AFFICHES
+===================================================== */
+
+const DATA={
 
 promo:{
 title:"GRANDE PROMO",
 subtitle:"DES OFFRES EXCEPTIONNELLES",
 badge:"-50%",
-product:"VOTRE PRODUIT",
+product:"OFFRE SPÉCIALE",
 description:"QUALITÉ • STYLE • PERFORMANCE",
 price:"7 500 F",
-old:"AU LIEU DE 10 000 F",
 cta:"COMMANDER MAINTENANT",
-contact:"+226 79 03 94 62",
-bg:[5,14,35],
-accent:[255,105,25],
-second:[15,90,180]
+phone:"+226 79 03 94 62",
+accent:[255,102,20],
+dark:[8,12,25]
 },
 
 formation:{
-title:"FORMATION",
+title:"FORMATION PRO",
 subtitle:"APPRENEZ • PRATIQUEZ • CRÉEZ",
 badge:"NOUVEAU",
 product:"PHOTOSHOP",
 description:"DESIGN GRAPHIQUE PROFESSIONNEL",
-price:"FORMATION PRO",
-old:"COURS PRATIQUES",
+price:"FORMATION",
 cta:"INSCRIVEZ-VOUS",
-contact:"+226 79 03 94 62",
-bg:[5,15,42],
-accent:[35,210,255],
-second:[15,80,180]
+phone:"+226 79 03 94 62",
+accent:[0,190,255],
+dark:[5,12,30]
 },
 
 restaurant:{
@@ -368,57 +440,49 @@ badge:"CHEF",
 product:"PLAT SPÉCIAL",
 description:"UNE EXPÉRIENCE GOURMANDE",
 price:"2 500 F",
-old:"",
 cta:"COMMANDER",
-contact:"+226 79 03 94 62",
-bg:[48,10,5],
-accent:[255,145,25],
-second:[145,35,10]
+phone:"+226 79 03 94 62",
+accent:[255,139,25],
+dark:[35,8,4]
 },
 
 business:{
 title:"VOTRE ENTREPRISE",
-subtitle:"DES SERVICES POUR VOTRE ACTIVITÉ",
+subtitle:"DES SOLUTIONS POUR VOTRE ACTIVITÉ",
 badge:"PRO",
 product:"NOS SERVICES",
 description:"DESIGN • WEB • COMMUNICATION",
 price:"SUR MESURE",
-old:"",
 cta:"CONTACTEZ-NOUS",
-contact:"+226 79 03 94 62",
-bg:[4,12,28],
-accent:[40,210,255],
-second:[15,80,150]
+phone:"+226 79 03 94 62",
+accent:[0,190,255],
+dark:[5,10,22]
 },
 
 telephone:{
 title:"SMARTPHONES",
 subtitle:"TECHNOLOGIE • PERFORMANCE • STYLE",
 badge:"NEW",
-product:"IPHONE • SAMSUNG",
-description:"TECNO • INFINIX • AUTRES",
+product:"SMARTPHONES",
+description:"IPHONE • SAMSUNG • TECNO • INFINIX",
 price:"PRIX ATTRACTIFS",
-old:"",
 cta:"ACHETER MAINTENANT",
-contact:"+226 46 45 27 57",
-bg:[2,18,36],
-accent:[0,215,255],
-second:[10,80,160]
+phone:"+226 46 45 27 57",
+accent:[0,210,255],
+dark:[2,10,20]
 },
 
 event:{
 title:"GRAND ÉVÉNEMENT",
 subtitle:"UN MOMENT À NE PAS MANQUER",
 badge:"LIVE",
-product:"SAMEDI 20 JUIN",
+product:"ÉVÉNEMENT 2026",
 description:"FADA N'GOURMA",
 price:"ENTRÉE LIBRE",
-old:"",
 cta:"RÉSERVEZ VOTRE PLACE",
-contact:"+226 79 03 94 62",
-bg:[28,5,45],
-accent:[255,65,205],
-second:[115,25,150]
+phone:"+226 79 03 94 62",
+accent:[255,50,190],
+dark:[25,4,35]
 },
 
 birthday:{
@@ -428,12 +492,10 @@ badge:"12 ANS",
 product:"MOHAMED",
 description:"UNE FÊTE • DES SOUVENIRS • DE LA JOIE",
 price:"2026",
-old:"",
 cta:"CÉLÉBRONS ENSEMBLE",
-contact:"+226 79 03 94 62",
-bg:[45,6,34],
-accent:[255,75,160],
-second:[165,25,90]
+phone:"+226 79 03 94 62",
+accent:[255,70,150],
+dark:[38,5,28]
 },
 
 tech:{
@@ -441,42 +503,52 @@ title:"TECHNOLOGIE",
 subtitle:"INNOVATION • PERFORMANCE",
 badge:"NEXT",
 product:"NOUVELLE GÉNÉRATION",
-description:"SMARTPHONE • ORDINATEUR • ACCESSOIRES",
+description:"ORDINATEURS • SMARTPHONES • ACCESSOIRES",
 price:"DÉCOUVRIR",
-old:"",
 cta:"ACHETER MAINTENANT",
-contact:"+226 79 03 94 62",
-bg:[2,8,20],
+phone:"+226 79 03 94 62",
 accent:[0,220,255],
-second:[10,75,155]
+dark:[2,7,17]
 }
 
 };
 
 
 /* =====================================================
-   AFFICHES
+   CRÉER L'AFFICHE
 ===================================================== */
 
-function poster(type){
+function createPoster(type){
 
-    let d=MODELES[type];
+    const d=DATA[type];
+    const image=IMAGES[type];
 
-    if(!d){
+    if(!d || !image){
+        alert("Modèle introuvable.");
         return;
     }
+
+
+    let r=d.accent[0];
+    let g=d.accent[1];
+    let b=d.accent[2];
+
+    let dr=d.dark[0];
+    let dg=d.dark[1];
+    let db=d.dark[2];
+
 
     let script=`
 
 /* =====================================================
-   NOUVEAU DOCUMENT
+   DOCUMENT
 ===================================================== */
 
 app.documents.add(
-    1080,
-    1350,
-    72,
-    ${JSON.stringify(d.title)}
+1080,
+1350,
+72,
+${JSON.stringify(d.title)}
 );
 
 var doc=app.activeDocument;
@@ -487,38 +559,40 @@ var doc=app.activeDocument;
 ===================================================== */
 
 var bg=new SolidColor();
-bg.rgb.red=${d.bg[0]};
-bg.rgb.green=${d.bg[1]};
-bg.rgb.blue=${d.bg[2]};
+
+bg.rgb.red=${dr};
+bg.rgb.green=${dg};
+bg.rgb.blue=${db};
+
 
 var accent=new SolidColor();
-accent.rgb.red=${d.accent[0]};
-accent.rgb.green=${d.accent[1]};
-accent.rgb.blue=${d.accent[2]};
 
-var second=new SolidColor();
-second.rgb.red=${d.second[0]};
-second.rgb.green=${d.second[1]};
-second.rgb.blue=${d.second[2]};
+accent.rgb.red=${r};
+accent.rgb.green=${g};
+accent.rgb.blue=${b};
+
 
 var white=new SolidColor();
+
 white.rgb.red=255;
 white.rgb.green=255;
 white.rgb.blue=255;
 
+
 var black=new SolidColor();
+
 black.rgb.red=3;
-black.rgb.green=8;
-black.rgb.blue=15;
+black.rgb.green=5;
+black.rgb.blue=9;
 
 
 /* =====================================================
-   FOND PRINCIPAL
+   FOND
 ===================================================== */
 
-var fond=doc.artLayers.add();
+var background=doc.artLayers.add();
 
-fond.name="01 - FOND PRINCIPAL";
+background.name="01 • FOND PREMIUM";
 
 doc.selection.selectAll();
 
@@ -528,124 +602,107 @@ doc.selection.deselect();
 
 
 /* =====================================================
-   GRAND BLOC VISUEL
+   IMAGE PRINCIPALE
 ===================================================== */
 
-var bloc=doc.artLayers.add();
+app.open(
+${JSON.stringify(image)}
+);
 
-bloc.name="02 - ZONE VISUELLE";
+var source=app.activeDocument;
+
+source.activeLayer.copy();
+
+source.close(SaveOptions.DONOTSAVECHANGES);
+
+doc.activate();
+
+doc.paste();
+
+var hero=doc.activeLayer;
+
+hero.name="02 • IMAGE PRINCIPALE";
+
+
+/* =====================================================
+   REDIMENSIONNEMENT IMAGE
+===================================================== */
+
+var bounds=hero.bounds;
+
+var iw=bounds[2]-bounds[0];
+
+var ih=bounds[3]-bounds[1];
+
+var scaleX=850/iw*100;
+
+var scaleY=780/ih*100;
+
+var scale=Math.max(scaleX,scaleY);
+
+hero.resize(scale,scale,AnchorPosition.MIDDLECENTER);
+
+hero.translate(
+760-(hero.bounds[0]+hero.bounds[2])/2,
+430-(hero.bounds[1]+hero.bounds[3])/2
+);
+
+
+/* =====================================================
+   PANNEAU SOMBRE GAUCHE
+===================================================== */
+
+var panel=doc.artLayers.add();
+
+panel.name="03 • PANNEAU TEXTE";
 
 doc.selection.select([
 [0,0],
-[1080,0],
-[1080,720],
-[0,560]
+[650,0],
+[650,1350],
+[0,1350]
 ]);
 
-doc.selection.fill(second);
+doc.selection.fill(black);
 
 doc.selection.deselect();
 
-bloc.opacity=65;
+panel.opacity=88;
 
 
 /* =====================================================
    BANDE ACCENT
 ===================================================== */
 
-var bande=doc.artLayers.add();
+var top=doc.artLayers.add();
 
-bande.name="03 - BANDE ACCENT";
+top.name="04 • BANDE ACCENT";
 
 doc.selection.select([
 [0,0],
 [1080,0],
-[1080,25],
-[0,25]
+[1080,20],
+[0,20]
 ]);
 
 doc.selection.fill(accent);
 
 doc.selection.deselect();
-
-
-/* =====================================================
-   CERCLE DÉCORATIF
-===================================================== */
-
-var cercle=doc.artLayers.add();
-
-cercle.name="04 - DECORATION";
-
-doc.selection.select([
-[820,65],
-[1040,65],
-[1040,285],
-[820,285]
-]);
-
-doc.selection.fill(accent);
-
-doc.selection.deselect();
-
-cercle.opacity=35;
-
-
-/* =====================================================
-   TITRE
-===================================================== */
-
-var titre=doc.artLayers.add();
-
-titre.kind=LayerKind.TEXT;
-
-titre.name="05 - TITRE PRINCIPAL";
-
-titre.textItem.contents=${JSON.stringify(d.title)};
-
-titre.textItem.size=78;
-
-titre.textItem.font="Arial-BoldMT";
-
-titre.textItem.color=white;
-
-titre.textItem.position=[55,110];
-
-
-/* =====================================================
-   SOUS-TITRE
-===================================================== */
-
-var sous=doc.artLayers.add();
-
-sous.kind=LayerKind.TEXT;
-
-sous.name="06 - SOUS TITRE";
-
-sous.textItem.contents=${JSON.stringify(d.subtitle)};
-
-sous.textItem.size=27;
-
-sous.textItem.font="Arial-BoldMT";
-
-sous.textItem.color=accent;
-
-sous.textItem.position=[58,215];
 
 
 /* =====================================================
    BADGE
 ===================================================== */
 
-var badgeFond=doc.artLayers.add();
+var badgeBg=doc.artLayers.add();
 
-badgeFond.name="07 - FOND BADGE";
+badgeBg.name="05 • BADGE";
 
 doc.selection.select([
-[55,275],
-[365,275],
-[365,390],
-[55,390]
+[55,90],
+[300,90],
+[300,155],
+[55,155]
 ]);
 
 doc.selection.fill(accent);
@@ -657,32 +714,53 @@ var badge=doc.artLayers.add();
 
 badge.kind=LayerKind.TEXT;
 
-badge.name="08 - BADGE";
+badge.name="06 • TEXTE BADGE";
 
 badge.textItem.contents=${JSON.stringify(d.badge)};
 
-badge.textItem.size=48;
+badge.textItem.size=32;
 
 badge.textItem.font="Arial-BoldMT";
 
 badge.textItem.color=white;
 
-badge.textItem.position=[82,300];
+badge.textItem.position=[75,108];
 
 
 /* =====================================================
-   CADRE PHOTO
+   TITRE
 ===================================================== */
 
-var cadre=doc.artLayers.add();
+var title=doc.artLayers.add();
 
-cadre.name="09 - CADRE PRODUIT";
+title.kind=LayerKind.TEXT;
+
+title.name="07 • TITRE PRINCIPAL";
+
+title.textItem.contents=${JSON.stringify(d.title)};
+
+title.textItem.size=67;
+
+title.textItem.font="Arial-BoldMT";
+
+title.textItem.color=white;
+
+title.textItem.position=[55,225];
+
+
+/* =====================================================
+   LIGNE ACCENT
+===================================================== */
+
+var line=doc.artLayers.add();
+
+line.name="08 • LIGNE ACCENT";
 
 doc.selection.select([
-[560,285],
-[1025,285],
-[1025,760],
-[560,760]
+[55,335],
+[420,335],
+[420,348],
+[55,348]
 ]);
 
 doc.selection.fill(accent);
@@ -691,65 +769,45 @@ doc.selection.deselect();
 
 
 /* =====================================================
-   ZONE PHOTO
+   SOUS-TITRE
 ===================================================== */
 
-var photo=doc.artLayers.add();
+var subtitle=doc.artLayers.add();
 
-photo.name="10 - PHOTO PRODUIT A REMPLACER";
+subtitle.kind=LayerKind.TEXT;
 
-doc.selection.select([
-[575,300],
-[1010,300],
-[1010,745],
-[575,745]
-]);
+subtitle.name="09 • SOUS TITRE";
 
-doc.selection.fill(black);
+subtitle.textItem.contents=${JSON.stringify(d.subtitle)};
 
-doc.selection.deselect();
+subtitle.textItem.size=25;
 
+subtitle.textItem.font="Arial-BoldMT";
 
-/* =====================================================
-   TEXTE PHOTO
-===================================================== */
+subtitle.textItem.color=accent;
 
-var photoTexte=doc.artLayers.add();
-
-photoTexte.kind=LayerKind.TEXT;
-
-photoTexte.name="11 - INDICATION PHOTO";
-
-photoTexte.textItem.contents="VOTRE\\nPHOTO";
-
-photoTexte.textItem.size=48;
-
-photoTexte.textItem.font="Arial-BoldMT";
-
-photoTexte.textItem.color=accent;
-
-photoTexte.textItem.position=[705,480];
+subtitle.textItem.position=[55,375];
 
 
 /* =====================================================
    PRODUIT
 ===================================================== */
 
-var produit=doc.artLayers.add();
+var product=doc.artLayers.add();
 
-produit.kind=LayerKind.TEXT;
+product.kind=LayerKind.TEXT;
 
-produit.name="12 - NOM DU PRODUIT";
+product.name="10 • PRODUIT";
 
-produit.textItem.contents=${JSON.stringify(d.product)};
+product.textItem.contents=${JSON.stringify(d.product)};
 
-produit.textItem.size=58;
+product.textItem.size=48;
 
-produit.textItem.font="Arial-BoldMT";
+product.textItem.font="Arial-BoldMT";
 
-produit.textItem.color=white;
+product.textItem.color=white;
 
-produit.textItem.position=[55,500];
+product.textItem.position=[55,510];
 
 
 /* =====================================================
@@ -760,100 +818,72 @@ var description=doc.artLayers.add();
 
 description.kind=LayerKind.TEXT;
 
-description.name="13 - DESCRIPTION";
+description.name="11 • DESCRIPTION";
 
 description.textItem.contents=${JSON.stringify(d.description)};
 
-description.textItem.size=25;
+description.textItem.size=22;
 
 description.textItem.font="Arial";
 
-description.textItem.color=accent;
+description.textItem.color=white;
 
-description.textItem.position=[58,585];
+description.textItem.position=[55,575];
 
 
 /* =====================================================
-   BLOC PRIX
+   PRIX
 ===================================================== */
 
-var prixBloc=doc.artLayers.add();
+var priceBox=doc.artLayers.add();
 
-prixBloc.name="14 - BLOC PRIX";
+priceBox.name="12 • BLOC PRIX";
 
 doc.selection.select([
-[55,665],
-[535,820],
-[55,820],
-[55,665]
+[55,650],
+[455,765],
+[55,765],
+[55,650]
 ]);
 
-doc.selection.fill(second);
+doc.selection.fill(accent);
 
 doc.selection.deselect();
 
 
-var prix=doc.artLayers.add();
+var price=doc.artLayers.add();
 
-prix.kind=LayerKind.TEXT;
+price.kind=LayerKind.TEXT;
 
-prix.name="15 - PRIX";
+price.name="13 • PRIX";
 
-prix.textItem.contents=${JSON.stringify(d.price)};
+price.textItem.contents=${JSON.stringify(d.price)};
 
-prix.textItem.size=55;
+price.textItem.size=49;
 
-prix.textItem.font="Arial-BoldMT";
+price.textItem.font="Arial-BoldMT";
 
-prix.textItem.color=white;
+price.textItem.color=white;
 
-prix.textItem.position=[82,700];
+price.textItem.position=[78,685];
 
-`;
-
-    if(d.old){
-
-        script+=`
-
-var ancien=doc.artLayers.add();
-
-ancien.kind=LayerKind.TEXT;
-
-ancien.name="16 - ANCIEN PRIX";
-
-ancien.textItem.contents=${JSON.stringify(d.old)};
-
-ancien.textItem.size=23;
-
-ancien.textItem.font="Arial";
-
-ancien.textItem.color=accent;
-
-ancien.textItem.position=[84,775];
-
-`;
-
-    }
-
-
-    script+=`
 
 /* =====================================================
    CTA
 ===================================================== */
 
-var ctaFond=doc.artLayers.add();
+var ctaBox=doc.artLayers.add();
 
-ctaFond.name="17 - FOND CTA";
+ctaBox.name="14 • BOUTON CTA";
 
 doc.selection.select([
-[55,890],
-[535,1005],
-[55,1005],
-[55,890]
+[55,805],
+[500,900],
+[55,900],
+[55,805]
 ]);
 
-doc.selection.fill(accent);
+doc.selection.fill(white);
 
 doc.selection.deselect();
 
@@ -862,17 +892,17 @@ var cta=doc.artLayers.add();
 
 cta.kind=LayerKind.TEXT;
 
-cta.name="18 - CTA";
+cta.name="15 • CTA";
 
 cta.textItem.contents=${JSON.stringify(d.cta)};
 
-cta.textItem.size=30;
+cta.textItem.size=24;
 
 cta.textItem.font="Arial-BoldMT";
 
-cta.textItem.color=white;
+cta.textItem.color=black;
 
-cta.textItem.position=[80,925];
+cta.textItem.position=[80,835];
 
 
 /* =====================================================
@@ -883,95 +913,138 @@ var contact=doc.artLayers.add();
 
 contact.kind=LayerKind.TEXT;
 
-contact.name="19 - CONTACT";
+contact.name="16 • CONTACT";
 
-contact.textItem.contents=${JSON.stringify(d.contact)};
+contact.textItem.contents=${JSON.stringify(d.phone)};
 
-contact.textItem.size=36;
+contact.textItem.size=31;
 
 contact.textItem.font="Arial-BoldMT";
 
 contact.textItem.color=white;
 
-contact.textItem.position=[55,1080];
+contact.textItem.position=[55,1010];
 
 
 /* =====================================================
-   DISPONIBILITÉ
+   APPEL
 ===================================================== */
 
-var dispo=doc.artLayers.add();
+var call=doc.artLayers.add();
 
-dispo.kind=LayerKind.TEXT;
+call.kind=LayerKind.TEXT;
 
-dispo.name="20 - DISPONIBILITE";
+call.name="17 • APPEL";
 
-dispo.textItem.contents="Disponible maintenant";
+call.textItem.contents="CONTACTEZ-NOUS";
 
-dispo.textItem.size=24;
+call.textItem.size=19;
 
-dispo.textItem.font="Arial";
+call.textItem.font="Arial";
 
-dispo.textItem.color=accent;
+call.textItem.color=accent;
 
-dispo.textItem.position=[58,1140];
+call.textItem.position=[57,1055];
 
 
 /* =====================================================
-   LIGNE DÉCORATIVE
+   PETIT CADRE DÉCORATIF
 ===================================================== */
 
-var ligne=doc.artLayers.add();
+var deco=doc.artLayers.add();
 
-ligne.name="21 - LIGNE DECORATIVE";
+deco.name="18 • DÉCORATION";
 
 doc.selection.select([
-[55,1210],
-[1025,1210],
-[1025,1224],
-[55,1224]
+[875,1120],
+[1025,1120],
+[1025,1270],
+[875,1270]
 ]);
 
 doc.selection.fill(accent);
 
 doc.selection.deselect();
 
+deco.opacity=35;
+
 
 /* =====================================================
    SIGNATURE
 ===================================================== */
 
-var sign=doc.artLayers.add();
+var signature=doc.artLayers.add();
 
-sign.kind=LayerKind.TEXT;
+signature.kind=LayerKind.TEXT;
 
-sign.name="22 - SIGNATURE";
+signature.name="19 • SIGNATURE";
 
-sign.textItem.contents="Visuels Studio 226";
+signature.textItem.contents="Visuels Studio 226";
 
-sign.textItem.size=21;
+signature.textItem.size=20;
 
-sign.textItem.font="Arial";
+signature.textItem.font="Arial-BoldMT";
 
-sign.textItem.color=white;
+signature.textItem.color=white;
 
-sign.textItem.position=[790,1295];
+signature.textItem.position=[770,1290];
 
 
 /* =====================================================
-   SÉLECTION DU FOND
+   ORDRE FINAL
 ===================================================== */
 
-doc.activeLayer=fond;
+doc.activeLayer=background;
 
 `;
 
     send(script);
+
 }
 
 
 /* =====================================================
-   STICKER
+   IMPORTER UNE IMAGE
+===================================================== */
+
+function openImage(){
+
+    send(`
+
+app.open(
+"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=90"
+);
+
+`);
+
+}
+
+
+/* =====================================================
+   REMPLACER IMAGE
+===================================================== */
+
+function replaceImage(){
+
+    send(`
+
+var doc=app.activeDocument;
+
+if(doc.activeLayer){
+
+    app.open(
+    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=90"
+    );
+
+}
+
+`);
+
+}
+
+
+/* =====================================================
+   STICKERS
 ===================================================== */
 
 function sticker(text){
@@ -980,29 +1053,49 @@ send(`
 
 var doc=app.activeDocument;
 
-var layer=doc.artLayers.add();
+var bg=doc.artLayers.add();
 
-layer.kind=LayerKind.TEXT;
+bg.name="BADGE • ${text}";
 
-layer.name="STICKER - ${text}";
-
-layer.textItem.contents=${JSON.stringify(text)};
-
-layer.textItem.size=65;
-
-layer.textItem.font="Arial-BoldMT";
+doc.selection.select([
+[760,100],
+[1010,100],
+[1010,190],
+[760,190]
+]);
 
 var c=new SolidColor();
 
 c.rgb.red=255;
+c.rgb.green=90;
+c.rgb.blue=20;
 
-c.rgb.green=190;
+doc.selection.fill(c);
 
-c.rgb.blue=25;
+doc.selection.deselect();
 
-layer.textItem.color=c;
 
-layer.textItem.position=[400,400];
+var layer=doc.artLayers.add();
+
+layer.kind=LayerKind.TEXT;
+
+layer.name="STICKER • ${text}";
+
+layer.textItem.contents=${JSON.stringify(text)};
+
+layer.textItem.size=42;
+
+layer.textItem.font="Arial-BoldMT";
+
+var white=new SolidColor();
+
+white.rgb.red=255;
+white.rgb.green=255;
+white.rgb.blue=255;
+
+layer.textItem.color=white;
+
+layer.textItem.position=[790,125];
 
 `);
 
@@ -1010,22 +1103,22 @@ layer.textItem.position=[400,400];
 
 
 /* =====================================================
-   TEXTE NORMAL
+   TEXTE
 ===================================================== */
 
 function addText(){
 
-let t=document.getElementById("texte").value;
+    let t=document.getElementById("texte").value;
 
-if(!t){
+    if(!t){
 
-alert("Écris ton texte.");
+        alert("Écris ton texte.");
 
-return;
+        return;
 
-}
+    }
 
-send(`
+    send(`
 
 var doc=app.activeDocument;
 
@@ -1033,11 +1126,11 @@ var layer=doc.artLayers.add();
 
 layer.kind=LayerKind.TEXT;
 
-layer.name="NOUVEAU TEXTE";
+layer.name="TEXTE • PERSONNALISÉ";
 
 layer.textItem.contents=${JSON.stringify(t)};
 
-layer.textItem.size=55;
+layer.textItem.size=48;
 
 layer.textItem.font="Arial-BoldMT";
 
@@ -1051,7 +1144,7 @@ c.rgb.blue=255;
 
 layer.textItem.color=c;
 
-layer.textItem.position=[100,350];
+layer.textItem.position=[100,300];
 
 `);
 
@@ -1059,22 +1152,22 @@ layer.textItem.position=[100,350];
 
 
 /* =====================================================
-   TEXTE XXL
+   XXL
 ===================================================== */
 
 function bigText(){
 
-let t=document.getElementById("texte").value;
+    let t=document.getElementById("texte").value;
 
-if(!t){
+    if(!t){
 
-alert("Écris ton texte.");
+        alert("Écris ton texte.");
 
-return;
+        return;
 
-}
+    }
 
-send(`
+    send(`
 
 var doc=app.activeDocument;
 
@@ -1082,11 +1175,11 @@ var layer=doc.artLayers.add();
 
 layer.kind=LayerKind.TEXT;
 
-layer.name="TEXTE XXL";
+layer.name="TEXTE • XXL";
 
 layer.textItem.contents=${JSON.stringify(t)};
 
-layer.textItem.size=120;
+layer.textItem.size=105;
 
 layer.textItem.font="Arial-BoldMT";
 
@@ -1100,7 +1193,7 @@ c.rgb.blue=20;
 
 layer.textItem.color=c;
 
-layer.textItem.position=[70,400];
+layer.textItem.position=[70,450];
 
 `);
 
@@ -1108,22 +1201,22 @@ layer.textItem.position=[70,400];
 
 
 /* =====================================================
-   TEXTE 3D
+   3D
 ===================================================== */
 
 function text3D(){
 
-let t=document.getElementById("texte").value;
+    let t=document.getElementById("texte").value;
 
-if(!t){
+    if(!t){
 
-alert("Écris ton texte.");
+        alert("Écris ton texte.");
 
-return;
+        return;
 
-}
+    }
 
-send(`
+    send(`
 
 var doc=app.activeDocument;
 
@@ -1134,17 +1227,17 @@ var depth=doc.artLayers.add();
 
 depth.kind=LayerKind.TEXT;
 
-depth.name="3D - PROFONDEUR";
+depth.name="3D • PROFONDEUR";
 
 depth.textItem.contents=${JSON.stringify(t)};
 
-depth.textItem.size=110;
+depth.textItem.size=100;
 
 depth.textItem.font="Arial-BoldMT";
 
 var dark=new SolidColor();
 
-dark.rgb.red=60;
+dark.rgb.red=70;
 
 dark.rgb.green=25;
 
@@ -1152,7 +1245,7 @@ dark.rgb.blue=5;
 
 depth.textItem.color=dark;
 
-depth.textItem.position=[118,418];
+depth.textItem.position=[120,420];
 
 
 /* FACE */
@@ -1161,11 +1254,11 @@ var face=doc.artLayers.add();
 
 face.kind=LayerKind.TEXT;
 
-face.name="3D - FACE";
+face.name="3D • FACE";
 
 face.textItem.contents=${JSON.stringify(t)};
 
-face.textItem.size=110;
+face.textItem.size=100;
 
 face.textItem.font="Arial-BoldMT";
 
@@ -1192,17 +1285,17 @@ face.textItem.position=[100,400];
 
 function chromeText(){
 
-let t=document.getElementById("texte").value;
+    let t=document.getElementById("texte").value;
 
-if(!t){
+    if(!t){
 
-alert("Écris ton texte.");
+        alert("Écris ton texte.");
 
-return;
+        return;
 
-}
+    }
 
-send(`
+    send(`
 
 var doc=app.activeDocument;
 
@@ -1210,11 +1303,11 @@ var shadow=doc.artLayers.add();
 
 shadow.kind=LayerKind.TEXT;
 
-shadow.name="CHROME - OMBRE";
+shadow.name="CHROME • OMBRE";
 
 shadow.textItem.contents=${JSON.stringify(t)};
 
-shadow.textItem.size=110;
+shadow.textItem.size=100;
 
 shadow.textItem.font="Arial-BoldMT";
 
@@ -1224,36 +1317,36 @@ dark.rgb.red=70;
 
 dark.rgb.green=80;
 
-dark.rgb.blue=90;
+dark.rgb.blue=95;
 
 shadow.textItem.color=dark;
 
 shadow.textItem.position=[108,410];
 
 
-var layer=doc.artLayers.add();
+var face=doc.artLayers.add();
 
-layer.kind=LayerKind.TEXT;
+face.kind=LayerKind.TEXT;
 
-layer.name="TEXTE CHROME";
+face.name="CHROME • FACE";
 
-layer.textItem.contents=${JSON.stringify(t)};
+face.textItem.contents=${JSON.stringify(t)};
 
-layer.textItem.size=110;
+face.textItem.size=100;
 
-layer.textItem.font="Arial-BoldMT";
+face.textItem.font="Arial-BoldMT";
 
-var c=new SolidColor();
+var silver=new SolidColor();
 
-c.rgb.red=235;
+silver.rgb.red=235;
 
-c.rgb.green=240;
+silver.rgb.green=240;
 
-c.rgb.blue=248;
+silver.rgb.blue=250;
 
-layer.textItem.color=c;
+face.textItem.color=silver;
 
-layer.textItem.position=[100,400];
+face.textItem.position=[100,400];
 
 `);
 
@@ -1321,10 +1414,10 @@ function formatDoc(w,h){
 send(`
 
 app.activeDocument.resizeImage(
-    UnitValue(${w},"px"),
-    UnitValue(${h},"px"),
-    null,
-    ResampleMethod.BICUBIC
+UnitValue(${w},"px"),
+UnitValue(${h},"px"),
+null,
+ResampleMethod.BICUBIC
 );
 
 `);
@@ -1346,13 +1439,13 @@ var layer=doc.artLayers.add();
 
 layer.kind=LayerKind.TEXT;
 
-layer.name="SIGNATURE VISUELS STUDIO 226";
+layer.name="Visuels Studio 226";
 
 layer.textItem.contents="Visuels Studio 226";
 
-layer.textItem.size=22;
+layer.textItem.size=20;
 
-layer.textItem.font="Arial";
+layer.textItem.font="Arial-BoldMT";
 
 var c=new SolidColor();
 
@@ -1364,7 +1457,7 @@ c.rgb.blue=255;
 
 layer.textItem.color=c;
 
-layer.textItem.position=[780,1295];
+layer.textItem.position=[770,1290];
 
 `);
 
@@ -1377,26 +1470,26 @@ layer.textItem.position=[780,1295];
 
 function exportFile(type){
 
-let format="png";
+    let format="png";
 
-if(type==="jpg"){
-    format="jpg:0.9";
-}
+    if(type==="jpg"){
+        format="jpg:0.9";
+    }
 
-if(type==="webp"){
-    format="webp:0.9";
-}
+    if(type==="webp"){
+        format="webp:0.9";
+    }
 
-if(type==="psd"){
-    format="psd:true";
-}
+    if(type==="psd"){
+        format="psd:true";
+    }
 
-send(`
+    send(`
 
 app.activeDocument.saveToOE(
-    ${JSON.stringify(format)},
-    0,
-    true
+${JSON.stringify(format)},
+0,
+true
 );
 
 `);
