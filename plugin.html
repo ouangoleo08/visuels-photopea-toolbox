@@ -1,328 +1,428 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VISUELS STUDIO 226 - Photopea Toolbox</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>VISUELS STUDIO 226 — Photopea Toolbox</title>
 
 <style>
-* {
-    box-sizing: border-box;
+
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-width: 250px;
-    background: #0b0f17;
-    color: #ffffff;
-    font-family: Arial, Helvetica, sans-serif;
+body{
+    margin:0;
+    background:#080d14;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-.app {
-    padding: 14px;
+.app{
+    padding:13px;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
-.header {
-    padding: 15px;
-    border-radius: 14px;
+.header{
+    padding:16px;
+    border-radius:15px;
     background:
-        linear-gradient(135deg, #101827, #0d2638);
-    border: 1px solid #1d536d;
-    box-shadow: 0 8px 25px rgba(0,0,0,.35);
-    margin-bottom: 14px;
+        radial-gradient(circle at top right,#0e9fc5 0,#102331 35%,#0b111b 75%);
+    border:1px solid #164b62;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    margin-bottom:12px;
 }
 
-.logo {
-    font-size: 15px;
-    font-weight: 900;
-    letter-spacing: .5px;
-    color: #ffffff;
+.brand{
+    font-size:16px;
+    font-weight:900;
 }
 
-.logo span {
-    color: #19d9ff;
+.brand span{
+    color:#19dfff;
 }
 
-.subtitle {
-    margin-top: 5px;
-    font-size: 11px;
-    color: #8fa5b5;
+.sub{
+    margin-top:5px;
+    font-size:10px;
+    color:#8fa8b8;
 }
 
-/* =========================
-   STATUS
-========================= */
+/* STATUS */
 
-.status {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 9px 10px;
-    margin-bottom: 13px;
-    background: #101923;
-    border: 1px solid #193342;
-    border-radius: 9px;
-    font-size: 10px;
-    color: #a9bac6;
+.status{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 10px;
+    background:#0d151e;
+    border:1px solid #1b303d;
+    border-radius:9px;
+    margin-bottom:13px;
+    font-size:10px;
+    color:#9bb0bd;
 }
 
-.status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #19e68c;
-    box-shadow: 0 0 8px #19e68c;
+.dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#19e88d;
+    box-shadow:0 0 9px #19e88d;
 }
 
-/* =========================
-   SECTION
-========================= */
+/* SECTION */
 
-.section {
-    margin-bottom: 14px;
+.section{
+    margin-bottom:15px;
 }
 
-.section-title {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin-bottom: 7px;
-    color: #dceaf2;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .7px;
+.title{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin-bottom:7px;
+    color:#dcecf4;
+    font-size:10px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.8px;
 }
 
-.section-title::before {
-    content: "";
-    width: 3px;
-    height: 14px;
-    border-radius: 5px;
-    background: #19d9ff;
+.title:before{
+    content:"";
+    width:3px;
+    height:13px;
+    border-radius:4px;
+    background:#19dfff;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTONS */
 
-button {
-    width: 100%;
-    border: 1px solid #1d3341;
-    border-radius: 9px;
-    padding: 10px 11px;
-    margin-bottom: 6px;
-
-    background: #121a23;
-    color: #ffffff;
-
-    font-size: 11px;
-    font-weight: 700;
-    text-align: left;
-
-    cursor: pointer;
-    transition: .18s ease;
+button{
+    width:100%;
+    border:1px solid #1c3543;
+    background:#111b25;
+    color:white;
+    padding:10px;
+    margin-bottom:6px;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:10px;
+    font-weight:700;
+    text-align:left;
+    transition:.15s;
 }
 
-button:hover {
-    background: #172b38;
-    border-color: #19d9ff;
-    transform: translateY(-1px);
+button:hover{
+    background:#172c39;
+    border-color:#19dfff;
+    transform:translateY(-1px);
 }
 
-button:active {
-    transform: scale(.98);
+button:active{
+    transform:scale(.98);
 }
 
-.primary {
-    background: linear-gradient(135deg, #087fa0, #19c9ed);
-    border-color: #19d9ff;
-    color: #ffffff;
+.primary{
+    background:linear-gradient(135deg,#087b9d,#19cfe9);
+    border-color:#24ddff;
 }
 
-.primary:hover {
-    background: linear-gradient(135deg, #0a91b5, #25d8ff);
+.primary:hover{
+    background:linear-gradient(135deg,#0995ba,#28e0ff);
 }
 
-/* =========================
-   GRID
-========================= */
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5px;
 }
 
-.grid button {
-    margin-bottom: 0;
+.grid button{
+    margin-bottom:0;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-    margin-top: 8px;
-    padding-top: 10px;
-    border-top: 1px solid #182530;
-    text-align: center;
-    font-size: 9px;
-    color: #617684;
+.small{
+    font-size:9px;
+    color:#6f8795;
+    margin-top:4px;
 }
 
-.footer strong {
-    color: #19d9ff;
+.footer{
+    text-align:center;
+    border-top:1px solid #172731;
+    padding-top:10px;
+    margin-top:4px;
+    color:#637985;
+    font-size:8px;
 }
+
+.footer b{
+    color:#19dfff;
+}
+
 </style>
 </head>
+
 
 <body>
 
 <div class="app">
 
-    <!-- HEADER -->
-    <div class="header">
-        <div class="logo">
-            VISUELS <span>STUDIO 226</span>
-        </div>
+<!-- HEADER -->
 
-        <div class="subtitle">
-            Photopea Toolbox • Assistant graphique
-        </div>
+<div class="header">
+
+    <div class="brand">
+        VISUELS <span>STUDIO 226</span>
     </div>
 
-    <!-- STATUS -->
-    <div class="status">
-        <div class="status-dot"></div>
-        <span>Connecté à Photopea</span>
+    <div class="sub">
+        Photopea Toolbox • Création graphique automatisée
     </div>
 
-    <!-- SIGNATURE -->
-    <div class="section">
+</div>
 
-        <div class="section-title">
-            Signature
-        </div>
 
-        <button class="primary" onclick="signature()">
-            ✍️ Ajouter ma signature
-        </button>
+<div class="status">
 
-    </div>
+    <div class="dot"></div>
 
-    <!-- FORMATS -->
-    <div class="section">
+    Photopea connecté
 
-        <div class="section-title">
-            Formats
-        </div>
+</div>
 
-        <div class="grid">
 
-            <button onclick="formatCarre()">
-                ⬜ 1080 × 1080
-            </button>
+<!-- SIGNATURE -->
 
-            <button onclick="formatPortrait()">
-                ▯ 1080 × 1350
-            </button>
+<div class="section">
 
-            <button onclick="formatStory()">
-                📱 1080 × 1920
-            </button>
+<div class="title">Signature</div>
 
-            <button onclick="formatPaysage()">
-                ▭ 1920 × 1080
-            </button>
+<button class="primary" onclick="signature()">
+✍️ Ajouter ma signature
+</button>
 
-        </div>
+<button onclick="signatureBordure()">
+📌 Signature sur le bord
+</button>
 
-    </div>
+</div>
 
-    <!-- TEXTE -->
-    <div class="section">
 
-        <div class="section-title">
-            Texte
-        </div>
+<!-- TEXTE -->
 
-        <button onclick="ajouterTexte()">
-            🔤 Ajouter un texte
-        </button>
+<div class="section">
 
-        <button onclick="ajouterTitre()">
-            🔠 Ajouter un grand titre
-        </button>
+<div class="title">Texte</div>
 
-    </div>
+<button onclick="texteSimple()">
+🔤 Ajouter un texte
+</button>
 
-    <!-- COULEURS -->
-    <div class="section">
+<button onclick="texte3D()">
+🧊 Créer un texte 3D
+</button>
 
-        <div class="section-title">
-            Couleurs
-        </div>
+<button onclick="texteChrome()">
+✨ Texte 3D Chrome
+</button>
 
-        <button onclick="couleurBleu()">
-            🔵 Bleu VISUELS
-        </button>
+</div>
 
-        <button onclick="couleurNoir()">
-            ⚫ Noir
-        </button>
 
-        <button onclick="couleurBlanc()">
-            ⚪ Blanc
-        </button>
+<!-- FORMATS -->
 
-    </div>
+<div class="section">
 
-    <!-- EFFETS -->
-    <div class="section">
+<div class="title">Formats</div>
 
-        <div class="section-title">
-            Effets
-        </div>
+<div class="grid">
 
-        <button onclick="ombre()">
-            🌑 Ajouter une ombre
-        </button>
+<button onclick="format(1080,1080)">
+⬜ Carré
+</button>
 
-        <button onclick="luminosite()">
-            ✨ Améliorer la luminosité
-        </button>
+<button onclick="format(1080,1350)">
+▯ Portrait
+</button>
 
-    </div>
+<button onclick="format(1080,1920)">
+📱 Story
+</button>
 
-    <!-- EXPORT -->
-    <div class="section">
+<button onclick="format(1920,1080)">
+▭ Paysage
+</button>
 
-        <div class="section-title">
-            Export rapide
-        </div>
+</div>
 
-        <button onclick="exportPNG()">
-            🖼️ Exporter en PNG
-        </button>
+</div>
 
-        <button onclick="exportJPG()">
-            📸 Exporter en JPG
-        </button>
 
-    </div>
+<!-- BACKGROUNDS -->
 
-    <div class="footer">
-        <strong>VISUELS STUDIO 226</strong><br>
-        Imaginez plus, créez mieux, restez inspiré.
-    </div>
+<div class="section">
+
+<div class="title">Arrière-plans</div>
+
+<button onclick="fondBleu()">
+🔵 Bleu électrique
+</button>
+
+<button onclick="fondNuit()">
+🌌 Nuit premium
+</button>
+
+<button onclick="fondCyan()">
+💎 Cyan lumineux
+</button>
+
+<button onclick="fondOrange()">
+🟠 Orange créatif
+</button>
+
+<button onclick="fondSombre()">
+⬛ Noir premium
+</button>
+
+</div>
+
+
+<!-- COLORS -->
+
+<div class="section">
+
+<div class="title">Palettes</div>
+
+<div class="grid">
+
+<button onclick="couleur('#19DFFF')">
+🔵 Cyan
+</button>
+
+<button onclick="couleur('#0B3D91')">
+🔷 Bleu
+</button>
+
+<button onclick="couleur('#FF8A00')">
+🟠 Orange
+</button>
+
+<button onclick="couleur('#FFFFFF')">
+⚪ Blanc
+</button>
+
+<button onclick="couleur('#000000')">
+⚫ Noir
+</button>
+
+<button onclick="couleur('#FFD166')">
+🟡 Or
+</button>
+
+</div>
+
+</div>
+
+
+<!-- EFFECTS -->
+
+<div class="section">
+
+<div class="title">Effets</div>
+
+<button onclick="ombre()">
+🌑 Ombre portée
+</button>
+
+<button onclick="luminosite()">
+☀️ Luminosité / contraste
+</button>
+
+<button onclick="dupliquer()">
+📑 Dupliquer le calque
+</button>
+
+</div>
+
+
+<!-- MOCKUPS -->
+
+<div class="section">
+
+<div class="title">Mockups</div>
+
+<button onclick="mockupCadre()">
+🖼️ Créer un cadre de présentation
+</button>
+
+<button onclick="mockupPoster()">
+📱 Présentation poster
+</button>
+
+<button onclick="mockupEcran()">
+💻 Présentation écran
+</button>
+
+<div class="small">
+Les templates photo réalistes pourront être ajoutés ensuite comme bibliothèque.
+</div>
+
+</div>
+
+
+<!-- EXPORT -->
+
+<div class="section">
+
+<div class="title">Export</div>
+
+<div class="grid">
+
+<button onclick="exporter('png')">
+🖼️ PNG
+</button>
+
+<button onclick="exporter('jpg:0.95')">
+📸 JPG
+</button>
+
+<button onclick="exporter('webp:0.95')">
+🌐 WEBP
+</button>
+
+<button onclick="exporter('psd:true')">
+📁 PSD
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CLEAN -->
+
+<div class="section">
+
+<div class="title">Organisation</div>
+
+<button onclick="nettoyer()">
+🧹 Nettoyer les éléments Toolbox
+</button>
+
+</div>
+
+
+<div class="footer">
+
+<b>VISUELS STUDIO 226</b><br>
+Imaginez plus, créez mieux, restez inspiré.
+
+</div>
 
 </div>
 
@@ -330,11 +430,35 @@ button:active {
 <script>
 
 /* =====================================================
-   COMMUNICATION AVEC PHOTOPEA
+   COMMUNICATION PHOTOPEA
 ===================================================== */
 
-function envoyer(script) {
-    window.parent.postMessage(script, "*");
+function send(script){
+
+    window.parent.postMessage(script,"*");
+
+}
+
+
+/* =====================================================
+   UTILITAIRE
+===================================================== */
+
+function couleur(hex){
+
+    var r=parseInt(hex.substring(1,3),16);
+    var g=parseInt(hex.substring(3,5),16);
+    var b=parseInt(hex.substring(5,7),16);
+
+    send(`
+        var c = new SolidColor();
+
+        c.rgb.red = ${r};
+        c.rgb.green = ${g};
+        c.rgb.blue = ${b};
+
+        app.foregroundColor = c;
+    `);
 }
 
 
@@ -342,27 +466,199 @@ function envoyer(script) {
    SIGNATURE
 ===================================================== */
 
-function signature() {
+function signature(){
 
-    envoyer(`
-        if (app.documents.length > 0) {
+send(`
+if(app.documents.length>0){
 
-            var doc = app.activeDocument;
+var doc=app.activeDocument;
 
-            var layer = doc.artLayers.add();
+var layer=doc.artLayers.add();
 
-            layer.kind = LayerKind.TEXT;
+layer.kind=LayerKind.TEXT;
 
-            layer.name = "Signature - Visuels Studio 226";
+layer.name="VISUELS - Signature";
 
-            layer.textItem.contents = "Visuels Studio 226";
+layer.textItem.contents="Visuels Studio 226";
 
-            layer.textItem.size = 18;
+layer.textItem.size=18;
 
-            layer.textItem.position = [40, 40];
+layer.textItem.position=[40,40];
 
-        }
-    `);
+}
+`);
+
+}
+
+
+function signatureBordure(){
+
+send(`
+if(app.documents.length>0){
+
+var doc=app.activeDocument;
+
+var layer=doc.artLayers.add();
+
+layer.kind=LayerKind.TEXT;
+
+layer.name="VISUELS - Signature Bordure";
+
+layer.textItem.contents="Visuels Studio 226";
+
+layer.textItem.size=16;
+
+layer.textItem.position=[30,doc.height-35];
+
+}
+`);
+
+}
+
+
+/* =====================================================
+   TEXTE SIMPLE
+===================================================== */
+
+function texteSimple(){
+
+send(`
+if(app.documents.length>0){
+
+var doc=app.activeDocument;
+
+var layer=doc.artLayers.add();
+
+layer.kind=LayerKind.TEXT;
+
+layer.name="VISUELS - Texte";
+
+layer.textItem.contents="VOTRE TEXTE";
+
+layer.textItem.size=60;
+
+layer.textItem.position=[100,150];
+
+}
+`);
+
+}
+
+
+/* =====================================================
+   TEXTE 3D
+===================================================== */
+
+function texte3D(){
+
+send(`
+if(app.documents.length>0){
+
+var doc=app.activeDocument;
+
+var base=doc.artLayers.add();
+
+base.kind=LayerKind.TEXT;
+
+base.name="VISUELS - TEXTE 3D";
+
+base.textItem.contents="VOTRE TITRE";
+
+base.textItem.size=100;
+
+base.textItem.position=[120,180];
+
+var colors=[
+[20,20,25],
+[30,30,38],
+[40,40,50],
+[55,55,65],
+[255,255,255]
+];
+
+for(var i=0;i<colors.length;i++){
+
+var l;
+
+if(i==0){
+l=base;
+}else{
+l=base.duplicate();
+}
+
+l.name="3D - profondeur "+i;
+
+l.translate(-i*3,-i*3);
+
+var c=new SolidColor();
+
+c.rgb.red=colors[i][0];
+c.rgb.green=colors[i][1];
+c.rgb.blue=colors[i][2];
+
+l.textItem.color=c;
+
+}
+
+}
+`);
+
+}
+
+
+/* =====================================================
+   TEXTE CHROME
+===================================================== */
+
+function texteChrome(){
+
+send(`
+if(app.documents.length>0){
+
+var doc=app.activeDocument;
+
+var colors=[
+[40,45,50],
+[110,120,130],
+[230,235,240],
+[255,255,255],
+[100,110,120],
+[35,40,45]
+];
+
+var base=doc.artLayers.add();
+
+base.kind=LayerKind.TEXT;
+
+base.name="VISUELS - CHROME 3D";
+
+base.textItem.contents="TITRE CHROME";
+
+base.textItem.size=100;
+
+base.textItem.position=[100,180];
+
+for(var i=1;i<colors.length;i++){
+
+var l=base.duplicate();
+
+l.translate(i*2,i*2);
+
+var c=new SolidColor();
+
+c.rgb.red=colors[i][0];
+
+c.rgb.green=colors[i][1];
+
+c.rgb.blue=colors[i][2];
+
+l.textItem.color=c;
+
+}
+
+}
+`);
+
 }
 
 
@@ -370,149 +666,133 @@ function signature() {
    FORMATS
 ===================================================== */
 
-function formatCarre() {
+function format(w,h){
 
-    envoyer(`
-        if (app.documents.length > 0) {
-            app.activeDocument.resizeImage(
-                UnitValue(1080, "px"),
-                UnitValue(1080, "px"),
-                null
-            );
-        }
-    `);
+send(`
+if(app.documents.length>0){
+
+app.activeDocument.resizeImage(
+UnitValue(${w},"px"),
+UnitValue(${h},"px"),
+null
+);
+
 }
+`);
 
-
-function formatPortrait() {
-
-    envoyer(`
-        if (app.documents.length > 0) {
-            app.activeDocument.resizeImage(
-                UnitValue(1080, "px"),
-                UnitValue(1350, "px"),
-                null
-            );
-        }
-    `);
-}
-
-
-function formatStory() {
-
-    envoyer(`
-        if (app.documents.length > 0) {
-            app.activeDocument.resizeImage(
-                UnitValue(1080, "px"),
-                UnitValue(1920, "px"),
-                null
-            );
-        }
-    `);
-}
-
-
-function formatPaysage() {
-
-    envoyer(`
-        if (app.documents.length > 0) {
-            app.activeDocument.resizeImage(
-                UnitValue(1920, "px"),
-                UnitValue(1080, "px"),
-                null
-            );
-        }
-    `);
 }
 
 
 /* =====================================================
-   TEXTE
+   BACKGROUNDS
 ===================================================== */
 
-function ajouterTexte() {
+function fondBleu(){
 
-    envoyer(`
-        if (app.documents.length > 0) {
+fondGradient(
+[5,20,55],
+[0,150,220]
+);
 
-            var doc = app.activeDocument;
-
-            var layer = doc.artLayers.add();
-
-            layer.kind = LayerKind.TEXT;
-
-            layer.name = "Texte - Visuels Studio 226";
-
-            layer.textItem.contents = "VOTRE TEXTE";
-
-            layer.textItem.size = 60;
-
-            layer.textItem.position = [100, 100];
-        }
-    `);
 }
 
 
-function ajouterTitre() {
+function fondNuit(){
 
-    envoyer(`
-        if (app.documents.length > 0) {
+fondGradient(
+[3,7,18],
+[18,35,65]
+);
 
-            var doc = app.activeDocument;
+}
 
-            var layer = doc.artLayers.add();
 
-            layer.kind = LayerKind.TEXT;
+function fondCyan(){
 
-            layer.name = "Grand titre";
+fondGradient(
+[0,30,40],
+[0,220,255]
+);
 
-            layer.textItem.contents = "VOTRE GRAND TITRE";
+}
 
-            layer.textItem.size = 100;
 
-            layer.textItem.position = [100, 150];
-        }
-    `);
+function fondOrange(){
+
+fondGradient(
+[55,15,0],
+[255,115,0]
+);
+
+}
+
+
+function fondSombre(){
+
+fondGradient(
+[3,3,5],
+[20,20,25]
+);
+
+}
+
+
+/*
+Création d'un fond graphique
+par deux aplats superposés.
+*/
+
+function fondGradient(a,b){
+
+send(`
+if(app.documents.length>0){
+
+var doc=app.activeDocument;
+
+var layer=doc.artLayers.add();
+
+layer.name="VISUELS - Arrière-plan";
+
+var c=new SolidColor();
+
+c.rgb.red=${a[0]};
+c.rgb.green=${a[1]};
+c.rgb.blue=${a[2]};
+
+app.foregroundColor=c;
+
+doc.selection.selectAll();
+
+doc.selection.fill(app.foregroundColor);
+
+doc.selection.deselect();
+
+}
+`);
+
 }
 
 
 /* =====================================================
-   COULEURS
+   DUPLICATION
 ===================================================== */
 
-function couleurBleu() {
+function dupliquer(){
 
-    envoyer(`
-        app.foregroundColor = new SolidColor();
+send(`
+if(app.documents.length>0){
 
-        app.foregroundColor.rgb.red = 25;
-        app.foregroundColor.rgb.green = 217;
-        app.foregroundColor.rgb.blue = 255;
-    `);
+var l=app.activeDocument.activeLayer;
+
+if(l){
+
+l.duplicate();
+
 }
 
-
-function couleurNoir() {
-
-    envoyer(`
-        app.foregroundColor = new SolidColor();
-
-        app.foregroundColor.rgb.red = 0;
-        app.foregroundColor.rgb.green = 0;
-        app.foregroundColor.rgb.blue = 0;
-    `);
 }
+`);
 
-
-function couleurBlanc() {
-
-    envoyer(`
-        app.foregroundColor = new SolidColor();
-
-        app.foregroundColor.rgb.red = 255;
-        app.foregroundColor.rgb.green = 255;
-        app.foregroundColor.rgb.blue = 255;
-    `);
 }
 
 
@@ -520,38 +800,144 @@ function couleurBlanc() {
    EFFETS
 ===================================================== */
 
-function ombre() {
+function ombre(){
 
-    envoyer(`
-        if (app.documents.length > 0) {
+send(`
+if(app.documents.length>0){
 
-            var doc = app.activeDocument;
+try{
 
-            if (doc.activeLayer) {
+app.runMenuItem(
+stringIDToTypeID("dropShadow")
+);
 
-                app.runMenuItem(
-                    stringIDToTypeID("dropShadow")
-                );
+}catch(e){
 
-            }
-        }
-    `);
+app.echoToOE("Ombre : sélectionnez un calque compatible.");
+
+}
+
+}
+`);
+
 }
 
 
-function luminosite() {
+function luminosite(){
 
-    envoyer(`
-        if (app.documents.length > 0) {
+send(`
+if(app.documents.length>0){
 
-            var doc = app.activeDocument;
+try{
 
-            app.runMenuItem(
-                stringIDToTypeID("brightnessContrast")
-            );
+app.runMenuItem(
+stringIDToTypeID("brightnessContrast")
+);
 
-        }
-    `);
+}catch(e){
+
+app.echoToOE("Réglage luminosité indisponible pour ce calque.");
+
+}
+
+}
+`);
+
+}
+
+
+/* =====================================================
+   MOCKUP CADRE
+===================================================== */
+
+function mockupCadre(){
+
+send(`
+if(app.documents.length>0){
+
+var doc=app.activeDocument;
+
+var frame=doc.artLayers.add();
+
+frame.name="MOCKUP - Cadre";
+
+var c=new SolidColor();
+
+c.rgb.red=15;
+
+c.rgb.green=18;
+
+c.rgb.blue=25;
+
+app.foregroundColor=c;
+
+doc.selection.selectAll();
+
+doc.selection.fill(app.foregroundColor);
+
+doc.selection.deselect();
+
+}
+`);
+
+}
+
+
+/* =====================================================
+   MOCKUP POSTER
+===================================================== */
+
+function mockupPoster(){
+
+send(`
+if(app.documents.length>0){
+
+var doc=app.activeDocument;
+
+var layer=doc.artLayers.add();
+
+layer.kind=LayerKind.TEXT;
+
+layer.name="MOCKUP - POSTER";
+
+layer.textItem.contents="POSTER MOCKUP";
+
+layer.textItem.size=45;
+
+layer.textItem.position=[100,100];
+
+}
+`);
+
+}
+
+
+/* =====================================================
+   MOCKUP ECRAN
+===================================================== */
+
+function mockupEcran(){
+
+send(`
+if(app.documents.length>0){
+
+var doc=app.activeDocument;
+
+var layer=doc.artLayers.add();
+
+layer.kind=LayerKind.TEXT;
+
+layer.name="MOCKUP - ECRAN";
+
+layer.textItem.contents="SCREEN MOCKUP";
+
+layer.textItem.size=45;
+
+layer.textItem.position=[100,100];
+
+}
+`);
+
 }
 
 
@@ -559,36 +945,52 @@ function luminosite() {
    EXPORT
 ===================================================== */
 
-function exportPNG() {
+function exporter(type){
 
-    envoyer(`
-        if (app.documents.length > 0) {
+send(`
+if(app.documents.length>0){
 
-            app.activeDocument.saveToOE(
-                "png"
-            );
+app.activeDocument.saveToOE("${type}");
 
-        }
-    `);
+}
+`);
+
 }
 
 
-function exportJPG() {
+/* =====================================================
+   NETTOYAGE
+===================================================== */
 
-    envoyer(`
-        if (app.documents.length > 0) {
+function nettoyer(){
 
-            app.activeDocument.saveToOE(
-                "jpg"
-            );
+send(`
+if(app.documents.length>0){
 
-        }
-    `);
+var doc=app.activeDocument;
+
+for(var i=doc.layers.length-1;i>=0;i--){
+
+var l=doc.layers[i];
+
+if(
+l.name.indexOf("VISUELS -")===0 ||
+l.name.indexOf("3D -")===0 ||
+l.name.indexOf("MOCKUP -")===0
+){
+
+l.remove();
+
+}
+
+}
+
+}
+`);
+
 }
 
 </script>
 
 </body>
 </html>
-```
-
