@@ -1,1741 +1,1631 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>VISUELS STUDIO 226 - Photopea Toolbox</title>
 
 <style>
-
 *{
     box-sizing:border-box;
 }
 
 body{
     margin:0;
-    background:#060a10;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, sans-serif;
+    background:#07111f;
+    color:white;
+    width:310px;
+    padding:12px;
 }
-
-.app{
-    padding:9px;
-}
-
-/* HEADER */
 
 .header{
-    padding:11px 12px;
+    text-align:center;
+    padding:10px;
+    margin-bottom:10px;
     border-radius:12px;
-    margin-bottom:7px;
-
-    background:
-    radial-gradient(
-        circle at 100% 0%,
-        #00dfff38,
-        transparent 42%
-    ),
-    linear-gradient(
-        135deg,
-        #102131,
-        #071018
-    );
-
-    border:1px solid #1a4053;
+    background:linear-gradient(135deg,#0b1f38,#123d67);
+    border:1px solid #1e5d91;
 }
 
-.brand{
-    font-size:14px;
+.logo{
+    font-size:17px;
     font-weight:900;
-}
-
-.brand span{
-    color:#1de0ff;
+    letter-spacing:1px;
 }
 
 .sub{
-    font-size:8px;
-    color:#8299a7;
+    font-size:11px;
+    color:#8fdcff;
     margin-top:3px;
 }
 
-
-/* STATUS */
-
-.status{
-    display:flex;
-    align-items:center;
-    gap:5px;
-
-    font-size:8px;
-    color:#8ca2ae;
-
-    background:#0b141d;
-    border:1px solid #172d39;
-
-    padding:6px 8px;
-
-    border-radius:7px;
-
-    margin-bottom:7px;
-}
-
-.dot{
-    width:6px;
-    height:6px;
-
-    border-radius:50%;
-
-    background:#00ef9b;
-
-    box-shadow:0 0 8px #00ef9b;
-}
-
-
-/* SECTION */
-
 .section{
+    margin-bottom:9px;
+    padding:9px;
+    border-radius:11px;
+    background:#0c1b2d;
+    border:1px solid #183650;
+}
+
+.section-title{
+    font-size:11px;
+    font-weight:bold;
+    color:#71d8ff;
     margin-bottom:7px;
-}
-
-.title{
-    font-size:8px;
-    font-weight:900;
-
-    color:#d5e7ef;
-
     text-transform:uppercase;
-
-    letter-spacing:.6px;
-
-    margin-bottom:4px;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:5px;
 }
 
-.title:before{
-    content:"";
-
-    width:2px;
-    height:10px;
-
-    background:#18ddff;
-
-    border-radius:3px;
-}
-
-
-/* GRID */
-
-.grid2{
+.grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(2,1fr);
-
-    gap:4px;
+    grid-template-columns:repeat(2,1fr);
+    gap:6px;
 }
-
-.grid3{
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:4px;
-}
-
-.grid4{
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:4px;
-}
-
-
-/* BUTTON */
 
 button{
-
-    width:100%;
-
-    border:1px solid #193540;
-
-    background:#0d1821;
-
-    color:#fff;
-
-    padding:7px 5px;
-
-    border-radius:7px;
-
+    border:0;
+    border-radius:8px;
+    padding:9px 5px;
+    background:#122b45;
+    color:white;
+    font-size:11px;
+    font-weight:bold;
     cursor:pointer;
-
-    font-size:8px;
-
-    font-weight:700;
-
-    min-width:0;
-
-    transition:.12s;
 }
 
 button:hover{
-
-    background:#152a36;
-
-    border-color:#1ddfff;
-
-    transform:translateY(-1px);
-
-}
-
-button:active{
-
-    transform:scale(.97);
-
-}
-
-
-/* BUTTON TYPES */
-
-.ai{
-
-    background:
-    linear-gradient(
-        135deg,
-        #4b2197,
-        #9146e8
-    );
-
-    border-color:#a563f4;
+    background:#18517d;
 }
 
 .primary{
-
-    background:
-    linear-gradient(
-        135deg,
-        #087c9c,
-        #15d8ed
-    );
-
-    border-color:#25ddff;
+    background:linear-gradient(135deg,#008fd5,#0064a0);
 }
 
-
-/* TEMPLATE BUTTONS */
-
-.template{
-
-    min-height:50px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
+.gold{
+    background:linear-gradient(135deg,#b87900,#e4a928);
 }
 
-.template .icon{
-
-    font-size:16px;
-
-    margin-bottom:2px;
+.purple{
+    background:linear-gradient(135deg,#632c9c,#9c43c8);
 }
 
-.template .name{
-
-    font-size:7px;
-
+.green{
+    background:linear-gradient(135deg,#147449,#1ca866);
 }
 
-
-/* TEMPLATE COLORS */
-
-.t1{
-    background:
-    linear-gradient(
-        135deg,
-        #b8002e,
-        #ff7500
-    );
-}
-
-.t2{
-    background:
-    linear-gradient(
-        135deg,
-        #092c7c,
-        #00aeea
-    );
-}
-
-.t3{
-    background:
-    linear-gradient(
-        135deg,
-        #6e1700,
-        #ff8a00
-    );
-}
-
-.t4{
-    background:
-    linear-gradient(
-        135deg,
-        #58169d,
-        #cf31ff
-    );
-}
-
-.t5{
-    background:
-    linear-gradient(
-        135deg,
-        #006d50,
-        #19c978
-    );
-}
-
-.t6{
-    background:
-    linear-gradient(
-        135deg,
-        #9d0b68,
-        #ff4db8
-    );
-}
-
-.t7{
-    background:
-    linear-gradient(
-        135deg,
-        #142338,
-        #376e9e
-    );
-}
-
-.t8{
-    background:
-    linear-gradient(
-        135deg,
-        #06131e,
-        #0087b3
-    );
-}
-
-
-/* INPUT */
-
-input,
-select{
-
+input,select{
     width:100%;
-
-    background:#0b151e;
-
-    color:#fff;
-
-    border:1px solid #193641;
-
+    border:1px solid #244761;
+    background:#071523;
+    color:white;
+    padding:8px;
     border-radius:7px;
-
-    padding:7px;
-
-    font-size:9px;
-
-    margin-bottom:4px;
+    margin-bottom:6px;
 }
 
-
-/* SMALL */
-
-.small{
-
-    font-size:7px;
-
-    color:#647c89;
-
-    line-height:1.4;
-
-    margin-top:3px;
-}
-
-
-/* FOOTER */
-
-.footer{
-
+.status{
     text-align:center;
-
-    color:#607681;
-
-    border-top:1px solid #152731;
-
-    padding-top:7px;
-
-    margin-top:5px;
-
-    font-size:7px;
+    font-size:10px;
+    color:#7ce0a8;
+    margin-top:7px;
 }
-
-.footer b{
-
-    color:#1cddff;
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<div class="app">
-
-
-<!-- =====================================================
-HEADER
-===================================================== -->
-
 <div class="header">
-
-    <div class="brand">
-        VISUELS <span>STUDIO 226</span>
-    </div>
-
-    <div class="sub">
-        Photopea Toolbox • Création graphique professionnelle
-    </div>
-
+    <div class="logo">VISUELS STUDIO 226</div>
+    <div class="sub">PHOTOPEA TOOLBOX</div>
 </div>
 
-
-<div class="status">
-
-    <span class="dot"></span>
-
-    Photopea connecté
-
-</div>
-
-
-
-<!-- =====================================================
-IA
-===================================================== -->
-
+<!-- MODÈLES -->
 <div class="section">
 
-<div class="title">
-🤖 IA & RETOUCHE
+<div class="section-title">🎨 Modèles d'affiches</div>
+
+<div class="grid">
+
+<button class="primary" onclick="templatePromo()">
+🔥 PROMO
+</button>
+
+<button class="primary" onclick="templateFormation()">
+🎓 FORMATION
+</button>
+
+<button class="primary" onclick="templateRestaurant()">
+🍔 RESTAURANT
+</button>
+
+<button class="primary" onclick="templateBusiness()">
+💼 BUSINESS
+</button>
+
+<button class="primary" onclick="templateTelephone()">
+📱 TÉLÉPHONE
+</button>
+
+<button class="primary" onclick="templateEvent()">
+🎉 ÉVÉNEMENT
+</button>
+
+<button class="primary" onclick="templateBirthday()">
+🎂 ANNIVERSAIRE
+</button>
+
+<button class="primary" onclick="templateTech()">
+💻 TECHNO
+</button>
+
+</div>
 </div>
 
-<div class="grid4">
 
-<button class="ai" onclick="aiCut()">
-✂️<br>Détourage
-</button>
-
-<button class="ai" onclick="aiRemove()">
-🪄<br>Supprimer
-</button>
-
-<button class="ai" onclick="aiReplace()">
-✨<br>Remplacer
-</button>
-
-<button class="ai" onclick="aiSelect()">
-🎯<br>Sélection
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-VRAIS MODÈLES
-===================================================== -->
-
+<!-- STICKERS -->
 <div class="section">
 
-<div class="title">
-🖼️ MODÈLES D'AFFICHES
-</div>
+<div class="section-title">🏷️ Stickers</div>
 
+<div class="grid">
 
-<div class="grid4">
-
-
-<button
-class="template t1"
-onclick="openTemplate('promo')">
-
-<span class="icon">🔥</span>
-
-<span class="name">
+<button class="gold" onclick="sticker('PROMO')">
 PROMO
-</span>
-
 </button>
 
-
-<button
-class="template t2"
-onclick="openTemplate('formation')">
-
-<span class="icon">🎓</span>
-
-<span class="name">
-FORMATION
-</span>
-
+<button class="gold" onclick="sticker('-30%')">
+-30%
 </button>
 
-
-<button
-class="template t3"
-onclick="openTemplate('restaurant')">
-
-<span class="icon">🍔</span>
-
-<span class="name">
-RESTAURANT
-</span>
-
+<button class="gold" onclick="sticker('-50%')">
+-50%
 </button>
 
-
-<button
-class="template t4"
-onclick="openTemplate('event')">
-
-<span class="icon">🎉</span>
-
-<span class="name">
-ÉVÉNEMENT
-</span>
-
+<button class="gold" onclick="sticker('NOUVEAU')">
+NOUVEAU
 </button>
 
-
-<button
-class="template t5"
-onclick="openTemplate('product')">
-
-<span class="icon">📦</span>
-
-<span class="name">
-PRODUIT
-</span>
-
+<button class="gold" onclick="sticker('BEST SELLER')">
+BEST SELLER
 </button>
 
-
-<button
-class="template t6"
-onclick="openTemplate('birthday')">
-
-<span class="icon">🎂</span>
-
-<span class="name">
-ANNIVERSAIRE
-</span>
-
+<button class="gold" onclick="sticker('GRATUIT')">
+GRATUIT
 </button>
 
-
-<button
-class="template t7"
-onclick="openTemplate('business')">
-
-<span class="icon">💼</span>
-
-<span class="name">
-BUSINESS
-</span>
-
-</button>
-
-
-<button
-class="template t8"
-onclick="openTemplate('tech')">
-
-<span class="icon">💻</span>
-
-<span class="name">
-TECH
-</span>
-
-</button>
-
-
+</div>
 </div>
 
 
-<div class="small">
-
-Chaque bouton ouvrira un vrai modèle PSD
-modifiable dans Photopea.
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-STICKERS
-===================================================== -->
-
+<!-- TEXTE -->
 <div class="section">
 
-<div class="title">
-🏷️ STICKERS
-</div>
+<div class="section-title">🔤 Texte</div>
 
+<input id="textInput" placeholder="Écris ton texte">
 
-<div class="grid4">
-
-
-<button onclick="sticker('PROMO')">
-🔥<br>PROMO
-</button>
-
-
-<button onclick="sticker('-50%')">
-🏷️<br>-50%
-</button>
-
-
-<button onclick="sticker('NEW')">
-⭐<br>NEW
-</button>
-
-
-<button onclick="sticker('TOP')">
-👑<br>TOP
-</button>
-
-
-<button onclick="sticker('OFFRE')">
-🎁<br>OFFRE
-</button>
-
-
-<button onclick="sticker('URGENT')">
-🚨<br>URGENT
-</button>
-
-
-<button onclick="sticker('GRATUIT')">
-🎁<br>GRATUIT
-</button>
-
-
-<button onclick="sticker('LIMITED')">
-⚡<br>LIMITED
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-TEXTE
-===================================================== -->
-
-<div class="section">
-
-<div class="title">
-🔤 TEXTE
-</div>
-
-
-<input
-id="textInput"
-value="VOTRE TITRE"
-placeholder="Écrivez votre titre">
-
-
-<select id="fontSelect">
-
-<option>Arial</option>
-
-<option>Impact</option>
-
-<option>Montserrat</option>
-
-<option>Poppins</option>
-
-<option>Roboto</option>
-
-<option>Oswald</option>
-
-<option>Arial Black</option>
-
-</select>
-
-
-<div class="grid4">
-
+<div class="grid">
 
 <button onclick="addText()">
-🔤<br>Texte
+➕ Texte
 </button>
 
-
-<button onclick="bigText()">
-💥<br>XXL
+<button onclick="addBigText()">
+🔠 XXL
 </button>
 
-
-<button onclick="text3D()">
-🧊<br>3D
+<button class="purple" onclick="add3DText()">
+🧊 3D
 </button>
 
-
-<button onclick="chromeText()">
-✨<br>Chrome
+<button class="purple" onclick="addChromeText()">
+✨ CHROME
 </button>
-
 
 </div>
-
 </div>
 
 
-
-<!-- =====================================================
-EFFETS
-===================================================== -->
-
+<!-- EFFETS -->
 <div class="section">
 
-<div class="title">
-✨ EFFETS
-</div>
+<div class="section-title">✨ Effets</div>
 
-
-<div class="grid4">
-
+<div class="grid">
 
 <button onclick="shadow()">
-🌑<br>Ombre
+🌑 Ombre
 </button>
-
 
 <button onclick="glow()">
-💡<br>Glow
+💡 Glow
 </button>
 
-
-<button onclick="duplicateLayer()">
-📑<br>Dupliquer
+<button onclick="duplicate()">
+📋 Dupliquer
 </button>
 
-
-<button onclick="signature()">
-✍️<br>Signature
+<button onclick="centerLayer()">
+🎯 Centrer
 </button>
-
 
 </div>
-
 </div>
 
 
-
-<!-- =====================================================
-ARRIÈRE PLANS
-===================================================== -->
-
+<!-- FORMATS -->
 <div class="section">
 
-<div class="title">
-🌌 ARRIÈRE-PLANS
+<div class="section-title">📐 Formats</div>
+
+<div class="grid">
+
+<button onclick="format(1080,1350)">
+POST 4:5
+</button>
+
+<button onclick="format(1080,1920)">
+STORY
+</button>
+
+<button onclick="format(1080,1080)">
+CARRÉ
+</button>
+
+<button onclick="format(2480,3508)">
+A4
+</button>
+
+</div>
 </div>
 
 
-<div class="grid4">
-
-
-<button onclick="background('#06152d')">
-🔵<br>Bleu
-</button>
-
-
-<button onclick="background('#050711')">
-🌌<br>Nuit
-</button>
-
-
-<button onclick="background('#00191c')">
-💎<br>Cyan
-</button>
-
-
-<button onclick="background('#451000')">
-🟠<br>Orange
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-MOCKUPS
-===================================================== -->
-
+<!-- SIGNATURE -->
 <div class="section">
 
-<div class="title">
-📱 MOCKUPS
-</div>
+<div class="section-title">✍️ Signature</div>
 
-
-<div class="grid4">
-
-
-<button onclick="openMockup('smartphone')">
-📱<br>Phone
+<button class="green" style="width:100%" onclick="signature()">
+Ajouter ma signature
 </button>
-
-
-<button onclick="openMockup('laptop')">
-💻<br>Laptop
-</button>
-
-
-<button onclick="openMockup('tablet')">
-📲<br>Tablet
-</button>
-
-
-<button onclick="openMockup('poster')">
-🖼️<br>Poster
-</button>
-
-
-<button onclick="openMockup('shirt')">
-👕<br>T-Shirt
-</button>
-
-
-<button onclick="openMockup('mug')">
-☕<br>Mug
-</button>
-
-
-<button onclick="openMockup('ebook')">
-📕<br>Ebook
-</button>
-
-
-<button onclick="openMockup('box')">
-📦<br>Box
-</button>
-
-
-</div>
 
 </div>
 
 
-
-<!-- =====================================================
-FORMATS
-===================================================== -->
-
+<!-- EXPORT -->
 <div class="section">
 
-<div class="title">
-📐 FORMATS
-</div>
+<div class="section-title">💾 Export</div>
 
-
-<div class="grid4">
-
-
-<button onclick="resizeDocument(1080,1080)">
-⬜<br>Carré
-</button>
-
-
-<button onclick="resizeDocument(1080,1350)">
-▯<br>Post
-</button>
-
-
-<button onclick="resizeDocument(1080,1920)">
-📱<br>Story
-</button>
-
-
-<button onclick="resizeDocument(1920,1080)">
-▭<br>Paysage
-</button>
-
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================================
-EXPORT
-===================================================== -->
-
-<div class="section">
-
-<div class="title">
-💾 EXPORT
-</div>
-
-
-<div class="grid4">
-
+<div class="grid">
 
 <button onclick="exportFile('png')">
 PNG
 </button>
 
-
-<button onclick="exportFile('jpg:0.95')">
+<button onclick="exportFile('jpg')">
 JPG
 </button>
 
-
-<button onclick="exportFile('webp:0.95')">
+<button onclick="exportFile('webp')">
 WEBP
 </button>
 
-
-<button onclick="exportFile('psd:true')">
+<button onclick="exportPSD()">
 PSD
 </button>
 
-
 </div>
 
 </div>
 
-
-
-<div class="footer">
-
-<b>VISUELS STUDIO 226</b>
-
-<br>
-
-Imaginez plus, créez mieux, restez inspiré.
-
+<div class="status" id="status">
+● Extension connectée à Photopea
 </div>
-
-
-</div>
-
 
 
 <script>
 
-
-/* =====================================================
-COMMUNICATION PHOTOPEA
-===================================================== */
+/* =========================
+   COMMUNICATION PHOTOPEA
+========================= */
 
 function send(script){
 
-    window.parent.postMessage(
-        script,
-        "*"
-    );
+    window.parent.postMessage(script,"*");
+
+    document.getElementById("status").innerText =
+        "● Action envoyée à Photopea";
+}
+
+
+/* =========================
+   NOUVEAU DOCUMENT
+========================= */
+
+function newDocument(){
+
+send(`
+app.documents.add(
+1080,
+1350,
+72,
+"Visuels Studio 226"
+);
+`);
 
 }
 
 
+/* =========================
+   PROMO
+========================= */
 
-/* =====================================================
-VRAIS MODÈLES PSD
-===================================================== */
+function templatePromo(){
 
-const TEMPLATES = {
+send(`
 
-promo:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/promo-black-friday.psd",
+app.documents.add(
+1080,
+1350,
+72,
+"PROMO - Visuels Studio 226"
+);
 
-formation:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/formation-pro.psd",
+var bg = app.activeDocument.artLayers.add();
+bg.name = "FOND PREMIUM";
 
-restaurant:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/restaurant-menu.psd",
+bg.backgroundColor = new SolidColor();
+bg.backgroundColor.rgb.red = 7;
+bg.backgroundColor.rgb.green = 18;
+bg.backgroundColor.rgb.blue = 38;
 
-event:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/evenement.psd",
-
-product:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/vente-telephone.psd",
-
-birthday:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/anniversaire.psd",
-
-business:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/business-services.psd",
-
-tech:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/informatique.psd"
-
-};
+app.activeDocument.selection.selectAll();
+app.activeDocument.selection.fill(bg.backgroundColor);
+app.activeDocument.selection.deselect();
 
 
+var title = app.activeDocument.artLayers.add();
+title.kind = LayerKind.TEXT;
+title.name = "TITRE PROMO";
 
-/* =====================================================
-OUVRIR MODÈLE
-===================================================== */
+title.textItem.contents = "GRANDE PROMOTION";
+title.textItem.size = 92;
+title.textItem.font = "Arial-BoldMT";
+title.textItem.color = new SolidColor();
 
-function openTemplate(type){
+title.textItem.color.rgb.red = 255;
+title.textItem.color.rgb.green = 185;
+title.textItem.color.rgb.blue = 35;
 
-    var url = TEMPLATES[type];
-
-    if(!url){
-
-        alert(
-            "Modèle introuvable."
-        );
-
-        return;
-
-    }
+title.textItem.position = [70,170];
 
 
-    send(`
+var subtitle = app.activeDocument.artLayers.add();
+subtitle.kind = LayerKind.TEXT;
+subtitle.name = "SOUS TITRE";
 
-        App.open(
-            ${JSON.stringify(url)}
-        );
+subtitle.textItem.contents = "PROFITEZ DE NOS OFFRES";
+subtitle.textItem.size = 42;
+subtitle.textItem.font = "Arial-BoldMT";
+subtitle.textItem.color = new SolidColor();
 
-    `);
+subtitle.textItem.color.rgb.red = 255;
+subtitle.textItem.color.rgb.green = 255;
+subtitle.textItem.color.rgb.blue = 255;
 
+subtitle.textItem.position = [70,270];
+
+
+var badge = app.activeDocument.artLayers.add();
+badge.kind = LayerKind.TEXT;
+badge.name = "BADGE PROMO";
+
+badge.textItem.contents = "-50%";
+badge.textItem.size = 180;
+badge.textItem.font = "Arial-BoldMT";
+
+badge.textItem.color = new SolidColor();
+badge.textItem.color.rgb.red = 255;
+badge.textItem.color.rgb.green = 70;
+badge.textItem.color.rgb.blue = 50;
+
+badge.textItem.position = [120,570];
+
+
+var product = app.activeDocument.artLayers.add();
+product.kind = LayerKind.TEXT;
+product.name = "PRODUIT";
+
+product.textItem.contents = "VOTRE PRODUIT";
+product.textItem.size = 65;
+product.textItem.font = "Arial-BoldMT";
+
+product.textItem.color = new SolidColor();
+product.textItem.color.rgb.red = 255;
+product.textItem.color.rgb.green = 255;
+product.textItem.color.rgb.blue = 255;
+
+product.textItem.position = [70,850];
+
+
+var price = app.activeDocument.artLayers.add();
+price.kind = LayerKind.TEXT;
+price.name = "PRIX";
+
+price.textItem.contents = "À PARTIR DE 7 500 F";
+price.textItem.size = 55;
+price.textItem.font = "Arial-BoldMT";
+
+price.textItem.color = new SolidColor();
+price.textItem.color.rgb.red = 70;
+price.textItem.color.rgb.green = 220;
+price.textItem.color.rgb.blue = 255;
+
+price.textItem.position = [70,960];
+
+
+var call = app.activeDocument.artLayers.add();
+call.kind = LayerKind.TEXT;
+call.name = "CALL TO ACTION";
+
+call.textItem.contents = "COMMANDER MAINTENANT";
+call.textItem.size = 42;
+call.textItem.font = "Arial-BoldMT";
+
+call.textItem.color = new SolidColor();
+call.textItem.color.rgb.red = 255;
+call.textItem.color.rgb.green = 255;
+call.textItem.color.rgb.blue = 255;
+
+call.textItem.position = [70,1110];
+
+
+var signature = app.activeDocument.artLayers.add();
+signature.kind = LayerKind.TEXT;
+signature.name = "SIGNATURE";
+
+signature.textItem.contents = "Visuels Studio 226";
+signature.textItem.size = 24;
+signature.textItem.font = "Arial";
+
+signature.textItem.color = new SolidColor();
+signature.textItem.color.rgb.red = 255;
+signature.textItem.color.rgb.green = 255;
+signature.textItem.color.rgb.blue = 255;
+
+signature.textItem.position = [760,1300];
+
+`);
 }
 
 
+/* =========================
+   FORMATION
+========================= */
 
-/* =====================================================
-MOCKUPS
-===================================================== */
+function templateFormation(){
 
-const MOCKUPS = {
+send(`
 
-smartphone:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/smartphone.psd",
+app.documents.add(
+1080,
+1350,
+72,
+"FORMATION - Visuels Studio 226"
+);
 
-laptop:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/laptop.psd",
+var bg = app.activeDocument.artLayers.add();
+bg.name = "FOND FORMATION";
 
-tablet:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/tablet.psd",
+bg.backgroundColor = new SolidColor();
+bg.backgroundColor.rgb.red = 10;
+bg.backgroundColor.rgb.green = 20;
+bg.backgroundColor.rgb.blue = 55;
 
-poster:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/poster.psd",
-
-shirt:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/tshirt.psd",
-
-mug:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/mug.psd",
-
-ebook:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/ebook.psd",
-
-box:
-"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/box.psd"
-
-};
+app.activeDocument.selection.selectAll();
+app.activeDocument.selection.fill(bg.backgroundColor);
+app.activeDocument.selection.deselect();
 
 
+var title = app.activeDocument.artLayers.add();
+title.kind = LayerKind.TEXT;
+title.name = "FORMATION";
 
-function openMockup(type){
+title.textItem.contents = "FORMATION";
+title.textItem.size = 120;
+title.textItem.font = "Arial-BoldMT";
 
-    var url=MOCKUPS[type];
+title.textItem.color = new SolidColor();
+title.textItem.color.rgb.red = 60;
+title.textItem.color.rgb.green = 210;
+title.textItem.color.rgb.blue = 255;
 
-    if(!url){
-
-        alert(
-            "Mockup introuvable."
-        );
-
-        return;
-
-    }
+title.textItem.position = [70,190];
 
 
-    send(`
+var sub = app.activeDocument.artLayers.add();
+sub.kind = LayerKind.TEXT;
+sub.name = "SOUS TITRE";
 
-        App.open(
-            ${JSON.stringify(url)},
-            null,
-            true
-        );
+sub.textItem.contents = "APPRENEZ • PRATIQUEZ • CRÉEZ";
+sub.textItem.size = 43;
+sub.textItem.font = "Arial-BoldMT";
 
-    `);
+sub.textItem.color = new SolidColor();
+sub.textItem.color.rgb.red = 255;
+sub.textItem.color.rgb.green = 255;
+sub.textItem.color.rgb.blue = 255;
 
+sub.textItem.position = [70,285];
+
+
+var course = app.activeDocument.artLayers.add();
+course.kind = LayerKind.TEXT;
+course.name = "NOM FORMATION";
+
+course.textItem.contents = "PHOTOSHOP\nDESIGN GRAPHIQUE";
+course.textItem.size = 72;
+course.textItem.font = "Arial-BoldMT";
+
+course.textItem.color = new SolidColor();
+course.textItem.color.rgb.red = 255;
+course.textItem.color.rgb.green = 190;
+course.textItem.color.rgb.blue = 30;
+
+course.textItem.position = [70,500];
+
+
+var bonus = app.activeDocument.artLayers.add();
+bonus.kind = LayerKind.TEXT;
+bonus.name = "BONUS";
+
+bonus.textItem.contents = "🎁 BONUS INCLUS";
+bonus.textItem.size = 48;
+bonus.textItem.font = "Arial-BoldMT";
+
+bonus.textItem.color = new SolidColor();
+bonus.textItem.color.rgb.red = 255;
+bonus.textItem.color.rgb.green = 255;
+bonus.textItem.color.rgb.blue = 255;
+
+bonus.textItem.position = [70,850];
+
+
+var cta = app.activeDocument.artLayers.add();
+cta.kind = LayerKind.TEXT;
+cta.name = "CTA";
+
+cta.textItem.contents = "INSCRIVEZ-VOUS MAINTENANT";
+cta.textItem.size = 42;
+cta.textItem.font = "Arial-BoldMT";
+
+cta.textItem.color = new SolidColor();
+cta.textItem.color.rgb.red = 70;
+cta.textItem.color.rgb.green = 230;
+cta.textItem.color.rgb.blue = 150;
+
+cta.textItem.position = [70,1050];
+
+
+var sign = app.activeDocument.artLayers.add();
+sign.kind = LayerKind.TEXT;
+sign.name = "SIGNATURE";
+
+sign.textItem.contents = "Visuels Studio 226";
+sign.textItem.size = 24;
+
+sign.textItem.color = new SolidColor();
+sign.textItem.color.rgb.red = 255;
+sign.textItem.color.rgb.green = 255;
+sign.textItem.color.rgb.blue = 255;
+
+sign.textItem.position = [760,1300];
+
+`);
 }
 
 
+/* =========================
+   RESTAURANT
+========================= */
 
-/* =====================================================
-IA
-===================================================== */
+function templateRestaurant(){
 
-function aiCut(){
+send(`
 
-    send(`
+app.documents.add(
+1080,
+1350,
+72,
+"RESTAURANT - Visuels Studio 226"
+);
 
-    if(app.documents.length>0){
+var bg = app.activeDocument.artLayers.add();
+bg.name = "FOND RESTAURANT";
 
-        try{
+bg.backgroundColor = new SolidColor();
+bg.backgroundColor.rgb.red = 35;
+bg.backgroundColor.rgb.green = 12;
+bg.backgroundColor.rgb.blue = 8;
 
-            app.showWindow("magiccut");
+app.activeDocument.selection.selectAll();
+app.activeDocument.selection.fill(bg.backgroundColor);
+app.activeDocument.selection.deselect();
 
-        }catch(e){
 
-            app.echoToOE(
-                "Ouvrez le menu Sélection pour utiliser le détourage."
-            );
+var title = app.activeDocument.artLayers.add();
+title.kind = LayerKind.TEXT;
+title.name = "RESTAURANT";
 
-        }
+title.textItem.contents = "MENU DU JOUR";
+title.textItem.size = 100;
+title.textItem.font = "Arial-BoldMT";
 
-    }
+title.textItem.color = new SolidColor();
+title.textItem.color.rgb.red = 255;
+title.textItem.color.rgb.green = 190;
+title.textItem.color.rgb.blue = 50;
 
-    `);
+title.textItem.position = [70,180];
 
+
+var food = app.activeDocument.artLayers.add();
+food.kind = LayerKind.TEXT;
+food.name = "PLAT";
+
+food.textItem.contents = "PLAT SPÉCIAL";
+food.textItem.size = 85;
+food.textItem.font = "Arial-BoldMT";
+
+food.textItem.color = new SolidColor();
+food.textItem.color.rgb.red = 255;
+food.textItem.color.rgb.green = 255;
+food.textItem.color.rgb.blue = 255;
+
+food.textItem.position = [70,500];
+
+
+var price = app.activeDocument.artLayers.add();
+price.kind = LayerKind.TEXT;
+price.name = "PRIX";
+
+price.textItem.contents = "2 500 F";
+price.textItem.size = 100;
+price.textItem.font = "Arial-BoldMT";
+
+price.textItem.color = new SolidColor();
+price.textItem.color.rgb.red = 255;
+price.textItem.color.rgb.green = 100;
+price.textItem.color.rgb.blue = 50;
+
+price.textItem.position = [70,700];
+
+
+var contact = app.activeDocument.artLayers.add();
+contact.kind = LayerKind.TEXT;
+contact.name = "CONTACT";
+
+contact.textItem.contents = "COMMANDES : +226 XX XX XX XX";
+contact.textItem.size = 38;
+
+contact.textItem.color = new SolidColor();
+contact.textItem.color.rgb.red = 255;
+contact.textItem.color.rgb.green = 255;
+contact.textItem.color.rgb.blue = 255;
+
+contact.textItem.position = [70,1100];
+
+
+var sign = app.activeDocument.artLayers.add();
+sign.kind = LayerKind.TEXT;
+sign.name = "SIGNATURE";
+
+sign.textItem.contents = "Visuels Studio 226";
+sign.textItem.size = 24;
+
+sign.textItem.color = new SolidColor();
+sign.textItem.color.rgb.red = 255;
+sign.textItem.color.rgb.green = 255;
+sign.textItem.color.rgb.blue = 255;
+
+sign.textItem.position = [760,1300];
+
+`);
 }
 
 
-function aiSelect(){
+/* =========================
+   BUSINESS
+========================= */
 
-    send(`
+function templateBusiness(){
 
-    if(app.documents.length>0){
+send(`
 
-        try{
+app.documents.add(
+1080,
+1350,
+72,
+"BUSINESS - Visuels Studio 226"
+);
 
-            app.showWindow("magiccut");
+var bg = app.activeDocument.artLayers.add();
+bg.name = "FOND BUSINESS";
 
-        }catch(e){}
+bg.backgroundColor = new SolidColor();
+bg.backgroundColor.rgb.red = 8;
+bg.backgroundColor.rgb.green = 12;
+bg.backgroundColor.rgb.blue = 25;
 
-    }
+app.activeDocument.selection.selectAll();
+app.activeDocument.selection.fill(bg.backgroundColor);
+app.activeDocument.selection.deselect();
 
-    `);
 
+var title = app.activeDocument.artLayers.add();
+title.kind = LayerKind.TEXT;
+title.name = "TITRE";
+
+title.textItem.contents = "VOTRE ENTREPRISE";
+title.textItem.size = 90;
+title.textItem.font = "Arial-BoldMT";
+
+title.textItem.color = new SolidColor();
+title.textItem.color.rgb.red = 70;
+title.textItem.color.rgb.green = 210;
+title.textItem.color.rgb.blue = 255;
+
+title.textItem.position = [70,180];
+
+
+var services = app.activeDocument.artLayers.add();
+services.kind = LayerKind.TEXT;
+services.name = "SERVICES";
+
+services.textItem.contents =
+"DESIGN GRAPHIQUE\nDÉVELOPPEMENT WEB\nCOMMUNICATION DIGITALE";
+
+services.textItem.size = 55;
+services.textItem.font = "Arial-BoldMT";
+
+services.textItem.color = new SolidColor();
+services.textItem.color.rgb.red = 255;
+services.textItem.color.rgb.green = 255;
+services.textItem.color.rgb.blue = 255;
+
+services.textItem.position = [70,450];
+
+
+var cta = app.activeDocument.artLayers.add();
+cta.kind = LayerKind.TEXT;
+cta.name = "CTA";
+
+cta.textItem.contents = "CONTACTEZ-NOUS";
+cta.textItem.size = 65;
+cta.textItem.font = "Arial-BoldMT";
+
+cta.textItem.color = new SolidColor();
+cta.textItem.color.rgb.red = 255;
+cta.textItem.color.rgb.green = 190;
+cta.textItem.color.rgb.blue = 30;
+
+cta.textItem.position = [70,950];
+
+
+var sign = app.activeDocument.artLayers.add();
+sign.kind = LayerKind.TEXT;
+sign.name = "SIGNATURE";
+
+sign.textItem.contents = "Visuels Studio 226";
+sign.textItem.size = 24;
+
+sign.textItem.color = new SolidColor();
+sign.textItem.color.rgb.red = 255;
+sign.textItem.color.rgb.green = 255;
+sign.textItem.color.rgb.blue = 255;
+
+sign.textItem.position = [760,1300];
+
+`);
 }
 
 
-function aiRemove(){
+/* =========================
+   TELEPHONE
+========================= */
 
-    send(`
+function templateTelephone(){
 
-    if(app.documents.length>0){
+send(`
 
-        try{
+app.documents.add(
+1080,
+1350,
+72,
+"VENTE TELEPHONE - Visuels Studio 226"
+);
 
-            app.runMenuItem(
-                stringIDToTypeID(
-                    "contentAwareFill"
-                )
-            );
+var bg = app.activeDocument.artLayers.add();
 
-        }catch(e){
+bg.name = "FOND TELEPHONE";
 
-            app.echoToOE(
-                "Sélectionnez d'abord l'élément à supprimer."
-            );
+bg.backgroundColor = new SolidColor();
+bg.backgroundColor.rgb.red = 5;
+bg.backgroundColor.rgb.green = 30;
+bg.backgroundColor.rgb.blue = 55;
 
-        }
+app.activeDocument.selection.selectAll();
+app.activeDocument.selection.fill(bg.backgroundColor);
+app.activeDocument.selection.deselect();
 
-    }
 
-    `);
+var title = app.activeDocument.artLayers.add();
 
+title.kind = LayerKind.TEXT;
+title.name = "VENTE";
+
+title.textItem.contents = "VENTE DE TÉLÉPHONES";
+title.textItem.size = 72;
+title.textItem.font = "Arial-BoldMT";
+
+title.textItem.color = new SolidColor();
+title.textItem.color.rgb.red = 70;
+title.textItem.color.rgb.green = 220;
+title.textItem.color.rgb.blue = 255;
+
+title.textItem.position = [50,170];
+
+
+var product = app.activeDocument.artLayers.add();
+
+product.kind = LayerKind.TEXT;
+product.name = "PRODUIT";
+
+product.textItem.contents = "IPHONE • SAMSUNG\nTECNO • INFINIX";
+product.textItem.size = 65;
+product.textItem.font = "Arial-BoldMT";
+
+product.textItem.color = new SolidColor();
+product.textItem.color.rgb.red = 255;
+product.textItem.color.rgb.green = 255;
+product.textItem.color.rgb.blue = 255;
+
+product.textItem.position = [70,500];
+
+
+var price = app.activeDocument.artLayers.add();
+
+price.kind = LayerKind.TEXT;
+price.name = "PRIX";
+
+price.textItem.contents = "PRIX ATTRACTIFS";
+price.textItem.size = 65;
+price.textItem.font = "Arial-BoldMT";
+
+price.textItem.color = new SolidColor();
+price.textItem.color.rgb.red = 255;
+price.textItem.color.rgb.green = 190;
+price.textItem.color.rgb.blue = 30;
+
+price.textItem.position = [70,800];
+
+
+var contact = app.activeDocument.artLayers.add();
+
+contact.kind = LayerKind.TEXT;
+contact.name = "CONTACT";
+
+contact.textItem.contents = "+226 XX XX XX XX";
+contact.textItem.size = 55;
+
+contact.textItem.color = new SolidColor();
+contact.textItem.color.rgb.red = 255;
+contact.textItem.color.rgb.green = 255;
+contact.textItem.color.rgb.blue = 255;
+
+contact.textItem.position = [70,1050];
+
+
+var sign = app.activeDocument.artLayers.add();
+
+sign.kind = LayerKind.TEXT;
+sign.name = "SIGNATURE";
+
+sign.textItem.contents = "Visuels Studio 226";
+sign.textItem.size = 24;
+
+sign.textItem.color = new SolidColor();
+sign.textItem.color.rgb.red = 255;
+sign.textItem.color.rgb.green = 255;
+sign.textItem.color.rgb.blue = 255;
+
+sign.textItem.position = [760,1300];
+
+`);
 }
 
 
-function aiReplace(){
+/* =========================
+   ÉVÉNEMENT
+========================= */
 
-    send(`
+function templateEvent(){
 
-    if(app.documents.length>0){
+send(`
 
-        try{
+app.documents.add(
+1080,
+1350,
+72,
+"EVENEMENT - Visuels Studio 226"
+);
 
-            app.runMenuItem(
-                stringIDToTypeID(
-                    "magicReplace"
-                )
-            );
+var bg = app.activeDocument.artLayers.add();
 
-        }catch(e){
+bg.name = "FOND EVENEMENT";
 
-            app.echoToOE(
-                "Magic Replace n'est pas disponible."
-            );
+bg.backgroundColor = new SolidColor();
+bg.backgroundColor.rgb.red = 25;
+bg.backgroundColor.rgb.green = 5;
+bg.backgroundColor.rgb.blue = 45;
 
-        }
+app.activeDocument.selection.selectAll();
+app.activeDocument.selection.fill(bg.backgroundColor);
+app.activeDocument.selection.deselect();
 
-    }
 
-    `);
+var title = app.activeDocument.artLayers.add();
 
+title.kind = LayerKind.TEXT;
+title.name = "EVENEMENT";
+
+title.textItem.contents = "GRAND ÉVÉNEMENT";
+title.textItem.size = 88;
+title.textItem.font = "Arial-BoldMT";
+
+title.textItem.color = new SolidColor();
+title.textItem.color.rgb.red = 255;
+title.textItem.color.rgb.green = 80;
+title.textItem.color.rgb.blue = 200;
+
+title.textItem.position = [60,190];
+
+
+var date = app.activeDocument.artLayers.add();
+
+date.kind = LayerKind.TEXT;
+date.name = "DATE";
+
+date.textItem.contents = "SAMEDI 20 JUIN";
+date.textItem.size = 65;
+date.textItem.font = "Arial-BoldMT";
+
+date.textItem.color = new SolidColor();
+date.textItem.color.rgb.red = 255;
+date.textItem.color.rgb.green = 255;
+date.textItem.color.rgb.blue = 255;
+
+date.textItem.position = [70,500];
+
+
+var place = app.activeDocument.artLayers.add();
+
+place.kind = LayerKind.TEXT;
+place.name = "LIEU";
+
+place.textItem.contents = "FADA N'GOURMA";
+place.textItem.size = 55;
+place.textItem.font = "Arial-BoldMT";
+
+place.textItem.color = new SolidColor();
+place.textItem.color.rgb.red = 255;
+place.textItem.color.rgb.green = 190;
+place.textItem.color.rgb.blue = 30;
+
+place.textItem.position = [70,700];
+
+
+var cta = app.activeDocument.artLayers.add();
+
+cta.kind = LayerKind.TEXT;
+cta.name = "CTA";
+
+cta.textItem.contents = "RÉSERVEZ VOTRE PLACE";
+cta.textItem.size = 45;
+cta.textItem.font = "Arial-BoldMT";
+
+cta.textItem.color = new SolidColor();
+cta.textItem.color.rgb.red = 255;
+cta.textItem.color.rgb.green = 255;
+cta.textItem.color.rgb.blue = 255;
+
+cta.textItem.position = [70,1050];
+
+
+var sign = app.activeDocument.artLayers.add();
+
+sign.kind = LayerKind.TEXT;
+sign.name = "SIGNATURE";
+
+sign.textItem.contents = "Visuels Studio 226";
+sign.textItem.size = 24;
+
+sign.textItem.color = new SolidColor();
+sign.textItem.color.rgb.red = 255;
+sign.textItem.color.rgb.green = 255;
+sign.textItem.color.rgb.blue = 255;
+
+sign.textItem.position = [760,1300];
+
+`);
 }
 
 
+/* =========================
+   ANNIVERSAIRE
+========================= */
 
-/* =====================================================
-TEXTE
-===================================================== */
+function templateBirthday(){
 
-function getText(){
+send(`
 
-    return document
-        .getElementById("textInput")
-        .value
-        ||
-        "VOTRE TITRE";
+app.documents.add(
+1080,
+1350,
+72,
+"ANNIVERSAIRE - Visuels Studio 226"
+);
 
+var bg = app.activeDocument.artLayers.add();
+
+bg.name = "FOND ANNIVERSAIRE";
+
+bg.backgroundColor = new SolidColor();
+bg.backgroundColor.rgb.red = 40;
+bg.backgroundColor.rgb.green = 8;
+bg.backgroundColor.rgb.blue = 35;
+
+app.activeDocument.selection.selectAll();
+app.activeDocument.selection.fill(bg.backgroundColor);
+app.activeDocument.selection.deselect();
+
+
+var title = app.activeDocument.artLayers.add();
+
+title.kind = LayerKind.TEXT;
+title.name = "ANNIVERSAIRE";
+
+title.textItem.contents = "JOYEUX ANNIVERSAIRE";
+title.textItem.size = 75;
+title.textItem.font = "Arial-BoldMT";
+
+title.textItem.color = new SolidColor();
+title.textItem.color.rgb.red = 255;
+title.textItem.color.rgb.green = 190;
+title.textItem.color.rgb.blue = 40;
+
+title.textItem.position = [50,180];
+
+
+var name = app.activeDocument.artLayers.add();
+
+name.kind = LayerKind.TEXT;
+name.name = "NOM";
+
+name.textItem.contents = "MOHAMED";
+name.textItem.size = 130;
+name.textItem.font = "Arial-BoldMT";
+
+name.textItem.color = new SolidColor();
+name.textItem.color.rgb.red = 255;
+name.textItem.color.rgb.green = 255;
+name.textItem.color.rgb.blue = 255;
+
+name.textItem.position = [70,550];
+
+
+var age = app.activeDocument.artLayers.add();
+
+age.kind = LayerKind.TEXT;
+age.name = "AGE";
+
+age.textItem.contents = "12 ANS";
+age.textItem.size = 100;
+age.textItem.font = "Arial-BoldMT";
+
+age.textItem.color = new SolidColor();
+age.textItem.color.rgb.red = 255;
+age.textItem.color.rgb.green = 80;
+age.textItem.color.rgb.blue = 150;
+
+age.textItem.position = [70,750];
+
+
+var sign = app.activeDocument.artLayers.add();
+
+sign.kind = LayerKind.TEXT;
+sign.name = "SIGNATURE";
+
+sign.textItem.contents = "Visuels Studio 226";
+sign.textItem.size = 24;
+
+sign.textItem.color = new SolidColor();
+sign.textItem.color.rgb.red = 255;
+sign.textItem.color.rgb.green = 255;
+sign.textItem.color.rgb.blue = 255;
+
+sign.textItem.position = [760,1300];
+
+`);
 }
 
 
-function getFont(){
+/* =========================
+   TECHNO
+========================= */
 
-    return document
-        .getElementById("fontSelect")
-        .value;
+function templateTech(){
 
+send(`
+
+app.documents.add(
+1080,
+1350,
+72,
+"TECHNO - Visuels Studio 226"
+);
+
+var bg = app.activeDocument.artLayers.add();
+
+bg.name = "FOND TECHNO";
+
+bg.backgroundColor = new SolidColor();
+bg.backgroundColor.rgb.red = 3;
+bg.backgroundColor.rgb.green = 8;
+bg.backgroundColor.rgb.blue = 20;
+
+app.activeDocument.selection.selectAll();
+app.activeDocument.selection.fill(bg.backgroundColor);
+app.activeDocument.selection.deselect();
+
+
+var title = app.activeDocument.artLayers.add();
+
+title.kind = LayerKind.TEXT;
+title.name = "TECHNO";
+
+title.textItem.contents = "TECHNOLOGIE";
+title.textItem.size = 115;
+title.textItem.font = "Arial-BoldMT";
+
+title.textItem.color = new SolidColor();
+title.textItem.color.rgb.red = 0;
+title.textItem.color.rgb.green = 220;
+title.textItem.color.rgb.blue = 255;
+
+title.textItem.position = [60,190];
+
+
+var sub = app.activeDocument.artLayers.add();
+
+sub.kind = LayerKind.TEXT;
+sub.name = "SOUS TITRE";
+
+sub.textItem.contents = "INNOVATION • PERFORMANCE";
+sub.textItem.size = 42;
+sub.textItem.font = "Arial-BoldMT";
+
+sub.textItem.color = new SolidColor();
+sub.textItem.color.rgb.red = 255;
+sub.textItem.color.rgb.green = 255;
+sub.textItem.color.rgb.blue = 255;
+
+sub.textItem.position = [70,330];
+
+
+var product = app.activeDocument.artLayers.add();
+
+product.kind = LayerKind.TEXT;
+product.name = "PRODUIT";
+
+product.textItem.contents = "SMARTPHONE\nNOUVELLE GÉNÉRATION";
+product.textItem.size = 65;
+product.textItem.font = "Arial-BoldMT";
+
+product.textItem.color = new SolidColor();
+product.textItem.color.rgb.red = 255;
+product.textItem.color.rgb.green = 255;
+product.textItem.color.rgb.blue = 255;
+
+product.textItem.position = [70,600];
+
+
+var cta = app.activeDocument.artLayers.add();
+
+cta.kind = LayerKind.TEXT;
+cta.name = "CTA";
+
+cta.textItem.contents = "DÉCOUVRIR MAINTENANT";
+cta.textItem.size = 48;
+cta.textItem.font = "Arial-BoldMT";
+
+cta.textItem.color = new SolidColor();
+cta.textItem.color.rgb.red = 255;
+cta.textItem.color.rgb.green = 190;
+cta.textItem.color.rgb.blue = 30;
+
+cta.textItem.position = [70,1050];
+
+
+var sign = app.activeDocument.artLayers.add();
+
+sign.kind = LayerKind.TEXT;
+sign.name = "SIGNATURE";
+
+sign.textItem.contents = "Visuels Studio 226";
+sign.textItem.size = 24;
+
+sign.textItem.color = new SolidColor();
+sign.textItem.color.rgb.red = 255;
+sign.textItem.color.rgb.green = 255;
+sign.textItem.color.rgb.blue = 255;
+
+sign.textItem.position = [760,1300];
+
+`);
 }
 
 
-function addText(){
-
-    var text=getText();
-
-    var font=getFont();
-
-
-    send(`
-
-    if(app.documents.length>0){
-
-        var doc=app.activeDocument;
-
-        var layer=doc.artLayers.add();
-
-        layer.kind=LayerKind.TEXT;
-
-        layer.name=
-        "VISUELS - TEXTE";
-
-        layer.textItem.contents=
-        ${JSON.stringify(text)};
-
-        layer.textItem.font=
-        ${JSON.stringify(font)};
-
-        layer.textItem.size=80;
-
-        layer.textItem.position=[
-            100,
-            180
-        ];
-
-    }
-
-    `);
-
-}
-
-
-
-function bigText(){
-
-    var text=getText();
-
-    var font=getFont();
-
-
-    send(`
-
-    if(app.documents.length>0){
-
-        var doc=app.activeDocument;
-
-        var layer=doc.artLayers.add();
-
-        layer.kind=LayerKind.TEXT;
-
-        layer.name=
-        "VISUELS - TITRE XXL";
-
-        layer.textItem.contents=
-        ${JSON.stringify(text)};
-
-        layer.textItem.font=
-        ${JSON.stringify(font)};
-
-        layer.textItem.size=170;
-
-        layer.textItem.position=[
-            70,
-            200
-        ];
-
-    }
-
-    `);
-
-}
-
-
-
-/* =====================================================
-TEXTE 3D
-===================================================== */
-
-function text3D(){
-
-    var text=getText();
-
-    var font=getFont();
-
-
-    send(`
-
-    if(app.documents.length>0){
-
-        var doc=
-        app.activeDocument;
-
-        var base=
-        doc.artLayers.add();
-
-        base.kind=
-        LayerKind.TEXT;
-
-        base.name=
-        "VISUELS - 3D";
-
-        base.textItem.contents=
-        ${JSON.stringify(text)};
-
-        base.textItem.font=
-        ${JSON.stringify(font)};
-
-        base.textItem.size=120;
-
-        base.textItem.position=[
-            100,
-            200
-        ];
-
-
-        for(
-            var i=1;
-            i<7;
-            i++
-        ){
-
-            var layer=
-            base.duplicate();
-
-            layer.name=
-            "VISUELS - 3D profondeur";
-
-            layer.translate(
-                i*4,
-                i*4
-            );
-
-        }
-
-    }
-
-    `);
-
-}
-
-
-
-/* =====================================================
-CHROME
-===================================================== */
-
-function chromeText(){
-
-    var text=getText();
-
-    var font=getFont();
-
-
-    send(`
-
-    if(app.documents.length>0){
-
-        var doc=
-        app.activeDocument;
-
-        var base=
-        doc.artLayers.add();
-
-        base.kind=
-        LayerKind.TEXT;
-
-        base.name=
-        "VISUELS - CHROME";
-
-        base.textItem.contents=
-        ${JSON.stringify(text)};
-
-        base.textItem.font=
-        ${JSON.stringify(font)};
-
-        base.textItem.size=120;
-
-        base.textItem.position=[
-            100,
-            200
-        ];
-
-
-        var color=
-        new SolidColor();
-
-        color.rgb.red=235;
-        color.rgb.green=240;
-        color.rgb.blue=245;
-
-        base.textItem.color=
-        color;
-
-
-        for(
-            var i=1;
-            i<5;
-            i++
-        ){
-
-            var layer=
-            base.duplicate();
-
-            layer.translate(
-                i*2,
-                i*2
-            );
-
-        }
-
-    }
-
-    `);
-
-}
-
-
-
-/* =====================================================
-STICKERS
-===================================================== */
+/* =========================
+   STICKERS
+========================= */
 
 function sticker(text){
 
-    send(`
+send(`
 
-    if(app.documents.length>0){
+var layer = app.activeDocument.artLayers.add();
 
-        var doc=
-        app.activeDocument;
+layer.kind = LayerKind.TEXT;
+layer.name = "STICKER - ${text}";
 
-        var layer=
-        doc.artLayers.add();
+layer.textItem.contents = "${text}";
+layer.textItem.size = 75;
+layer.textItem.font = "Arial-BoldMT";
 
-        layer.kind=
-        LayerKind.TEXT;
+layer.textItem.color = new SolidColor();
+layer.textItem.color.rgb.red = 255;
+layer.textItem.color.rgb.green = 190;
+layer.textItem.color.rgb.blue = 30;
 
-        layer.name=
-        "VISUELS - STICKER";
+layer.textItem.position = [400,400];
 
-        layer.textItem.contents=
-        ${JSON.stringify(text)};
-
-        layer.textItem.size=55;
-
-        layer.textItem.position=[
-            80,
-            80
-        ];
-
-    }
-
-    `);
+`);
 
 }
 
 
+/* =========================
+   TEXTE
+========================= */
 
-/* =====================================================
-ARRIÈRE PLAN
-===================================================== */
+function addText(){
 
-function background(hex){
+var text =
+document.getElementById("textInput").value;
 
-    var r=
-    parseInt(
-        hex.substring(1,3),
-        16
-    );
+if(!text){
+    alert("Écris d'abord ton texte.");
+    return;
+}
 
-    var g=
-    parseInt(
-        hex.substring(3,5),
-        16
-    );
+send(`
 
-    var b=
-    parseInt(
-        hex.substring(5,7),
-        16
-    );
+var layer = app.activeDocument.artLayers.add();
+
+layer.kind = LayerKind.TEXT;
+layer.name = "TEXTE";
+
+layer.textItem.contents = ${JSON.stringify(text)};
+layer.textItem.size = 55;
+layer.textItem.font = "Arial-BoldMT";
+
+layer.textItem.color = new SolidColor();
+
+layer.textItem.color.rgb.red = 255;
+layer.textItem.color.rgb.green = 255;
+layer.textItem.color.rgb.blue = 255;
+
+layer.textItem.position = [100,300];
+
+`);
+}
 
 
-    send(`
+function addBigText(){
 
-    if(app.documents.length>0){
+var text =
+document.getElementById("textInput").value;
 
-        var doc=
-        app.activeDocument;
+if(!text){
+    alert("Écris d'abord ton texte.");
+    return;
+}
 
-        var layer=
-        doc.artLayers.add();
+send(`
 
-        layer.name=
-        "VISUELS - FOND";
+var layer = app.activeDocument.artLayers.add();
 
-        var color=
-        new SolidColor();
+layer.kind = LayerKind.TEXT;
+layer.name = "TEXTE XXL";
 
-        color.rgb.red=${r};
+layer.textItem.contents = ${JSON.stringify(text)};
+layer.textItem.size = 120;
+layer.textItem.font = "Arial-BoldMT";
 
-        color.rgb.green=${g};
+layer.textItem.color = new SolidColor();
 
-        color.rgb.blue=${b};
+layer.textItem.color.rgb.red = 255;
+layer.textItem.color.rgb.green = 190;
+layer.textItem.color.rgb.blue = 30;
 
-        app.foregroundColor=
-        color;
+layer.textItem.position = [80,400];
 
-        doc.selection.selectAll();
+`);
+}
 
-        doc.selection.fill(
-            app.foregroundColor
-        );
 
-        doc.selection.deselect();
+function add3DText(){
 
-    }
+var text =
+document.getElementById("textInput").value;
 
-    `);
+if(!text){
+    alert("Écris d'abord ton texte.");
+    return;
+}
+
+send(`
+
+var base = app.activeDocument.artLayers.add();
+
+base.kind = LayerKind.TEXT;
+base.name = "TEXTE 3D";
+
+base.textItem.contents = ${JSON.stringify(text)};
+base.textItem.size = 110;
+base.textItem.font = "Arial-BoldMT";
+
+base.textItem.color = new SolidColor();
+base.textItem.color.rgb.red = 255;
+base.textItem.color.rgb.green = 190;
+base.textItem.color.rgb.blue = 30;
+
+base.textItem.position = [100,400];
+
+var shadow = base.duplicate();
+shadow.name = "3D PROFONDEUR";
+
+shadow.translate(18,18);
+
+shadow.textItem.color = new SolidColor();
+shadow.textItem.color.rgb.red = 80;
+shadow.textItem.color.rgb.green = 30;
+shadow.textItem.color.rgb.blue = 5;
+
+`);
 
 }
 
 
+function addChromeText(){
 
-/* =====================================================
-FORMATS
-===================================================== */
+var text =
+document.getElementById("textInput").value;
 
-function resizeDocument(w,h){
+if(!text){
+    alert("Écris d'abord ton texte.");
+    return;
+}
 
-    send(`
+send(`
 
-    if(app.documents.length>0){
+var layer = app.activeDocument.artLayers.add();
 
-        app.activeDocument.resizeImage(
+layer.kind = LayerKind.TEXT;
+layer.name = "TEXTE CHROME";
 
-            UnitValue(
-                ${w},
-                "px"
-            ),
+layer.textItem.contents = ${JSON.stringify(text)};
+layer.textItem.size = 110;
+layer.textItem.font = "Arial-BoldMT";
 
-            UnitValue(
-                ${h},
-                "px"
-            ),
+layer.textItem.color = new SolidColor();
 
-            null
+layer.textItem.color.rgb.red = 220;
+layer.textItem.color.rgb.green = 230;
+layer.textItem.color.rgb.blue = 240;
 
-        );
+layer.textItem.position = [100,400];
 
-    }
-
-    `);
+`);
 
 }
 
 
+/* =========================
+   EFFETS
+========================= */
 
-/* =====================================================
-EFFETS
-===================================================== */
+function duplicate(){
+
+send(`
+
+var layer = app.activeDocument.activeLayer;
+
+if(layer){
+    layer.duplicate();
+}
+
+`);
+
+}
+
+
+function centerLayer(){
+
+send(`
+
+var layer = app.activeDocument.activeLayer;
+
+if(layer){
+
+var b = layer.bounds;
+
+var x = (1080 - (b[2]-b[0])) / 2 - b[0];
+var y = (1350 - (b[3]-b[1])) / 2 - b[1];
+
+layer.translate(x,y);
+
+}
+
+`);
+
+}
+
 
 function shadow(){
 
-    send(`
+send(`
 
-    if(app.documents.length>0){
+var layer = app.activeDocument.activeLayer;
 
-        try{
+if(layer){
 
-            app.runMenuItem(
-                stringIDToTypeID(
-                    "dropShadow"
-                )
-            );
-
-        }catch(e){}
-
+layer.style = {
+    dropShadow:{
+        enabled:true,
+        opacity:50,
+        distance:15,
+        size:20
     }
+};
 
-    `);
+}
+
+`);
 
 }
 
 
 function glow(){
 
-    send(`
+send(`
 
-    if(app.documents.length>0){
+var layer = app.activeDocument.activeLayer;
 
-        try{
+if(layer){
 
-            app.runMenuItem(
-                stringIDToTypeID(
-                    "outerGlow"
-                )
-            );
-
-        }catch(e){}
-
+layer.style = {
+    outerGlow:{
+        enabled:true,
+        opacity:60,
+        size:25
     }
+};
 
-    `);
+}
+
+`);
 
 }
 
 
-function duplicateLayer(){
+/* =========================
+   FORMATS
+========================= */
 
-    send(`
+function format(w,h){
 
-    if(app.documents.length>0){
+send(`
 
-        var layer=
-        app.activeDocument.activeLayer;
+app.activeDocument.resizeImage(
+UnitValue(${w},"px"),
+UnitValue(${h},"px"),
+null,
+ResampleMethod.BICUBIC
+);
 
-        if(layer){
-
-            layer.duplicate();
-
-        }
-
-    }
-
-    `);
+`);
 
 }
 
 
-
-/* =====================================================
-SIGNATURE
-===================================================== */
+/* =========================
+   SIGNATURE
+========================= */
 
 function signature(){
 
-    send(`
+send(`
 
-    if(app.documents.length>0){
+var layer = app.activeDocument.artLayers.add();
 
-        var doc=
-        app.activeDocument;
+layer.kind = LayerKind.TEXT;
+layer.name = "SIGNATURE VISUELS STUDIO 226";
 
-        var layer=
-        doc.artLayers.add();
+layer.textItem.contents = "Visuels Studio 226";
+layer.textItem.size = 24;
+layer.textItem.font = "Arial";
 
-        layer.kind=
-        LayerKind.TEXT;
+layer.textItem.color = new SolidColor();
 
-        layer.name=
-        "Visuels Studio 226";
+layer.textItem.color.rgb.red = 255;
+layer.textItem.color.rgb.green = 255;
+layer.textItem.color.rgb.blue = 255;
 
-        layer.textItem.contents=
-        "Visuels Studio 226";
+layer.textItem.position = [780,1300];
 
-        layer.textItem.size=17;
-
-        layer.textItem.position=[
-            30,
-            doc.height-35
-        ];
-
-    }
-
-    `);
+`);
 
 }
 
 
-
-/* =====================================================
-EXPORT
-===================================================== */
+/* =========================
+   EXPORT
+========================= */
 
 function exportFile(type){
 
-    send(`
+var format = type === "png"
+    ? "png"
+    : type === "jpg"
+    ? "jpg:0.9"
+    : "webp:0.9";
 
-    if(app.documents.length>0){
+send(`
 
-        app.activeDocument.saveToOE(
-            ${JSON.stringify(type)}
-        );
+app.activeDocument.saveToOE(
+${JSON.stringify(format)},
+0,
+true
+);
 
-    }
+`);
 
-    `);
+}
+
+
+function exportPSD(){
+
+send(`
+
+app.activeDocument.saveToOE(
+"psd:true",
+0,
+true
+);
+
+`);
 
 }
 
