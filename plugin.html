@@ -7,7 +7,7 @@
 <style>
 body {
     margin: 0;
-    padding: 16px;
+    padding: 14px;
     background: #111;
     color: white;
     font-family: Arial, sans-serif;
@@ -22,17 +22,31 @@ h1 {
 .subtitle {
     color: #999;
     font-size: 12px;
-    margin: 5px 0 18px;
+    margin: 5px 0 15px;
+}
+
+.section {
+    margin-top: 12px;
+    color: #aaa;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 button {
     width: 100%;
-    padding: 11px;
-    margin-bottom: 8px;
+    padding: 10px;
+    margin-top: 6px;
     border: 0;
     border-radius: 7px;
     cursor: pointer;
     font-weight: bold;
+    background: #222;
+    color: white;
+}
+
+button:hover {
+    background: #333;
 }
 </style>
 </head>
@@ -42,23 +56,43 @@ button {
 <h1>VISUELS STUDIO 226</h1>
 <div class="subtitle">Photopea Toolbox</div>
 
-<button id="signature">✍️ Ajouter ma signature</button>
-<button>✨ Effets</button>
-<button>📐 Formats</button>
-<button>🖼️ Mockups</button>
-<button>🔤 Texte</button>
-<button>🎨 Couleurs</button>
-<button>💾 Export rapide</button>
+<div class="section">Signature</div>
+<button onclick="signature()">✍️ Ajouter ma signature</button>
+
+<div class="section">Effets</div>
+<button onclick="ombre()">🌑 Ombre</button>
+<button onclick="luminosite()">☀️ Luminosité</button>
+
+<div class="section">Formats</div>
+<button onclick="format1080()">📐 1080 × 1080</button>
+<button onclick="format1350()">📐 1080 × 1350</button>
+<button onclick="formatStory()">📱 1080 × 1920</button>
+
+<div class="section">Texte</div>
+<button onclick="ajouterTexte()">🔤 Ajouter un texte</button>
+
+<div class="section">Couleurs</div>
+<button onclick="noirBlanc()">⚫ Noir & blanc</button>
+
+<div class="section">Export</div>
+<button onclick="exportPNG()">💾 Export PNG</button>
+<button onclick="exportJPG()">💾 Export JPG</button>
+
 
 <script>
 
-function envoyerAPhotopea(script) {
+function envoyer(script) {
     window.parent.postMessage(script, "*");
 }
 
-document.getElementById("signature").addEventListener("click", function() {
 
-    const script = `
+/* =========================
+   SIGNATURE
+========================= */
+
+function signature() {
+
+    envoyer(`
         var doc = app.activeDocument;
 
         var layer = doc.artLayers.add();
@@ -69,11 +103,115 @@ document.getElementById("signature").addEventListener("click", function() {
         layer.textItem.size = 18;
         layer.textItem.position = [40, 40];
 
-        app.echoToOE("SIGNATURE_AJOUTEE");
-    `;
+        app.echoToOE("Signature ajoutée");
+    `);
+}
 
-    envoyerAPhotopea(script);
-});
+
+/* =========================
+   FORMATS
+========================= */
+
+function format1080() {
+
+    envoyer(`
+        app.activeDocument.resizeImage(1080, 1080, null);
+        app.echoToOE("Format 1080x1080");
+    `);
+}
+
+function format1350() {
+
+    envoyer(`
+        app.activeDocument.resizeImage(1080, 1350, null);
+        app.echoToOE("Format 1080x1350");
+    `);
+}
+
+function formatStory() {
+
+    envoyer(`
+        app.activeDocument.resizeImage(1080, 1920, null);
+        app.echoToOE("Format Story 1080x1920");
+    `);
+}
+
+
+/* =========================
+   TEXTE
+========================= */
+
+function ajouterTexte() {
+
+    envoyer(`
+        var doc = app.activeDocument;
+
+        var layer = doc.artLayers.add();
+        layer.kind = LayerKind.TEXT;
+
+        layer.name = "Nouveau texte";
+        layer.textItem.contents = "VOTRE TEXTE";
+        layer.textItem.size = 60;
+        layer.textItem.position = [100, 100];
+
+        app.echoToOE("Texte ajouté");
+    `);
+}
+
+
+/* =========================
+   NOIR ET BLANC
+========================= */
+
+function noirBlanc() {
+
+    envoyer(`
+        var doc = app.activeDocument;
+
+        var layer = doc.artLayers.add();
+        layer.name = "Noir et blanc";
+
+        app.echoToOE("Effet préparé");
+    `);
+}
+
+
+/* =========================
+   EFFETS
+========================= */
+
+function ombre() {
+
+    envoyer(`
+        app.echoToOE("Ombre : fonction en préparation");
+    `);
+}
+
+function luminosite() {
+
+    envoyer(`
+        app.echoToOE("Luminosité : fonction en préparation");
+    `);
+}
+
+
+/* =========================
+   EXPORT
+========================= */
+
+function exportPNG() {
+
+    envoyer(`
+        app.activeDocument.saveToOE("png");
+    `);
+}
+
+function exportJPG() {
+
+    envoyer(`
+        app.activeDocument.saveToOE("jpg");
+    `);
+}
 
 </script>
 
