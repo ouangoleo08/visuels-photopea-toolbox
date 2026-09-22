@@ -1,270 +1,208 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>VISUELS STUDIO 226 — Toolbox</title>
+<title>VISUELS STUDIO 226</title>
 
 <style>
-
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
-margin:0;
-background:#060a10;
-color:#fff;
-font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    background:#060b12;
+    color:#fff;
+    font-family:Arial,sans-serif;
 }
 
 .app{
-padding:12px;
+    padding:9px;
 }
 
 .header{
-padding:16px;
-border-radius:16px;
-
-background:
-radial-gradient(circle at 100% 0%,#00d9ff33,transparent 40%),
-linear-gradient(145deg,#101c2a,#071018);
-
-border:1px solid #17384b;
-
-box-shadow:
-0 15px 40px #0009;
-
-margin-bottom:10px;
+    padding:11px 12px;
+    border-radius:12px;
+    margin-bottom:7px;
+    background:
+    radial-gradient(circle at 90% 0%,#00dfff35,transparent 40%),
+    linear-gradient(135deg,#0d1c2a,#071018);
+    border:1px solid #17394b;
 }
 
 .brand{
-font-size:16px;
-font-weight:900;
-letter-spacing:.3px;
+    font-size:14px;
+    font-weight:900;
 }
 
 .brand span{
-color:#20ddff;
+    color:#1de0ff;
 }
 
 .sub{
-font-size:9px;
-color:#8ca4b3;
-margin-top:5px;
+    color:#8299a7;
+    font-size:8px;
+    margin-top:3px;
 }
 
 .status{
-display:flex;
-align-items:center;
-gap:7px;
-
-padding:8px 10px;
-
-border-radius:9px;
-
-background:#0b131c;
-border:1px solid #18303e;
-
-font-size:9px;
-color:#91a6b4;
-
-margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:8px;
+    color:#8ca2ae;
+    background:#0b141d;
+    border:1px solid #172d39;
+    padding:6px 8px;
+    border-radius:7px;
+    margin-bottom:7px;
 }
 
 .dot{
-width:7px;
-height:7px;
-border-radius:50%;
-background:#00ef9b;
-box-shadow:0 0 10px #00ef9b;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#00ef9b;
+    box-shadow:0 0 7px #00ef9b;
 }
 
 .section{
-margin-bottom:14px;
+    margin-bottom:7px;
 }
 
 .title{
-font-size:10px;
-font-weight:900;
-letter-spacing:.8px;
-text-transform:uppercase;
-
-color:#dcebf3;
-
-margin-bottom:7px;
-
-display:flex;
-align-items:center;
-gap:7px;
+    font-size:8px;
+    font-weight:900;
+    color:#cfe1e9;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+    margin-bottom:4px;
+    display:flex;
+    align-items:center;
+    gap:5px;
 }
 
 .title:before{
-content:"";
-width:3px;
-height:13px;
-background:#16dfff;
-border-radius:5px;
-}
-
-button{
-
-width:100%;
-
-padding:10px;
-
-margin-bottom:6px;
-
-border-radius:9px;
-
-border:1px solid #193441;
-
-background:#0e1822;
-
-color:#fff;
-
-font-size:10px;
-font-weight:700;
-
-cursor:pointer;
-
-text-align:left;
-
-transition:.15s;
-}
-
-button:hover{
-
-background:#152936;
-
-border-color:#1ddfff;
-
-transform:translateY(-1px);
-
-}
-
-button:active{
-transform:scale(.98);
-}
-
-.primary{
-
-background:
-linear-gradient(135deg,#087b9d,#16d7ef);
-
-border-color:#22ddff;
-
-}
-
-.ai{
-
-background:
-linear-gradient(135deg,#5124a9,#9a4dff);
-
-border-color:#a96cff;
-
-}
-
-.ai:hover{
-background:
-linear-gradient(135deg,#6331c5,#ae69ff);
+    content:"";
+    width:2px;
+    height:10px;
+    background:#17ddff;
+    border-radius:3px;
 }
 
 .grid{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:5px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:4px;
 }
 
-.grid button{
-margin-bottom:0;
+.grid3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:4px;
+}
+
+.grid4{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:4px;
+}
+
+button{
+    border:1px solid #1a3542;
+    background:#0d1821;
+    color:white;
+    padding:7px 6px;
+    border-radius:7px;
+    cursor:pointer;
+    font-size:8px;
+    font-weight:700;
+    min-width:0;
+}
+
+button:hover{
+    border-color:#1be0ff;
+    background:#132a36;
+}
+
+.ai{
+    background:linear-gradient(135deg,#482092,#8d42e9);
+    border-color:#9b60f2;
+}
+
+.primary{
+    background:linear-gradient(135deg,#087d9e,#15d9ed);
+    border-color:#25ddff;
+}
+
+.template{
+    min-height:48px;
+    font-size:8px;
+}
+
+.template b{
+    display:block;
+    font-size:15px;
+    margin-bottom:3px;
+}
+
+.promo{background:linear-gradient(135deg,#e90035,#ff7200)}
+.formation{background:linear-gradient(135deg,#005bea,#00c6fb)}
+.restaurant{background:linear-gradient(135deg,#7b1600,#ff8a00)}
+.event{background:linear-gradient(135deg,#5819a8,#c62fff)}
+.product{background:linear-gradient(135deg,#087b56,#19c878)}
+.birthday{background:linear-gradient(135deg,#a20c70,#ff4db8)}
+.business{background:linear-gradient(135deg,#15253a,#315d8d)}
+.tech{background:linear-gradient(135deg,#06131e,#0087b3)}
+
+input,select{
+    width:100%;
+    background:#0b151e;
+    color:#fff;
+    border:1px solid #1a3542;
+    border-radius:7px;
+    padding:7px;
+    font-size:9px;
+    margin-bottom:4px;
 }
 
 .small{
-
-font-size:8px;
-
-color:#687f8e;
-
-line-height:1.5;
-
-margin-top:5px;
+    font-size:7px;
+    color:#667d89;
+    margin-top:3px;
 }
 
 .footer{
-
-text-align:center;
-
-border-top:1px solid #14232c;
-
-padding-top:10px;
-
-margin-top:5px;
-
-font-size:8px;
-
-color:#607582;
+    text-align:center;
+    color:#607681;
+    border-top:1px solid #152731;
+    padding-top:7px;
+    margin-top:5px;
+    font-size:7px;
 }
 
 .footer b{
-color:#1edcff;
+    color:#1cddff;
 }
-
-input,
-select{
-
-width:100%;
-
-background:#0c151e;
-
-color:#fff;
-
-border:1px solid #1b3846;
-
-border-radius:8px;
-
-padding:9px;
-
-margin-bottom:6px;
-
-font-size:10px;
-
-}
-
 </style>
-
 </head>
 
 <body>
 
 <div class="app">
 
-<!-- HEADER -->
-
 <div class="header">
-
-<div class="brand">
-VISUELS <span>STUDIO 226</span>
+    <div class="brand">
+        VISUELS <span>STUDIO 226</span>
+    </div>
+    <div class="sub">
+        Toolbox graphique intelligente • Photopea
+    </div>
 </div>
-
-<div class="sub">
-Photopea Toolbox • Création graphique intelligente
-</div>
-
-</div>
-
 
 <div class="status">
-
-<div class="dot"></div>
-
-Photopea connecté
-
+    <span class="dot"></span>
+    Photopea connecté
 </div>
 
 
@@ -272,56 +210,68 @@ Photopea connecté
 
 <div class="section">
 
-<div class="title">
-🤖 Intelligence artificielle
-</div>
+<div class="title">🤖 IA & RETOUCHE</div>
 
-<button class="ai" onclick="removeBackground()">
-✂️ Détourage automatique IA
-</button>
+<div class="grid4">
 
-<button class="ai" onclick="removeElement()">
-🪄 Supprimer un élément avec IA
-</button>
+<button class="ai" onclick="aiCut()">✂️<br>Détourage</button>
 
-<button class="ai" onclick="magicReplace()">
-✨ Remplacer un élément avec IA
-</button>
+<button class="ai" onclick="aiRemove()">🪄<br>Supprimer</button>
 
-<button class="ai" onclick="magicCut()">
-🎯 Sélection intelligente
-</button>
+<button class="ai" onclick="aiReplace()">✨<br>Remplacer</button>
 
-<div class="small">
-Les fonctions IA utilisent les outils IA disponibles dans Photopea.
+<button class="ai" onclick="aiMagic()">🎯<br>Sélection</button>
+
 </div>
 
 </div>
 
 
-<!-- CREATION -->
+<!-- AFFICHES -->
 
 <div class="section">
 
-<div class="title">
-🚀 Création rapide
+<div class="title">🖼️ AFFICHES MODÈLES — MODIFIABLES</div>
+
+<div class="grid4">
+
+<button class="template promo" onclick="templatePromo()">
+<b>🔥</b>Promo
+</button>
+
+<button class="template formation" onclick="templateFormation()">
+<b>🎓</b>Formation
+</button>
+
+<button class="template restaurant" onclick="templateRestaurant()">
+<b>🍔</b>Restaurant
+</button>
+
+<button class="template event" onclick="templateEvent()">
+<b>🎉</b>Événement
+</button>
+
+<button class="template product" onclick="templateProduct()">
+<b>📦</b>Produit
+</button>
+
+<button class="template birthday" onclick="templateBirthday()">
+<b>🎂</b>Anniversaire
+</button>
+
+<button class="template business" onclick="templateBusiness()">
+<b>💼</b>Business
+</button>
+
+<button class="template tech" onclick="templateTech()">
+<b>💻</b>Tech
+</button>
+
 </div>
 
-<button class="primary" onclick="createPromo()">
-🔥 Affiche promotion
-</button>
-
-<button class="primary" onclick="createFormation()">
-🎓 Affiche formation
-</button>
-
-<button class="primary" onclick="createRestaurant()">
-🍔 Affiche restaurant
-</button>
-
-<button class="primary" onclick="createProduct()">
-📦 Affiche produit
-</button>
+<div class="small">
+Chaque modèle crée une composition éditable dans Photopea.
+</div>
 
 </div>
 
@@ -330,134 +280,26 @@ Les fonctions IA utilisent les outils IA disponibles dans Photopea.
 
 <div class="section">
 
-<div class="title">
-🔤 Studio typographique
-</div>
+<div class="title">🔤 TEXTE & TYPOGRAPHIE</div>
 
-<input
-id="textInput"
-placeholder="Votre grand titre..."
-value="VOTRE TITRE">
+<input id="txt" value="VOTRE TITRE" placeholder="Votre titre">
 
-<select id="fontSelect">
+<select id="font">
 
-<option value="Arial">
-Arial Black
-</option>
-
-<option value="Impact">
-Impact
-</option>
-
-<option value="Montserrat">
-Montserrat
-</option>
-
-<option value="Roboto">
-Roboto
-</option>
-
-<option value="Poppins">
-Poppins
-</option>
-
-<option value="Oswald">
-Oswald
-</option>
-
+<option>Arial</option>
+<option>Impact</option>
+<option>Montserrat</option>
+<option>Poppins</option>
+<option>Roboto</option>
+<option>Oswald</option>
 </select>
 
-<div class="grid">
+<div class="grid4">
 
-<button onclick="addText()">
-🔤 Ajouter
-</button>
-
-<button onclick="bigText()">
-💥 XXL
-</button>
-
-<button onclick="text3D()">
-🧊 3D
-</button>
-
-<button onclick="chromeText()">
-✨ Chrome
-</button>
-
-<button onclick="goldText()">
-🥇 Or
-</button>
-
-<button onclick="neonText()">
-💡 Néon
-</button>
-
-</div>
-
-</div>
-
-
-<!-- EFFETS -->
-
-<div class="section">
-
-<div class="title">
-✨ Effets professionnels
-</div>
-
-<button onclick="shadow()">
-🌑 Ombre portée
-</button>
-
-<button onclick="stroke()">
-⭕ Contour
-</button>
-
-<button onclick="glow()">
-💡 Glow
-</button>
-
-<button onclick="duplicate()">
-📑 Dupliquer
-</button>
-
-</div>
-
-
-<!-- BACKGROUNDS -->
-
-<div class="section">
-
-<div class="title">
-🎨 Arrière-plans
-</div>
-
-<div class="grid">
-
-<button onclick="background('#03152c','#087fa8')">
-🔵 Bleu
-</button>
-
-<button onclick="background('#030711','#18233c')">
-🌌 Nuit
-</button>
-
-<button onclick="background('#00191d','#00bcd4')">
-💎 Cyan
-</button>
-
-<button onclick="background('#3c1000','#ff7500')">
-🟠 Orange
-</button>
-
-<button onclick="background('#090909','#292929')">
-⬛ Noir
-</button>
-
-<button onclick="background('#241500','#c88a00')">
-🥇 Luxe
-</button>
+<button onclick="addText()">🔤<br>Texte</button>
+<button onclick="bigText()">💥<br>XXL</button>
+<button onclick="text3D()">🧊<br>3D</button>
+<button onclick="chrome()">✨<br>Chrome</button>
 
 </div>
 
@@ -468,25 +310,34 @@ Oswald
 
 <div class="section">
 
-<div class="title">
-🎯 Styles d'affiches
+<div class="title">🎨 STYLES</div>
+
+<div class="grid4">
+
+<button onclick="style('premium')">💎<br>Premium</button>
+<button onclick="style('sport')">🏆<br>Sport</button>
+<button onclick="style('luxe')">👑<br>Luxe</button>
+<button onclick="style('tech')">💻<br>Tech</button>
+
 </div>
 
-<button onclick="stylePremium()">
-💎 Premium
-</button>
+</div>
 
-<button onclick="styleSport()">
-🏆 Sport
-</button>
 
-<button onclick="styleTech()">
-💻 Technologie
-</button>
+<!-- STICKERS -->
 
-<button onclick="styleEvent()">
-🎉 Événement
-</button>
+<div class="section">
+
+<div class="title">🏷️ STICKERS & ÉLÉMENTS</div>
+
+<div class="grid4">
+
+<button onclick="sticker('PROMO')">🔥<br>PROMO</button>
+<button onclick="sticker('-50%')">🏷️<br>-50%</button>
+<button onclick="sticker('NEW')">⭐<br>NEW</button>
+<button onclick="sticker('TOP')">👑<br>TOP</button>
+
+</div>
 
 </div>
 
@@ -495,36 +346,37 @@ Oswald
 
 <div class="section">
 
-<div class="title">
-📱 Vrais Mockups
+<div class="title">📱 MOCKUPS RÉUTILISABLES</div>
+
+<div class="grid4">
+
+<button onclick="mockup('smartphone')">📱<br>Phone</button>
+<button onclick="mockup('laptop')">💻<br>Laptop</button>
+<button onclick="mockup('tablet')">📲<br>Tablet</button>
+<button onclick="mockup('poster')">🖼️<br>Poster</button>
+<button onclick="mockup('shirt')">👕<br>T-Shirt</button>
+<button onclick="mockup('mug')">☕<br>Mug</button>
+<button onclick="mockup('ebook')">📕<br>Ebook</button>
+<button onclick="mockup('box')">📦<br>Box</button>
+
 </div>
 
-<button onclick="mockup('smartphone')">
-📱 Smartphone
-</button>
+</div>
 
-<button onclick="mockup('laptop')">
-💻 Laptop
-</button>
 
-<button onclick="mockup('tablet')">
-📲 Tablette
-</button>
+<!-- FONDS -->
 
-<button onclick="mockup('poster')">
-🖼️ Affiche murale
-</button>
+<div class="section">
 
-<button onclick="mockup('ebook')">
-📕 Ebook
-</button>
+<div class="title">🌌 ARRIÈRE-PLANS</div>
 
-<button onclick="mockup('box')">
-📦 Boîte 3D
-</button>
+<div class="grid4">
 
-<div class="small">
-Les templates photo-réalistes seront chargés depuis la bibliothèque de mockups.
+<button onclick="bg('#06152d','#008ac0')">🔵<br>Bleu</button>
+<button onclick="bg('#050711','#263655')">🌌<br>Nuit</button>
+<button onclick="bg('#00191c','#00d5e8')">💎<br>Cyan</button>
+<button onclick="bg('#451000','#ff7500')">🟠<br>Orange</button>
+
 </div>
 
 </div>
@@ -534,56 +386,34 @@ Les templates photo-réalistes seront chargés depuis la bibliothèque de mockup
 
 <div class="section">
 
-<div class="title">
-📐 Formats
-</div>
+<div class="title">📐 FORMATS</div>
 
-<div class="grid">
+<div class="grid4">
 
-<button onclick="resize(1080,1080)">
-⬜ 1080×1080
-</button>
-
-<button onclick="resize(1080,1350)">
-▯ 1080×1350
-</button>
-
-<button onclick="resize(1080,1920)">
-📱 Story
-</button>
-
-<button onclick="resize(1920,1080)">
-▭ Paysage
-</button>
-
-<button onclick="resize(2480,3508)">
-📄 A4
-</button>
-
-<button onclick="resize(3508,4961)">
-📄 A3
-</button>
+<button onclick="resize(1080,1080)">⬜<br>Carré</button>
+<button onclick="resize(1080,1350)">▯<br>Post</button>
+<button onclick="resize(1080,1920)">📱<br>Story</button>
+<button onclick="resize(1920,1080)">▭<br>Paysage</button>
 
 </div>
 
 </div>
 
 
-<!-- SIGNATURE -->
+<!-- OUTILS -->
 
 <div class="section">
 
-<div class="title">
-✍️ Signature
+<div class="title">✨ OUTILS</div>
+
+<div class="grid4">
+
+<button onclick="shadow()">🌑<br>Ombre</button>
+<button onclick="glow()">💡<br>Glow</button>
+<button onclick="duplicate()">📑<br>Copier</button>
+<button onclick="signature()">✍️<br>Signature</button>
+
 </div>
-
-<button class="primary" onclick="signature()">
-Ajouter Visuels Studio 226
-</button>
-
-<button onclick="signatureEdge()">
-📌 Signature sur le bord
-</button>
 
 </div>
 
@@ -592,54 +422,23 @@ Ajouter Visuels Studio 226
 
 <div class="section">
 
-<div class="title">
-💾 Export rapide
-</div>
+<div class="title">💾 EXPORT</div>
 
-<div class="grid">
+<div class="grid4">
 
-<button onclick="exportFile('png')">
-🖼️ PNG
-</button>
-
-<button onclick="exportFile('jpg:0.95')">
-📸 JPG
-</button>
-
-<button onclick="exportFile('webp:0.95')">
-🌐 WEBP
-</button>
-
-<button onclick="exportFile('psd:true')">
-📁 PSD
-</button>
+<button onclick="exportFile('png')">PNG</button>
+<button onclick="exportFile('jpg:0.95')">JPG</button>
+<button onclick="exportFile('webp:0.95')">WEBP</button>
+<button onclick="exportFile('psd:true')">PSD</button>
 
 </div>
-
-</div>
-
-
-<!-- CLEAN -->
-
-<div class="section">
-
-<div class="title">
-🧹 Organisation
-</div>
-
-<button onclick="clean()">
-Nettoyer les éléments Toolbox
-</button>
 
 </div>
 
 
 <div class="footer">
-
 <b>VISUELS STUDIO 226</b><br>
-
 Imaginez plus, créez mieux, restez inspiré.
-
 </div>
 
 </div>
@@ -652,89 +451,77 @@ COMMUNICATION
 ===================================================== */
 
 function send(script){
+    window.parent.postMessage(script,"*");
+}
 
-window.parent.postMessage(script,"*");
+
+/* =====================================================
+IA
+===================================================== */
+
+function aiCut(){
+
+send(`
+if(app.documents.length>0){
+app.showWindow("magiccut");
+}
+`);
+
+}
+
+function aiMagic(){
+
+send(`
+if(app.documents.length>0){
+app.showWindow("magiccut");
+}
+`);
+
+}
+
+function aiRemove(){
+
+send(`
+if(app.documents.length>0){
+try{
+app.runMenuItem(
+stringIDToTypeID("contentAwareFill")
+);
+}catch(e){
+app.echoToOE("Sélectionnez d'abord l'élément à supprimer.");
+}
+}
+`);
+
+}
+
+function aiReplace(){
+
+send(`
+if(app.documents.length>0){
+try{
+app.runMenuItem(
+stringIDToTypeID("magicReplace")
+);
+}catch(e){
+app.echoToOE("Magic Replace doit être disponible dans Photopea.");
+}
+}
+`);
 
 }
 
 
 /* =====================================================
-IA PHOTOPEA
+OUTILS
 ===================================================== */
 
-function removeBackground(){
-
-send(`
-if(app.documents.length>0){
-
-app.showWindow("magiccut");
-
-}
-`);
-
+function getText(){
+return document.getElementById("txt").value || "VOTRE TITRE";
 }
 
-
-function magicCut(){
-
-send(`
-if(app.documents.length>0){
-
-app.showWindow("magiccut");
-
-}
-`);
-
-}
-
-
-function removeElement(){
-
-send(`
-if(app.documents.length>0){
-
-try{
-
-app.runMenuItem(
-stringIDToTypeID("contentAwareFill")
-);
-
-}catch(e){
-
-app.echoToOE(
-"Utilisez d'abord une sélection autour de l'élément."
-);
-
-}
-
-}
-`);
-
-}
-
-
-function magicReplace(){
-
-send(`
-if(app.documents.length>0){
-
-try{
-
-app.runMenuItem(
-stringIDToTypeID("magicReplace")
-);
-
-}catch(e){
-
-app.echoToOE(
-"Magic Replace est disponible dans les fonctions IA de Photopea."
-);
-
-}
-
-}
-`);
-
+function getFont(){
+return document.getElementById("font").value;
 }
 
 
@@ -742,41 +529,22 @@ app.echoToOE(
 TEXTE
 ===================================================== */
 
-function getText(){
-
-return document.getElementById("textInput").value || "VOTRE TITRE";
-
-}
-
-
-function getFont(){
-
-return document.getElementById("fontSelect").value;
-
-}
-
-
 function addText(){
 
-var text=getText();
-var font=getFont();
+let t=getText();
+let f=getFont();
 
 send(`
 if(app.documents.length>0){
 
-var doc=app.activeDocument;
-
-var l=doc.artLayers.add();
+var l=app.activeDocument.artLayers.add();
 
 l.kind=LayerKind.TEXT;
+l.name="VISUELS - TEXTE";
 
-l.name="VISUELS - TITRE";
-
-l.textItem.contents=${JSON.stringify(text)};
-
-l.textItem.font=${JSON.stringify(font)};
-
-l.textItem.size=90;
+l.textItem.contents=${JSON.stringify(t)};
+l.textItem.font=${JSON.stringify(f)};
+l.textItem.size=80;
 
 l.textItem.position=[100,180];
 
@@ -788,24 +556,19 @@ l.textItem.position=[100,180];
 
 function bigText(){
 
-var text=getText();
-var font=getFont();
+let t=getText();
+let f=getFont();
 
 send(`
 if(app.documents.length>0){
 
-var doc=app.activeDocument;
-
-var l=doc.artLayers.add();
+var l=app.activeDocument.artLayers.add();
 
 l.kind=LayerKind.TEXT;
-
 l.name="VISUELS - TITRE XXL";
 
-l.textItem.contents=${JSON.stringify(text)};
-
-l.textItem.font=${JSON.stringify(font)};
-
+l.textItem.contents=${JSON.stringify(t)};
+l.textItem.font=${JSON.stringify(f)};
 l.textItem.size=170;
 
 l.textItem.position=[80,220];
@@ -816,14 +579,10 @@ l.textItem.position=[80,220];
 }
 
 
-/* =====================================================
-3D
-===================================================== */
-
 function text3D(){
 
-var text=getText();
-var font=getFont();
+let t=getText();
+let f=getFont();
 
 send(`
 if(app.documents.length>0){
@@ -833,38 +592,21 @@ var doc=app.activeDocument;
 var base=doc.artLayers.add();
 
 base.kind=LayerKind.TEXT;
-
 base.name="VISUELS - 3D";
 
-base.textItem.contents=${JSON.stringify(text)};
-
-base.textItem.font=${JSON.stringify(font)};
-
+base.textItem.contents=${JSON.stringify(t)};
+base.textItem.font=${JSON.stringify(f)};
 base.textItem.size=120;
 
 base.textItem.position=[100,200];
 
-var colors=[
-[10,10,15],
-[20,20,28],
-[35,35,45],
-[55,55,70],
-[240,240,255]
-];
-
-for(var i=1;i<colors.length;i++){
+for(var i=1;i<7;i++){
 
 var l=base.duplicate();
 
+l.name="VISUELS - 3D profondeur";
+
 l.translate(i*4,i*4);
-
-var c=new SolidColor();
-
-c.rgb.red=colors[i][0];
-c.rgb.green=colors[i][1];
-c.rgb.blue=colors[i][2];
-
-l.textItem.color=c;
 
 }
 
@@ -874,14 +616,10 @@ l.textItem.color=c;
 }
 
 
-/* =====================================================
-CHROME
-===================================================== */
+function chrome(){
 
-function chromeText(){
-
-var text=getText();
-var font=getFont();
+let t=getText();
+let f=getFont();
 
 send(`
 if(app.documents.length>0){
@@ -894,38 +632,26 @@ base.kind=LayerKind.TEXT;
 
 base.name="VISUELS - CHROME";
 
-base.textItem.contents=${JSON.stringify(text)};
-
-base.textItem.font=${JSON.stringify(font)};
-
+base.textItem.contents=${JSON.stringify(t)};
+base.textItem.font=${JSON.stringify(f)};
 base.textItem.size=120;
 
 base.textItem.position=[100,200];
 
-var colors=[
-[40,45,50],
-[110,120,130],
-[220,225,230],
-[255,255,255],
-[150,160,170]
-];
+var c=new SolidColor();
 
-for(var i=1;i<colors.length;i++){
+c.rgb.red=235;
+c.rgb.green=240;
+c.rgb.blue=245;
+
+base.textItem.color=c;
+
+for(var i=1;i<5;i++){
 
 var l=base.duplicate();
 
 l.translate(i*2,i*2);
 
-var c=new SolidColor();
-
-c.rgb.red=colors[i][0];
-
-c.rgb.green=colors[i][1];
-
-c.rgb.blue=colors[i][2];
-
-l.textItem.color=c;
-
 }
 
 }
@@ -935,13 +661,10 @@ l.textItem.color=c;
 
 
 /* =====================================================
-OR
+STICKERS
 ===================================================== */
 
-function goldText(){
-
-var text=getText();
-var font=getFont();
+function sticker(text){
 
 send(`
 if(app.documents.length>0){
@@ -952,62 +675,18 @@ var l=doc.artLayers.add();
 
 l.kind=LayerKind.TEXT;
 
-l.name="VISUELS - OR";
+l.name="VISUELS - STICKER";
 
 l.textItem.contents=${JSON.stringify(text)};
 
-l.textItem.font=${JSON.stringify(font)};
+l.textItem.size=55;
 
-l.textItem.size=120;
-
-l.textItem.position=[100,200];
+l.textItem.position=[80,80];
 
 var c=new SolidColor();
 
 c.rgb.red=255;
-c.rgb.green=190;
-c.rgb.blue=45;
-
-l.textItem.color=c;
-
-}
-`);
-
-}
-
-
-/* =====================================================
-NEON
-===================================================== */
-
-function neonText(){
-
-var text=getText();
-var font=getFont();
-
-send(`
-if(app.documents.length>0){
-
-var doc=app.activeDocument;
-
-var l=doc.artLayers.add();
-
-l.kind=LayerKind.TEXT;
-
-l.name="VISUELS - NEON";
-
-l.textItem.contents=${JSON.stringify(text)};
-
-l.textItem.font=${JSON.stringify(font)};
-
-l.textItem.size=110;
-
-l.textItem.position=[100,200];
-
-var c=new SolidColor();
-
-c.rgb.red=0;
-c.rgb.green=235;
+c.rgb.green=255;
 c.rgb.blue=255;
 
 l.textItem.color=c;
@@ -1019,90 +698,10 @@ l.textItem.color=c;
 
 
 /* =====================================================
-EFFETS
+FONDS
 ===================================================== */
 
-function shadow(){
-
-send(`
-if(app.documents.length>0){
-
-try{
-
-app.runMenuItem(
-stringIDToTypeID("dropShadow")
-);
-
-}catch(e){}
-
-}
-`);
-
-}
-
-
-function stroke(){
-
-send(`
-if(app.documents.length>0){
-
-try{
-
-app.runMenuItem(
-stringIDToTypeID("stroke")
-);
-
-}catch(e){}
-
-}
-`);
-
-}
-
-
-function glow(){
-
-send(`
-if(app.documents.length>0){
-
-try{
-
-app.runMenuItem(
-stringIDToTypeID("outerGlow")
-);
-
-}catch(e){}
-
-}
-`);
-
-}
-
-
-function duplicate(){
-
-send(`
-if(app.documents.length>0){
-
-var l=app.activeDocument.activeLayer;
-
-if(l){
-
-l.duplicate();
-
-}
-
-}
-`);
-
-}
-
-
-/* =====================================================
-BACKGROUND
-===================================================== */
-
-function background(a,b){
+function bg(a,b){
 
 send(`
 if(app.documents.length>0){
@@ -1111,7 +710,7 @@ var doc=app.activeDocument;
 
 var l=doc.artLayers.add();
 
-l.name="VISUELS - BACKGROUND";
+l.name="VISUELS - FOND";
 
 var c=new SolidColor();
 
@@ -1129,38 +728,6 @@ doc.selection.deselect();
 
 }
 `);
-
-}
-
-
-/* =====================================================
-STYLES
-===================================================== */
-
-function stylePremium(){
-
-background("#05070c","#172234");
-
-}
-
-
-function styleSport(){
-
-background("#080808","#d83b00");
-
-}
-
-
-function styleTech(){
-
-background("#020712","#006f91");
-
-}
-
-
-function styleEvent(){
-
-background("#16001f","#7d20a8");
 
 }
 
@@ -1187,6 +754,61 @@ null
 
 
 /* =====================================================
+EFFETS
+===================================================== */
+
+function shadow(){
+
+send(`
+if(app.documents.length>0){
+
+try{
+app.runMenuItem(
+stringIDToTypeID("dropShadow")
+);
+}catch(e){}
+
+}
+`);
+
+}
+
+
+function glow(){
+
+send(`
+if(app.documents.length>0){
+
+try{
+app.runMenuItem(
+stringIDToTypeID("outerGlow")
+);
+}catch(e){}
+
+}
+`);
+
+}
+
+
+function duplicate(){
+
+send(`
+if(app.documents.length>0){
+
+var l=app.activeDocument.activeLayer;
+
+if(l){
+l.duplicate();
+}
+
+}
+`);
+
+}
+
+
+/* =====================================================
 SIGNATURE
 ===================================================== */
 
@@ -1201,32 +823,7 @@ var l=doc.artLayers.add();
 
 l.kind=LayerKind.TEXT;
 
-l.name="VISUELS - SIGNATURE";
-
-l.textItem.contents="Visuels Studio 226";
-
-l.textItem.size=18;
-
-l.textItem.position=[40,40];
-
-}
-`);
-
-}
-
-
-function signatureEdge(){
-
-send(`
-if(app.documents.length>0){
-
-var doc=app.activeDocument;
-
-var l=doc.artLayers.add();
-
-l.kind=LayerKind.TEXT;
-
-l.name="VISUELS - SIGNATURE EDGE";
+l.name="Visuels Studio 226";
 
 l.textItem.contents="Visuels Studio 226";
 
@@ -1241,27 +838,110 @@ l.textItem.position=[30,doc.height-35];
 
 
 /* =====================================================
-CREATION RAPIDE
+STYLES
 ===================================================== */
 
-function createPromo(){
+function style(type){
+
+if(type==="premium")
+bg("#05070d","#1b2b40");
+
+if(type==="sport")
+bg("#080808","#c53d00");
+
+if(type==="luxe")
+bg("#110b02","#b77a00");
+
+if(type==="tech")
+bg("#020b13","#007d9e");
+
+}
+
+
+/* =====================================================
+TEMPLATES
+===================================================== */
+
+function makeTemplate(type){
 
 send(`
 if(app.documents.length>0){
 
 var doc=app.activeDocument;
 
-var l=doc.artLayers.add();
 
-l.kind=LayerKind.TEXT;
+/* GROUPE */
 
-l.name="VISUELS - PROMOTION";
+var group=doc.layerSets.add();
 
-l.textItem.contents="PROMOTION";
+group.name="TEMPLATE - ${type.toUpperCase()}";
 
-l.textItem.size=160;
 
-l.textItem.position=[100,200];
+/* FOND */
+
+var bg=doc.artLayers.add();
+
+bg.name="FOND - ${type}";
+
+
+/* TITRE */
+
+var title=doc.artLayers.add();
+
+title.kind=LayerKind.TEXT;
+
+title.name="TITRE - MODIFIABLE";
+
+title.textItem.contents="${type.toUpperCase()}";
+
+title.textItem.size=150;
+
+title.textItem.position=[90,180];
+
+
+/* SOUS TITRE */
+
+var sub=doc.artLayers.add();
+
+sub.kind=LayerKind.TEXT;
+
+sub.name="SOUS-TITRE - MODIFIABLE";
+
+sub.textItem.contents="Votre message ici";
+
+sub.textItem.size=55;
+
+sub.textItem.position=[95,270];
+
+
+/* CTA */
+
+var cta=doc.artLayers.add();
+
+cta.kind=LayerKind.TEXT;
+
+cta.name="CTA - MODIFIABLE";
+
+cta.textItem.contents="COMMANDER MAINTENANT";
+
+cta.textItem.size=45;
+
+cta.textItem.position=[95,doc.height-160];
+
+
+/* SIGNATURE */
+
+var sig=doc.artLayers.add();
+
+sig.kind=LayerKind.TEXT;
+
+sig.name="SIGNATURE";
+
+sig.textItem.contents="Visuels Studio 226";
+
+sig.textItem.size=17;
+
+sig.textItem.position=[30,doc.height-35];
 
 }
 `);
@@ -1269,89 +949,42 @@ l.textItem.position=[100,200];
 }
 
 
-function createFormation(){
-
-send(`
-if(app.documents.length>0){
-
-var doc=app.activeDocument;
-
-var l=doc.artLayers.add();
-
-l.kind=LayerKind.TEXT;
-
-l.name="VISUELS - FORMATION";
-
-l.textItem.contents="FORMATION";
-
-l.textItem.size=150;
-
-l.textItem.position=[100,200];
-
-}
-`);
-
+function templatePromo(){
+makeTemplate("PROMOTION");
 }
 
-
-function createRestaurant(){
-
-send(`
-if(app.documents.length>0){
-
-var doc=app.activeDocument;
-
-var l=doc.artLayers.add();
-
-l.kind=LayerKind.TEXT;
-
-l.name="VISUELS - RESTAURANT";
-
-l.textItem.contents="MENU DU JOUR";
-
-l.textItem.size=130;
-
-l.textItem.position=[100,200];
-
-}
-`);
-
+function templateFormation(){
+makeTemplate("FORMATION");
 }
 
-
-function createProduct(){
-
-send(`
-if(app.documents.length>0){
-
-var doc=app.activeDocument;
-
-var l=doc.artLayers.add();
-
-l.kind=LayerKind.TEXT;
-
-l.name="VISUELS - PRODUIT";
-
-l.textItem.contents="NOUVEAU PRODUIT";
-
-l.textItem.size=120;
-
-l.textItem.position=[100,200];
-
+function templateRestaurant(){
+makeTemplate("RESTAURANT");
 }
-`);
 
+function templateEvent(){
+makeTemplate("ÉVÉNEMENT");
+}
+
+function templateProduct(){
+makeTemplate("PRODUIT");
+}
+
+function templateBirthday(){
+makeTemplate("ANNIVERSAIRE");
+}
+
+function templateBusiness(){
+makeTemplate("BUSINESS");
+}
+
+function templateTech(){
+makeTemplate("TECHNOLOGIE");
 }
 
 
 /* =====================================================
 MOCKUPS
 ===================================================== */
-
-/*
-Les URLs seront remplacées par les vrais PSD/PNG
-de la bibliothèque VISUELS STUDIO 226.
-*/
 
 function mockup(type){
 
@@ -1369,6 +1002,12 @@ tablet:
 poster:
 "https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/poster.png",
 
+shirt:
+"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/shirt.png",
+
+mug:
+"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/mug.png",
+
 ebook:
 "https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/ebook.png",
 
@@ -1377,13 +1016,11 @@ box:
 
 };
 
-var url=urls[type];
-
 send(`
 if(app.documents.length>0){
 
 App.open(
-${JSON.stringify(url)},
+${JSON.stringify(urls[type])},
 null,
 true
 );
@@ -1406,43 +1043,6 @@ if(app.documents.length>0){
 app.activeDocument.saveToOE(
 ${JSON.stringify(type)}
 );
-
-}
-`);
-
-}
-
-
-/* =====================================================
-NETTOYAGE
-===================================================== */
-
-function clean(){
-
-send(`
-if(app.documents.length>0){
-
-var doc=app.activeDocument;
-
-for(var i=doc.layers.length-1;i>=0;i--){
-
-var n=doc.layers[i].name;
-
-if(
-
-n.indexOf("VISUELS -")===0 ||
-
-n.indexOf("3D -")===0 ||
-
-n.indexOf("MOCKUP -")===0
-
-){
-
-doc.layers[i].remove();
-
-}
-
-}
 
 }
 `);
