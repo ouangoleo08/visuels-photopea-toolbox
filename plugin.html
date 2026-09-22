@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>VISUELS STUDIO 226</title>
+<title>VISUELS STUDIO 226 - Photopea Toolbox</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
-    background:#060b12;
+    background:#060a10;
     color:#fff;
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 .app{
     padding:9px;
 }
 
+/* HEADER */
+
 .header{
     padding:11px 12px;
     border-radius:12px;
     margin-bottom:7px;
+
     background:
-    radial-gradient(circle at 90% 0%,#00dfff35,transparent 40%),
-    linear-gradient(135deg,#0d1c2a,#071018);
-    border:1px solid #17394b;
+    radial-gradient(
+        circle at 100% 0%,
+        #00dfff38,
+        transparent 42%
+    ),
+    linear-gradient(
+        135deg,
+        #102131,
+        #071018
+    );
+
+    border:1px solid #1a4053;
 }
 
 .brand{
@@ -40,31 +56,45 @@ body{
 }
 
 .sub{
-    color:#8299a7;
     font-size:8px;
+    color:#8299a7;
     margin-top:3px;
 }
+
+
+/* STATUS */
 
 .status{
     display:flex;
     align-items:center;
     gap:5px;
+
     font-size:8px;
     color:#8ca2ae;
+
     background:#0b141d;
     border:1px solid #172d39;
+
     padding:6px 8px;
+
     border-radius:7px;
+
     margin-bottom:7px;
 }
 
 .dot{
     width:6px;
     height:6px;
+
     border-radius:50%;
+
     background:#00ef9b;
-    box-shadow:0 0 7px #00ef9b;
+
+    box-shadow:0 0 8px #00ef9b;
 }
+
+
+/* SECTION */
 
 .section{
     margin-bottom:7px;
@@ -73,386 +103,1010 @@ body{
 .title{
     font-size:8px;
     font-weight:900;
-    color:#cfe1e9;
+
+    color:#d5e7ef;
+
     text-transform:uppercase;
+
     letter-spacing:.6px;
+
     margin-bottom:4px;
+
     display:flex;
+
     align-items:center;
+
     gap:5px;
 }
 
 .title:before{
     content:"";
+
     width:2px;
     height:10px;
-    background:#17ddff;
+
+    background:#18ddff;
+
     border-radius:3px;
 }
 
-.grid{
+
+/* GRID */
+
+.grid2{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:4px;
 }
 
 .grid3{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:4px;
 }
 
 .grid4{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:4px;
 }
 
+
+/* BUTTON */
+
 button{
-    border:1px solid #1a3542;
+
+    width:100%;
+
+    border:1px solid #193540;
+
     background:#0d1821;
-    color:white;
-    padding:7px 6px;
+
+    color:#fff;
+
+    padding:7px 5px;
+
     border-radius:7px;
+
     cursor:pointer;
+
     font-size:8px;
+
     font-weight:700;
+
     min-width:0;
+
+    transition:.12s;
 }
 
 button:hover{
-    border-color:#1be0ff;
-    background:#132a36;
+
+    background:#152a36;
+
+    border-color:#1ddfff;
+
+    transform:translateY(-1px);
+
 }
 
+button:active{
+
+    transform:scale(.97);
+
+}
+
+
+/* BUTTON TYPES */
+
 .ai{
-    background:linear-gradient(135deg,#482092,#8d42e9);
-    border-color:#9b60f2;
+
+    background:
+    linear-gradient(
+        135deg,
+        #4b2197,
+        #9146e8
+    );
+
+    border-color:#a563f4;
 }
 
 .primary{
-    background:linear-gradient(135deg,#087d9e,#15d9ed);
+
+    background:
+    linear-gradient(
+        135deg,
+        #087c9c,
+        #15d8ed
+    );
+
     border-color:#25ddff;
 }
 
+
+/* TEMPLATE BUTTONS */
+
 .template{
-    min-height:48px;
-    font-size:8px;
+
+    min-height:50px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
 }
 
-.template b{
-    display:block;
-    font-size:15px;
-    margin-bottom:3px;
+.template .icon{
+
+    font-size:16px;
+
+    margin-bottom:2px;
 }
 
-.promo{background:linear-gradient(135deg,#e90035,#ff7200)}
-.formation{background:linear-gradient(135deg,#005bea,#00c6fb)}
-.restaurant{background:linear-gradient(135deg,#7b1600,#ff8a00)}
-.event{background:linear-gradient(135deg,#5819a8,#c62fff)}
-.product{background:linear-gradient(135deg,#087b56,#19c878)}
-.birthday{background:linear-gradient(135deg,#a20c70,#ff4db8)}
-.business{background:linear-gradient(135deg,#15253a,#315d8d)}
-.tech{background:linear-gradient(135deg,#06131e,#0087b3)}
+.template .name{
 
-input,select{
+    font-size:7px;
+
+}
+
+
+/* TEMPLATE COLORS */
+
+.t1{
+    background:
+    linear-gradient(
+        135deg,
+        #b8002e,
+        #ff7500
+    );
+}
+
+.t2{
+    background:
+    linear-gradient(
+        135deg,
+        #092c7c,
+        #00aeea
+    );
+}
+
+.t3{
+    background:
+    linear-gradient(
+        135deg,
+        #6e1700,
+        #ff8a00
+    );
+}
+
+.t4{
+    background:
+    linear-gradient(
+        135deg,
+        #58169d,
+        #cf31ff
+    );
+}
+
+.t5{
+    background:
+    linear-gradient(
+        135deg,
+        #006d50,
+        #19c978
+    );
+}
+
+.t6{
+    background:
+    linear-gradient(
+        135deg,
+        #9d0b68,
+        #ff4db8
+    );
+}
+
+.t7{
+    background:
+    linear-gradient(
+        135deg,
+        #142338,
+        #376e9e
+    );
+}
+
+.t8{
+    background:
+    linear-gradient(
+        135deg,
+        #06131e,
+        #0087b3
+    );
+}
+
+
+/* INPUT */
+
+input,
+select{
+
     width:100%;
+
     background:#0b151e;
+
     color:#fff;
-    border:1px solid #1a3542;
+
+    border:1px solid #193641;
+
     border-radius:7px;
+
     padding:7px;
+
     font-size:9px;
+
     margin-bottom:4px;
 }
 
+
+/* SMALL */
+
 .small{
+
     font-size:7px;
-    color:#667d89;
+
+    color:#647c89;
+
+    line-height:1.4;
+
     margin-top:3px;
 }
 
+
+/* FOOTER */
+
 .footer{
+
     text-align:center;
+
     color:#607681;
+
     border-top:1px solid #152731;
+
     padding-top:7px;
+
     margin-top:5px;
+
     font-size:7px;
 }
 
 .footer b{
+
     color:#1cddff;
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="app">
 
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
 <div class="header">
+
     <div class="brand">
         VISUELS <span>STUDIO 226</span>
     </div>
+
     <div class="sub">
-        Toolbox graphique intelligente • Photopea
+        Photopea Toolbox • Création graphique professionnelle
     </div>
+
 </div>
+
 
 <div class="status">
+
     <span class="dot"></span>
+
     Photopea connecté
+
 </div>
 
 
-<!-- IA -->
+
+<!-- =====================================================
+IA
+===================================================== -->
 
 <div class="section">
 
-<div class="title">🤖 IA & RETOUCHE</div>
+<div class="title">
+🤖 IA & RETOUCHE
+</div>
 
 <div class="grid4">
 
-<button class="ai" onclick="aiCut()">✂️<br>Détourage</button>
+<button class="ai" onclick="aiCut()">
+✂️<br>Détourage
+</button>
 
-<button class="ai" onclick="aiRemove()">🪄<br>Supprimer</button>
+<button class="ai" onclick="aiRemove()">
+🪄<br>Supprimer
+</button>
 
-<button class="ai" onclick="aiReplace()">✨<br>Remplacer</button>
+<button class="ai" onclick="aiReplace()">
+✨<br>Remplacer
+</button>
 
-<button class="ai" onclick="aiMagic()">🎯<br>Sélection</button>
+<button class="ai" onclick="aiSelect()">
+🎯<br>Sélection
+</button>
 
 </div>
 
 </div>
 
 
-<!-- AFFICHES -->
+
+<!-- =====================================================
+VRAIS MODÈLES
+===================================================== -->
 
 <div class="section">
 
-<div class="title">🖼️ AFFICHES MODÈLES — MODIFIABLES</div>
+<div class="title">
+🖼️ MODÈLES D'AFFICHES
+</div>
+
 
 <div class="grid4">
 
-<button class="template promo" onclick="templatePromo()">
-<b>🔥</b>Promo
+
+<button
+class="template t1"
+onclick="openTemplate('promo')">
+
+<span class="icon">🔥</span>
+
+<span class="name">
+PROMO
+</span>
+
 </button>
 
-<button class="template formation" onclick="templateFormation()">
-<b>🎓</b>Formation
+
+<button
+class="template t2"
+onclick="openTemplate('formation')">
+
+<span class="icon">🎓</span>
+
+<span class="name">
+FORMATION
+</span>
+
 </button>
 
-<button class="template restaurant" onclick="templateRestaurant()">
-<b>🍔</b>Restaurant
+
+<button
+class="template t3"
+onclick="openTemplate('restaurant')">
+
+<span class="icon">🍔</span>
+
+<span class="name">
+RESTAURANT
+</span>
+
 </button>
 
-<button class="template event" onclick="templateEvent()">
-<b>🎉</b>Événement
+
+<button
+class="template t4"
+onclick="openTemplate('event')">
+
+<span class="icon">🎉</span>
+
+<span class="name">
+ÉVÉNEMENT
+</span>
+
 </button>
 
-<button class="template product" onclick="templateProduct()">
-<b>📦</b>Produit
+
+<button
+class="template t5"
+onclick="openTemplate('product')">
+
+<span class="icon">📦</span>
+
+<span class="name">
+PRODUIT
+</span>
+
 </button>
 
-<button class="template birthday" onclick="templateBirthday()">
-<b>🎂</b>Anniversaire
+
+<button
+class="template t6"
+onclick="openTemplate('birthday')">
+
+<span class="icon">🎂</span>
+
+<span class="name">
+ANNIVERSAIRE
+</span>
+
 </button>
 
-<button class="template business" onclick="templateBusiness()">
-<b>💼</b>Business
+
+<button
+class="template t7"
+onclick="openTemplate('business')">
+
+<span class="icon">💼</span>
+
+<span class="name">
+BUSINESS
+</span>
+
 </button>
 
-<button class="template tech" onclick="templateTech()">
-<b>💻</b>Tech
+
+<button
+class="template t8"
+onclick="openTemplate('tech')">
+
+<span class="icon">💻</span>
+
+<span class="name">
+TECH
+</span>
+
 </button>
+
 
 </div>
+
 
 <div class="small">
-Chaque modèle crée une composition éditable dans Photopea.
-</div>
+
+Chaque bouton ouvrira un vrai modèle PSD
+modifiable dans Photopea.
 
 </div>
 
+</div>
 
-<!-- TEXTE -->
+
+
+<!-- =====================================================
+STICKERS
+===================================================== -->
 
 <div class="section">
 
-<div class="title">🔤 TEXTE & TYPOGRAPHIE</div>
+<div class="title">
+🏷️ STICKERS
+</div>
 
-<input id="txt" value="VOTRE TITRE" placeholder="Votre titre">
 
-<select id="font">
+<div class="grid4">
+
+
+<button onclick="sticker('PROMO')">
+🔥<br>PROMO
+</button>
+
+
+<button onclick="sticker('-50%')">
+🏷️<br>-50%
+</button>
+
+
+<button onclick="sticker('NEW')">
+⭐<br>NEW
+</button>
+
+
+<button onclick="sticker('TOP')">
+👑<br>TOP
+</button>
+
+
+<button onclick="sticker('OFFRE')">
+🎁<br>OFFRE
+</button>
+
+
+<button onclick="sticker('URGENT')">
+🚨<br>URGENT
+</button>
+
+
+<button onclick="sticker('GRATUIT')">
+🎁<br>GRATUIT
+</button>
+
+
+<button onclick="sticker('LIMITED')">
+⚡<br>LIMITED
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+TEXTE
+===================================================== -->
+
+<div class="section">
+
+<div class="title">
+🔤 TEXTE
+</div>
+
+
+<input
+id="textInput"
+value="VOTRE TITRE"
+placeholder="Écrivez votre titre">
+
+
+<select id="fontSelect">
 
 <option>Arial</option>
+
 <option>Impact</option>
+
 <option>Montserrat</option>
+
 <option>Poppins</option>
+
 <option>Roboto</option>
+
 <option>Oswald</option>
+
+<option>Arial Black</option>
+
 </select>
 
+
 <div class="grid4">
 
-<button onclick="addText()">🔤<br>Texte</button>
-<button onclick="bigText()">💥<br>XXL</button>
-<button onclick="text3D()">🧊<br>3D</button>
-<button onclick="chrome()">✨<br>Chrome</button>
+
+<button onclick="addText()">
+🔤<br>Texte
+</button>
+
+
+<button onclick="bigText()">
+💥<br>XXL
+</button>
+
+
+<button onclick="text3D()">
+🧊<br>3D
+</button>
+
+
+<button onclick="chromeText()">
+✨<br>Chrome
+</button>
+
 
 </div>
 
 </div>
 
 
-<!-- STYLES -->
+
+<!-- =====================================================
+EFFETS
+===================================================== -->
 
 <div class="section">
 
-<div class="title">🎨 STYLES</div>
+<div class="title">
+✨ EFFETS
+</div>
+
 
 <div class="grid4">
 
-<button onclick="style('premium')">💎<br>Premium</button>
-<button onclick="style('sport')">🏆<br>Sport</button>
-<button onclick="style('luxe')">👑<br>Luxe</button>
-<button onclick="style('tech')">💻<br>Tech</button>
+
+<button onclick="shadow()">
+🌑<br>Ombre
+</button>
+
+
+<button onclick="glow()">
+💡<br>Glow
+</button>
+
+
+<button onclick="duplicateLayer()">
+📑<br>Dupliquer
+</button>
+
+
+<button onclick="signature()">
+✍️<br>Signature
+</button>
+
 
 </div>
 
 </div>
 
 
-<!-- STICKERS -->
+
+<!-- =====================================================
+ARRIÈRE PLANS
+===================================================== -->
 
 <div class="section">
 
-<div class="title">🏷️ STICKERS & ÉLÉMENTS</div>
+<div class="title">
+🌌 ARRIÈRE-PLANS
+</div>
+
 
 <div class="grid4">
 
-<button onclick="sticker('PROMO')">🔥<br>PROMO</button>
-<button onclick="sticker('-50%')">🏷️<br>-50%</button>
-<button onclick="sticker('NEW')">⭐<br>NEW</button>
-<button onclick="sticker('TOP')">👑<br>TOP</button>
+
+<button onclick="background('#06152d')">
+🔵<br>Bleu
+</button>
+
+
+<button onclick="background('#050711')">
+🌌<br>Nuit
+</button>
+
+
+<button onclick="background('#00191c')">
+💎<br>Cyan
+</button>
+
+
+<button onclick="background('#451000')">
+🟠<br>Orange
+</button>
+
 
 </div>
 
 </div>
 
 
-<!-- MOCKUPS -->
+
+<!-- =====================================================
+MOCKUPS
+===================================================== -->
 
 <div class="section">
 
-<div class="title">📱 MOCKUPS RÉUTILISABLES</div>
+<div class="title">
+📱 MOCKUPS
+</div>
+
 
 <div class="grid4">
 
-<button onclick="mockup('smartphone')">📱<br>Phone</button>
-<button onclick="mockup('laptop')">💻<br>Laptop</button>
-<button onclick="mockup('tablet')">📲<br>Tablet</button>
-<button onclick="mockup('poster')">🖼️<br>Poster</button>
-<button onclick="mockup('shirt')">👕<br>T-Shirt</button>
-<button onclick="mockup('mug')">☕<br>Mug</button>
-<button onclick="mockup('ebook')">📕<br>Ebook</button>
-<button onclick="mockup('box')">📦<br>Box</button>
+
+<button onclick="openMockup('smartphone')">
+📱<br>Phone
+</button>
+
+
+<button onclick="openMockup('laptop')">
+💻<br>Laptop
+</button>
+
+
+<button onclick="openMockup('tablet')">
+📲<br>Tablet
+</button>
+
+
+<button onclick="openMockup('poster')">
+🖼️<br>Poster
+</button>
+
+
+<button onclick="openMockup('shirt')">
+👕<br>T-Shirt
+</button>
+
+
+<button onclick="openMockup('mug')">
+☕<br>Mug
+</button>
+
+
+<button onclick="openMockup('ebook')">
+📕<br>Ebook
+</button>
+
+
+<button onclick="openMockup('box')">
+📦<br>Box
+</button>
+
 
 </div>
 
 </div>
 
 
-<!-- FONDS -->
+
+<!-- =====================================================
+FORMATS
+===================================================== -->
 
 <div class="section">
 
-<div class="title">🌌 ARRIÈRE-PLANS</div>
+<div class="title">
+📐 FORMATS
+</div>
+
 
 <div class="grid4">
 
-<button onclick="bg('#06152d','#008ac0')">🔵<br>Bleu</button>
-<button onclick="bg('#050711','#263655')">🌌<br>Nuit</button>
-<button onclick="bg('#00191c','#00d5e8')">💎<br>Cyan</button>
-<button onclick="bg('#451000','#ff7500')">🟠<br>Orange</button>
+
+<button onclick="resizeDocument(1080,1080)">
+⬜<br>Carré
+</button>
+
+
+<button onclick="resizeDocument(1080,1350)">
+▯<br>Post
+</button>
+
+
+<button onclick="resizeDocument(1080,1920)">
+📱<br>Story
+</button>
+
+
+<button onclick="resizeDocument(1920,1080)">
+▭<br>Paysage
+</button>
+
 
 </div>
 
 </div>
 
 
-<!-- FORMATS -->
+
+<!-- =====================================================
+EXPORT
+===================================================== -->
 
 <div class="section">
 
-<div class="title">📐 FORMATS</div>
+<div class="title">
+💾 EXPORT
+</div>
+
 
 <div class="grid4">
 
-<button onclick="resize(1080,1080)">⬜<br>Carré</button>
-<button onclick="resize(1080,1350)">▯<br>Post</button>
-<button onclick="resize(1080,1920)">📱<br>Story</button>
-<button onclick="resize(1920,1080)">▭<br>Paysage</button>
+
+<button onclick="exportFile('png')">
+PNG
+</button>
+
+
+<button onclick="exportFile('jpg:0.95')">
+JPG
+</button>
+
+
+<button onclick="exportFile('webp:0.95')">
+WEBP
+</button>
+
+
+<button onclick="exportFile('psd:true')">
+PSD
+</button>
+
 
 </div>
 
 </div>
 
-
-<!-- OUTILS -->
-
-<div class="section">
-
-<div class="title">✨ OUTILS</div>
-
-<div class="grid4">
-
-<button onclick="shadow()">🌑<br>Ombre</button>
-<button onclick="glow()">💡<br>Glow</button>
-<button onclick="duplicate()">📑<br>Copier</button>
-<button onclick="signature()">✍️<br>Signature</button>
-
-</div>
-
-</div>
-
-
-<!-- EXPORT -->
-
-<div class="section">
-
-<div class="title">💾 EXPORT</div>
-
-<div class="grid4">
-
-<button onclick="exportFile('png')">PNG</button>
-<button onclick="exportFile('jpg:0.95')">JPG</button>
-<button onclick="exportFile('webp:0.95')">WEBP</button>
-<button onclick="exportFile('psd:true')">PSD</button>
-
-</div>
-
-</div>
 
 
 <div class="footer">
-<b>VISUELS STUDIO 226</b><br>
+
+<b>VISUELS STUDIO 226</b>
+
+<br>
+
 Imaginez plus, créez mieux, restez inspiré.
-</div>
 
 </div>
+
+
+</div>
+
 
 
 <script>
 
+
 /* =====================================================
-COMMUNICATION
+COMMUNICATION PHOTOPEA
 ===================================================== */
 
 function send(script){
-    window.parent.postMessage(script,"*");
+
+    window.parent.postMessage(
+        script,
+        "*"
+    );
+
 }
+
+
+
+/* =====================================================
+VRAIS MODÈLES PSD
+===================================================== */
+
+const TEMPLATES = {
+
+promo:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/promo-black-friday.psd",
+
+formation:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/formation-pro.psd",
+
+restaurant:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/restaurant-menu.psd",
+
+event:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/evenement.psd",
+
+product:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/vente-telephone.psd",
+
+birthday:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/anniversaire.psd",
+
+business:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/business-services.psd",
+
+tech:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/templates/informatique.psd"
+
+};
+
+
+
+/* =====================================================
+OUVRIR MODÈLE
+===================================================== */
+
+function openTemplate(type){
+
+    var url = TEMPLATES[type];
+
+    if(!url){
+
+        alert(
+            "Modèle introuvable."
+        );
+
+        return;
+
+    }
+
+
+    send(`
+
+        App.open(
+            ${JSON.stringify(url)}
+        );
+
+    `);
+
+}
+
+
+
+/* =====================================================
+MOCKUPS
+===================================================== */
+
+const MOCKUPS = {
+
+smartphone:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/smartphone.psd",
+
+laptop:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/laptop.psd",
+
+tablet:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/tablet.psd",
+
+poster:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/poster.psd",
+
+shirt:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/tshirt.psd",
+
+mug:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/mug.psd",
+
+ebook:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/ebook.psd",
+
+box:
+"https://raw.githubusercontent.com/ouangoleo08/visuels-photopea-toolbox/main/assets/mockups/box.psd"
+
+};
+
+
+
+function openMockup(type){
+
+    var url=MOCKUPS[type];
+
+    if(!url){
+
+        alert(
+            "Mockup introuvable."
+        );
+
+        return;
+
+    }
+
+
+    send(`
+
+        App.open(
+            ${JSON.stringify(url)},
+            null,
+            true
+        );
+
+    `);
+
+}
+
 
 
 /* =====================================================
@@ -461,203 +1115,355 @@ IA
 
 function aiCut(){
 
-send(`
-if(app.documents.length>0){
-app.showWindow("magiccut");
-}
-`);
+    send(`
+
+    if(app.documents.length>0){
+
+        try{
+
+            app.showWindow("magiccut");
+
+        }catch(e){
+
+            app.echoToOE(
+                "Ouvrez le menu Sélection pour utiliser le détourage."
+            );
+
+        }
+
+    }
+
+    `);
 
 }
 
-function aiMagic(){
 
-send(`
-if(app.documents.length>0){
-app.showWindow("magiccut");
-}
-`);
+function aiSelect(){
+
+    send(`
+
+    if(app.documents.length>0){
+
+        try{
+
+            app.showWindow("magiccut");
+
+        }catch(e){}
+
+    }
+
+    `);
 
 }
+
 
 function aiRemove(){
 
-send(`
-if(app.documents.length>0){
-try{
-app.runMenuItem(
-stringIDToTypeID("contentAwareFill")
-);
-}catch(e){
-app.echoToOE("Sélectionnez d'abord l'élément à supprimer.");
-}
-}
-`);
+    send(`
+
+    if(app.documents.length>0){
+
+        try{
+
+            app.runMenuItem(
+                stringIDToTypeID(
+                    "contentAwareFill"
+                )
+            );
+
+        }catch(e){
+
+            app.echoToOE(
+                "Sélectionnez d'abord l'élément à supprimer."
+            );
+
+        }
+
+    }
+
+    `);
 
 }
+
 
 function aiReplace(){
 
-send(`
-if(app.documents.length>0){
-try{
-app.runMenuItem(
-stringIDToTypeID("magicReplace")
-);
-}catch(e){
-app.echoToOE("Magic Replace doit être disponible dans Photopea.");
-}
-}
-`);
+    send(`
+
+    if(app.documents.length>0){
+
+        try{
+
+            app.runMenuItem(
+                stringIDToTypeID(
+                    "magicReplace"
+                )
+            );
+
+        }catch(e){
+
+            app.echoToOE(
+                "Magic Replace n'est pas disponible."
+            );
+
+        }
+
+    }
+
+    `);
 
 }
 
-
-/* =====================================================
-OUTILS
-===================================================== */
-
-function getText(){
-return document.getElementById("txt").value || "VOTRE TITRE";
-}
-
-function getFont(){
-return document.getElementById("font").value;
-}
 
 
 /* =====================================================
 TEXTE
 ===================================================== */
 
+function getText(){
+
+    return document
+        .getElementById("textInput")
+        .value
+        ||
+        "VOTRE TITRE";
+
+}
+
+
+function getFont(){
+
+    return document
+        .getElementById("fontSelect")
+        .value;
+
+}
+
+
 function addText(){
 
-let t=getText();
-let f=getFont();
+    var text=getText();
 
-send(`
-if(app.documents.length>0){
+    var font=getFont();
 
-var l=app.activeDocument.artLayers.add();
 
-l.kind=LayerKind.TEXT;
-l.name="VISUELS - TEXTE";
+    send(`
 
-l.textItem.contents=${JSON.stringify(t)};
-l.textItem.font=${JSON.stringify(f)};
-l.textItem.size=80;
+    if(app.documents.length>0){
 
-l.textItem.position=[100,180];
+        var doc=app.activeDocument;
+
+        var layer=doc.artLayers.add();
+
+        layer.kind=LayerKind.TEXT;
+
+        layer.name=
+        "VISUELS - TEXTE";
+
+        layer.textItem.contents=
+        ${JSON.stringify(text)};
+
+        layer.textItem.font=
+        ${JSON.stringify(font)};
+
+        layer.textItem.size=80;
+
+        layer.textItem.position=[
+            100,
+            180
+        ];
+
+    }
+
+    `);
 
 }
-`);
 
-}
 
 
 function bigText(){
 
-let t=getText();
-let f=getFont();
+    var text=getText();
 
-send(`
-if(app.documents.length>0){
+    var font=getFont();
 
-var l=app.activeDocument.artLayers.add();
 
-l.kind=LayerKind.TEXT;
-l.name="VISUELS - TITRE XXL";
+    send(`
 
-l.textItem.contents=${JSON.stringify(t)};
-l.textItem.font=${JSON.stringify(f)};
-l.textItem.size=170;
+    if(app.documents.length>0){
 
-l.textItem.position=[80,220];
+        var doc=app.activeDocument;
+
+        var layer=doc.artLayers.add();
+
+        layer.kind=LayerKind.TEXT;
+
+        layer.name=
+        "VISUELS - TITRE XXL";
+
+        layer.textItem.contents=
+        ${JSON.stringify(text)};
+
+        layer.textItem.font=
+        ${JSON.stringify(font)};
+
+        layer.textItem.size=170;
+
+        layer.textItem.position=[
+            70,
+            200
+        ];
+
+    }
+
+    `);
 
 }
-`);
 
-}
 
+
+/* =====================================================
+TEXTE 3D
+===================================================== */
 
 function text3D(){
 
-let t=getText();
-let f=getFont();
+    var text=getText();
 
-send(`
-if(app.documents.length>0){
-
-var doc=app.activeDocument;
-
-var base=doc.artLayers.add();
-
-base.kind=LayerKind.TEXT;
-base.name="VISUELS - 3D";
-
-base.textItem.contents=${JSON.stringify(t)};
-base.textItem.font=${JSON.stringify(f)};
-base.textItem.size=120;
-
-base.textItem.position=[100,200];
-
-for(var i=1;i<7;i++){
-
-var l=base.duplicate();
-
-l.name="VISUELS - 3D profondeur";
-
-l.translate(i*4,i*4);
-
-}
-
-}
-`);
-
-}
+    var font=getFont();
 
 
-function chrome(){
+    send(`
 
-let t=getText();
-let f=getFont();
+    if(app.documents.length>0){
 
-send(`
-if(app.documents.length>0){
+        var doc=
+        app.activeDocument;
 
-var doc=app.activeDocument;
+        var base=
+        doc.artLayers.add();
 
-var base=doc.artLayers.add();
+        base.kind=
+        LayerKind.TEXT;
 
-base.kind=LayerKind.TEXT;
+        base.name=
+        "VISUELS - 3D";
 
-base.name="VISUELS - CHROME";
+        base.textItem.contents=
+        ${JSON.stringify(text)};
 
-base.textItem.contents=${JSON.stringify(t)};
-base.textItem.font=${JSON.stringify(f)};
-base.textItem.size=120;
+        base.textItem.font=
+        ${JSON.stringify(font)};
 
-base.textItem.position=[100,200];
+        base.textItem.size=120;
 
-var c=new SolidColor();
+        base.textItem.position=[
+            100,
+            200
+        ];
 
-c.rgb.red=235;
-c.rgb.green=240;
-c.rgb.blue=245;
 
-base.textItem.color=c;
+        for(
+            var i=1;
+            i<7;
+            i++
+        ){
 
-for(var i=1;i<5;i++){
+            var layer=
+            base.duplicate();
 
-var l=base.duplicate();
+            layer.name=
+            "VISUELS - 3D profondeur";
 
-l.translate(i*2,i*2);
+            layer.translate(
+                i*4,
+                i*4
+            );
+
+        }
+
+    }
+
+    `);
 
 }
 
-}
-`);
+
+
+/* =====================================================
+CHROME
+===================================================== */
+
+function chromeText(){
+
+    var text=getText();
+
+    var font=getFont();
+
+
+    send(`
+
+    if(app.documents.length>0){
+
+        var doc=
+        app.activeDocument;
+
+        var base=
+        doc.artLayers.add();
+
+        base.kind=
+        LayerKind.TEXT;
+
+        base.name=
+        "VISUELS - CHROME";
+
+        base.textItem.contents=
+        ${JSON.stringify(text)};
+
+        base.textItem.font=
+        ${JSON.stringify(font)};
+
+        base.textItem.size=120;
+
+        base.textItem.position=[
+            100,
+            200
+        ];
+
+
+        var color=
+        new SolidColor();
+
+        color.rgb.red=235;
+        color.rgb.green=240;
+        color.rgb.blue=245;
+
+        base.textItem.color=
+        color;
+
+
+        for(
+            var i=1;
+            i<5;
+            i++
+        ){
+
+            var layer=
+            base.duplicate();
+
+            layer.translate(
+                i*2,
+                i*2
+            );
+
+        }
+
+    }
+
+    `);
 
 }
+
 
 
 /* =====================================================
@@ -666,91 +1472,138 @@ STICKERS
 
 function sticker(text){
 
-send(`
-if(app.documents.length>0){
+    send(`
 
-var doc=app.activeDocument;
+    if(app.documents.length>0){
 
-var l=doc.artLayers.add();
+        var doc=
+        app.activeDocument;
 
-l.kind=LayerKind.TEXT;
+        var layer=
+        doc.artLayers.add();
 
-l.name="VISUELS - STICKER";
+        layer.kind=
+        LayerKind.TEXT;
 
-l.textItem.contents=${JSON.stringify(text)};
+        layer.name=
+        "VISUELS - STICKER";
 
-l.textItem.size=55;
+        layer.textItem.contents=
+        ${JSON.stringify(text)};
 
-l.textItem.position=[80,80];
+        layer.textItem.size=55;
 
-var c=new SolidColor();
+        layer.textItem.position=[
+            80,
+            80
+        ];
 
-c.rgb.red=255;
-c.rgb.green=255;
-c.rgb.blue=255;
+    }
 
-l.textItem.color=c;
+    `);
 
 }
-`);
 
-}
 
 
 /* =====================================================
-FONDS
+ARRIÈRE PLAN
 ===================================================== */
 
-function bg(a,b){
+function background(hex){
 
-send(`
-if(app.documents.length>0){
+    var r=
+    parseInt(
+        hex.substring(1,3),
+        16
+    );
 
-var doc=app.activeDocument;
+    var g=
+    parseInt(
+        hex.substring(3,5),
+        16
+    );
 
-var l=doc.artLayers.add();
+    var b=
+    parseInt(
+        hex.substring(5,7),
+        16
+    );
 
-l.name="VISUELS - FOND";
 
-var c=new SolidColor();
+    send(`
 
-c.rgb.red=${parseInt(a.substring(1,3),16)};
-c.rgb.green=${parseInt(a.substring(3,5),16)};
-c.rgb.blue=${parseInt(a.substring(5,7),16)};
+    if(app.documents.length>0){
 
-app.foregroundColor=c;
+        var doc=
+        app.activeDocument;
 
-doc.selection.selectAll();
+        var layer=
+        doc.artLayers.add();
 
-doc.selection.fill(app.foregroundColor);
+        layer.name=
+        "VISUELS - FOND";
 
-doc.selection.deselect();
+        var color=
+        new SolidColor();
+
+        color.rgb.red=${r};
+
+        color.rgb.green=${g};
+
+        color.rgb.blue=${b};
+
+        app.foregroundColor=
+        color;
+
+        doc.selection.selectAll();
+
+        doc.selection.fill(
+            app.foregroundColor
+        );
+
+        doc.selection.deselect();
+
+    }
+
+    `);
 
 }
-`);
 
-}
 
 
 /* =====================================================
 FORMATS
 ===================================================== */
 
-function resize(w,h){
+function resizeDocument(w,h){
 
-send(`
-if(app.documents.length>0){
+    send(`
 
-app.activeDocument.resizeImage(
-UnitValue(${w},"px"),
-UnitValue(${h},"px"),
-null
-);
+    if(app.documents.length>0){
+
+        app.activeDocument.resizeImage(
+
+            UnitValue(
+                ${w},
+                "px"
+            ),
+
+            UnitValue(
+                ${h},
+                "px"
+            ),
+
+            null
+
+        );
+
+    }
+
+    `);
 
 }
-`);
 
-}
 
 
 /* =====================================================
@@ -759,53 +1612,71 @@ EFFETS
 
 function shadow(){
 
-send(`
-if(app.documents.length>0){
+    send(`
 
-try{
-app.runMenuItem(
-stringIDToTypeID("dropShadow")
-);
-}catch(e){}
+    if(app.documents.length>0){
 
-}
-`);
+        try{
+
+            app.runMenuItem(
+                stringIDToTypeID(
+                    "dropShadow"
+                )
+            );
+
+        }catch(e){}
+
+    }
+
+    `);
 
 }
 
 
 function glow(){
 
-send(`
-if(app.documents.length>0){
+    send(`
 
-try{
-app.runMenuItem(
-stringIDToTypeID("outerGlow")
-);
-}catch(e){}
+    if(app.documents.length>0){
 
-}
-`);
+        try{
 
-}
+            app.runMenuItem(
+                stringIDToTypeID(
+                    "outerGlow"
+                )
+            );
 
+        }catch(e){}
 
-function duplicate(){
+    }
 
-send(`
-if(app.documents.length>0){
-
-var l=app.activeDocument.activeLayer;
-
-if(l){
-l.duplicate();
-}
+    `);
 
 }
-`);
+
+
+function duplicateLayer(){
+
+    send(`
+
+    if(app.documents.length>0){
+
+        var layer=
+        app.activeDocument.activeLayer;
+
+        if(layer){
+
+            layer.duplicate();
+
+        }
+
+    }
+
+    `);
 
 }
+
 
 
 /* =====================================================
@@ -814,221 +1685,38 @@ SIGNATURE
 
 function signature(){
 
-send(`
-if(app.documents.length>0){
+    send(`
 
-var doc=app.activeDocument;
+    if(app.documents.length>0){
 
-var l=doc.artLayers.add();
+        var doc=
+        app.activeDocument;
 
-l.kind=LayerKind.TEXT;
+        var layer=
+        doc.artLayers.add();
 
-l.name="Visuels Studio 226";
+        layer.kind=
+        LayerKind.TEXT;
 
-l.textItem.contents="Visuels Studio 226";
+        layer.name=
+        "Visuels Studio 226";
 
-l.textItem.size=17;
+        layer.textItem.contents=
+        "Visuels Studio 226";
 
-l.textItem.position=[30,doc.height-35];
+        layer.textItem.size=17;
 
-}
-`);
+        layer.textItem.position=[
+            30,
+            doc.height-35
+        ];
 
-}
+    }
 
-
-/* =====================================================
-STYLES
-===================================================== */
-
-function style(type){
-
-if(type==="premium")
-bg("#05070d","#1b2b40");
-
-if(type==="sport")
-bg("#080808","#c53d00");
-
-if(type==="luxe")
-bg("#110b02","#b77a00");
-
-if(type==="tech")
-bg("#020b13","#007d9e");
+    `);
 
 }
 
-
-/* =====================================================
-TEMPLATES
-===================================================== */
-
-function makeTemplate(type){
-
-send(`
-if(app.documents.length>0){
-
-var doc=app.activeDocument;
-
-
-/* GROUPE */
-
-var group=doc.layerSets.add();
-
-group.name="TEMPLATE - ${type.toUpperCase()}";
-
-
-/* FOND */
-
-var bg=doc.artLayers.add();
-
-bg.name="FOND - ${type}";
-
-
-/* TITRE */
-
-var title=doc.artLayers.add();
-
-title.kind=LayerKind.TEXT;
-
-title.name="TITRE - MODIFIABLE";
-
-title.textItem.contents="${type.toUpperCase()}";
-
-title.textItem.size=150;
-
-title.textItem.position=[90,180];
-
-
-/* SOUS TITRE */
-
-var sub=doc.artLayers.add();
-
-sub.kind=LayerKind.TEXT;
-
-sub.name="SOUS-TITRE - MODIFIABLE";
-
-sub.textItem.contents="Votre message ici";
-
-sub.textItem.size=55;
-
-sub.textItem.position=[95,270];
-
-
-/* CTA */
-
-var cta=doc.artLayers.add();
-
-cta.kind=LayerKind.TEXT;
-
-cta.name="CTA - MODIFIABLE";
-
-cta.textItem.contents="COMMANDER MAINTENANT";
-
-cta.textItem.size=45;
-
-cta.textItem.position=[95,doc.height-160];
-
-
-/* SIGNATURE */
-
-var sig=doc.artLayers.add();
-
-sig.kind=LayerKind.TEXT;
-
-sig.name="SIGNATURE";
-
-sig.textItem.contents="Visuels Studio 226";
-
-sig.textItem.size=17;
-
-sig.textItem.position=[30,doc.height-35];
-
-}
-`);
-
-}
-
-
-function templatePromo(){
-makeTemplate("PROMOTION");
-}
-
-function templateFormation(){
-makeTemplate("FORMATION");
-}
-
-function templateRestaurant(){
-makeTemplate("RESTAURANT");
-}
-
-function templateEvent(){
-makeTemplate("ÉVÉNEMENT");
-}
-
-function templateProduct(){
-makeTemplate("PRODUIT");
-}
-
-function templateBirthday(){
-makeTemplate("ANNIVERSAIRE");
-}
-
-function templateBusiness(){
-makeTemplate("BUSINESS");
-}
-
-function templateTech(){
-makeTemplate("TECHNOLOGIE");
-}
-
-
-/* =====================================================
-MOCKUPS
-===================================================== */
-
-function mockup(type){
-
-var urls={
-
-smartphone:
-"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/smartphone.png",
-
-laptop:
-"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/laptop.png",
-
-tablet:
-"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/tablet.png",
-
-poster:
-"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/poster.png",
-
-shirt:
-"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/shirt.png",
-
-mug:
-"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/mug.png",
-
-ebook:
-"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/ebook.png",
-
-box:
-"https://ouangoleo08.github.io/visuels-photopea-toolbox/assets/mockups/box.png"
-
-};
-
-send(`
-if(app.documents.length>0){
-
-App.open(
-${JSON.stringify(urls[type])},
-null,
-true
-);
-
-}
-`);
-
-}
 
 
 /* =====================================================
@@ -1037,15 +1725,17 @@ EXPORT
 
 function exportFile(type){
 
-send(`
-if(app.documents.length>0){
+    send(`
 
-app.activeDocument.saveToOE(
-${JSON.stringify(type)}
-);
+    if(app.documents.length>0){
 
-}
-`);
+        app.activeDocument.saveToOE(
+            ${JSON.stringify(type)}
+        );
+
+    }
+
+    `);
 
 }
 
