@@ -5,24 +5,35 @@
 <title>VISUELS STUDIO 226 - Photopea Toolbox</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+}
 
 body{
-    margin:0;
-    padding:10px;
     width:320px;
-    background:#07111f;
-    color:white;
-    font-family:Arial,sans-serif;
+    padding:10px;
+    background:
+        radial-gradient(circle at top,#12395a 0,#07111f 42%,#040911 100%);
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 .header{
     text-align:center;
-    padding:12px;
-    margin-bottom:8px;
-    border-radius:12px;
-    background:linear-gradient(135deg,#07182d,#0c5685);
-    border:1px solid #1b6f9f;
+    padding:15px 10px;
+    margin-bottom:9px;
+    border-radius:15px;
+    background:
+        linear-gradient(145deg,#0a2038,#0b6797 55%,#06263d);
+    border:1px solid #269bd2;
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
 }
 
 .logo{
@@ -32,68 +43,97 @@ body{
 }
 
 .sub{
-    margin-top:3px;
+    margin-top:4px;
     font-size:10px;
-    color:#79ddff;
+    color:#83e5ff;
+    letter-spacing:1px;
 }
 
 .section{
-    background:#0b1b2c;
-    border:1px solid #193a55;
-    border-radius:10px;
-    padding:8px;
-    margin-bottom:7px;
+    background:rgba(8,24,40,.96);
+    border:1px solid #1c405b;
+    border-radius:12px;
+    padding:9px;
+    margin-bottom:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,.18);
 }
 
 .title{
-    color:#72dcff;
+    color:#75ddff;
     font-size:10px;
-    font-weight:bold;
-    margin-bottom:6px;
+    font-weight:900;
+    margin-bottom:7px;
+    letter-spacing:.4px;
 }
 
 .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:5px;
+    gap:6px;
 }
 
 button{
-    border:0;
-    border-radius:7px;
-    padding:9px 4px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:8px;
+    padding:10px 4px;
     color:white;
-    background:#122d47;
+    background:linear-gradient(145deg,#163650,#10283d);
     font-size:10px;
-    font-weight:bold;
+    font-weight:800;
     cursor:pointer;
+    transition:.15s;
 }
 
 button:hover{
-    background:#1c557d;
+    transform:translateY(-1px);
+    background:#1e5277;
 }
 
-.blue{background:#0873ad}
-.gold{background:#9a6900}
-.purple{background:#66348e}
-.green{background:#14774d}
-.red{background:#963838}
+button:active{
+    transform:scale(.97);
+}
+
+.blue{
+    background:linear-gradient(145deg,#087fc0,#07537e);
+}
+
+.gold{
+    background:linear-gradient(145deg,#bd8200,#795000);
+}
+
+.purple{
+    background:linear-gradient(145deg,#8144ad,#512775);
+}
+
+.green{
+    background:linear-gradient(145deg,#198e5d,#0e5e3e);
+}
+
+.red{
+    background:linear-gradient(145deg,#b64747,#722626);
+}
 
 input{
     width:100%;
-    padding:8px;
-    border-radius:7px;
-    border:1px solid #244863;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #28536d;
     background:#06131f;
     color:white;
-    margin-bottom:6px;
+    margin-bottom:7px;
+    outline:none;
+}
+
+input:focus{
+    border-color:#43caff;
+    box-shadow:0 0 0 2px rgba(67,202,255,.12);
 }
 
 .status{
     text-align:center;
     font-size:10px;
-    color:#70e2a3;
-    padding:3px;
+    color:#71e5a3;
+    padding:5px;
 }
 </style>
 </head>
@@ -104,7 +144,6 @@ input{
     <div class="logo">VISUELS STUDIO 226</div>
     <div class="sub">PHOTOPEA TOOLBOX</div>
 </div>
-
 
 <!-- ================= MODÈLES ================= -->
 
@@ -149,7 +188,6 @@ input{
 </div>
 </div>
 
-
 <!-- ================= STICKERS ================= -->
 
 <div class="section">
@@ -168,7 +206,6 @@ input{
 </div>
 </div>
 
-
 <!-- ================= TEXTE ================= -->
 
 <div class="section">
@@ -186,7 +223,6 @@ input{
 
 </div>
 </div>
-
 
 <!-- ================= OUTILS ================= -->
 
@@ -210,14 +246,14 @@ STORY
 </div>
 </div>
 
-
 <!-- ================= SIGNATURE ================= -->
 
 <div class="section">
 
 <div class="title">✍️ IDENTITÉ</div>
 
-<button class="green"
+<button
+class="green"
 style="width:100%"
 onclick="signature()">
 
@@ -226,7 +262,6 @@ onclick="signature()">
 </button>
 
 </div>
-
 
 <!-- ================= EXPORT ================= -->
 
@@ -244,7 +279,6 @@ onclick="signature()">
 </div>
 </div>
 
-
 <div id="status" class="status">
 ● Connecté à Photopea
 </div>
@@ -253,39 +287,63 @@ onclick="signature()">
 <script>
 
 /* =====================================================
-   ENVOI À PHOTOPEA
+   COMMUNICATION PHOTOPEA
 ===================================================== */
 
 function send(code){
 
-    window.parent.postMessage(code,"*");
+    try{
 
-    document.getElementById("status").innerText =
-    "● Action envoyée à Photopea";
+        window.parent.postMessage(code,"*");
+
+        document.getElementById("status").innerText =
+        "● Action envoyée à Photopea";
+
+    }catch(e){
+
+        document.getElementById("status").innerText =
+        "● Erreur d'envoi";
+
+    }
 }
 
 
 /* =====================================================
-   CRÉATION DES AFFICHES
+   COULEUR RGB
 ===================================================== */
 
-function poster(type){
+function rgb(r,g,b){
 
-let data={
+return `
+var c=new SolidColor();
+c.rgb.red=${r};
+c.rgb.green=${g};
+c.rgb.blue=${b};
+c;
+`;
+
+}
+
+
+/* =====================================================
+   DONNÉES DES MODÈLES
+===================================================== */
+
+const MODELES={
 
 promo:{
 title:"GRANDE PROMO",
 subtitle:"DES OFFRES EXCEPTIONNELLES",
 badge:"-50%",
 product:"VOTRE PRODUIT",
-description:"Qualité • Style • Performance",
+description:"QUALITÉ • STYLE • PERFORMANCE",
 price:"7 500 F",
-old:"au lieu de 10 000 F",
+old:"AU LIEU DE 10 000 F",
 cta:"COMMANDER MAINTENANT",
 contact:"+226 79 03 94 62",
 bg:[5,14,35],
 accent:[255,105,25],
-second:[20,100,190]
+second:[15,90,180]
 },
 
 formation:{
@@ -295,12 +353,12 @@ badge:"NOUVEAU",
 product:"PHOTOSHOP",
 description:"DESIGN GRAPHIQUE PROFESSIONNEL",
 price:"FORMATION PRO",
-old:"Cours pratiques",
+old:"COURS PRATIQUES",
 cta:"INSCRIVEZ-VOUS",
 contact:"+226 79 03 94 62",
-bg:[8,18,48],
-accent:[40,210,255],
-second:[30,100,190]
+bg:[5,15,42],
+accent:[35,210,255],
+second:[15,80,180]
 },
 
 restaurant:{
@@ -308,14 +366,14 @@ title:"MENU DU JOUR",
 subtitle:"SAVEURS • QUALITÉ • PLAISIR",
 badge:"CHEF",
 product:"PLAT SPÉCIAL",
-description:"Une expérience gourmande",
+description:"UNE EXPÉRIENCE GOURMANDE",
 price:"2 500 F",
 old:"",
 cta:"COMMANDER",
 contact:"+226 79 03 94 62",
-bg:[45,12,7],
-accent:[255,150,30],
-second:[130,35,15]
+bg:[48,10,5],
+accent:[255,145,25],
+second:[145,35,10]
 },
 
 business:{
@@ -323,14 +381,14 @@ title:"VOTRE ENTREPRISE",
 subtitle:"DES SERVICES POUR VOTRE ACTIVITÉ",
 badge:"PRO",
 product:"NOS SERVICES",
-description:"Design • Web • Communication",
+description:"DESIGN • WEB • COMMUNICATION",
 price:"SUR MESURE",
 old:"",
 cta:"CONTACTEZ-NOUS",
 contact:"+226 79 03 94 62",
-bg:[5,12,27],
+bg:[4,12,28],
 accent:[40,210,255],
-second:[20,80,150]
+second:[15,80,150]
 },
 
 telephone:{
@@ -343,9 +401,9 @@ price:"PRIX ATTRACTIFS",
 old:"",
 cta:"ACHETER MAINTENANT",
 contact:"+226 46 45 27 57",
-bg:[3,20,38],
-accent:[0,210,255],
-second:[20,90,160]
+bg:[2,18,36],
+accent:[0,215,255],
+second:[10,80,160]
 },
 
 event:{
@@ -359,8 +417,8 @@ old:"",
 cta:"RÉSERVEZ VOTRE PLACE",
 contact:"+226 79 03 94 62",
 bg:[28,5,45],
-accent:[255,70,205],
-second:[120,25,150]
+accent:[255,65,205],
+second:[115,25,150]
 },
 
 birthday:{
@@ -373,9 +431,9 @@ price:"2026",
 old:"",
 cta:"CÉLÉBRONS ENSEMBLE",
 contact:"+226 79 03 94 62",
-bg:[45,7,35],
-accent:[255,80,160],
-second:[170,30,90]
+bg:[45,6,34],
+accent:[255,75,160],
+second:[165,25,90]
 },
 
 tech:{
@@ -390,33 +448,43 @@ cta:"ACHETER MAINTENANT",
 contact:"+226 79 03 94 62",
 bg:[2,8,20],
 accent:[0,220,255],
-second:[10,80,160]
+second:[10,75,155]
 }
 
 };
 
-let d=data[type];
 
-if(!d)return;
+/* =====================================================
+   AFFICHES
+===================================================== */
 
+function poster(type){
 
-/* CONSTRUCTION */
+    let d=MODELES[type];
 
-let script=`
+    if(!d){
+        return;
+    }
+
+    let script=`
+
+/* =====================================================
+   NOUVEAU DOCUMENT
+===================================================== */
 
 app.documents.add(
-1080,
-1350,
-72,
-${JSON.stringify(d.title)}
+    1080,
+    1350,
+    72,
+    ${JSON.stringify(d.title)}
 );
 
 var doc=app.activeDocument;
 
 
-/* =================================================
+/* =====================================================
    COULEURS
-================================================= */
+===================================================== */
 
 var bg=new SolidColor();
 bg.rgb.red=${d.bg[0]};
@@ -438,19 +506,19 @@ white.rgb.red=255;
 white.rgb.green=255;
 white.rgb.blue=255;
 
-var dark=new SolidColor();
-dark.rgb.red=4;
-dark.rgb.green=12;
-dark.rgb.blue=25;
+var black=new SolidColor();
+black.rgb.red=3;
+black.rgb.green=8;
+black.rgb.blue=15;
 
 
-/* =================================================
-   FOND
-================================================= */
+/* =====================================================
+   FOND PRINCIPAL
+===================================================== */
 
 var fond=doc.artLayers.add();
 
-fond.name="01 - FOND";
+fond.name="01 - FOND PRINCIPAL";
 
 doc.selection.selectAll();
 
@@ -459,31 +527,31 @@ doc.selection.fill(bg);
 doc.selection.deselect();
 
 
-/* =================================================
-   GRANDE ZONE LUMIÈRE
-================================================= */
+/* =====================================================
+   GRAND BLOC VISUEL
+===================================================== */
 
-var lumiere=doc.artLayers.add();
+var bloc=doc.artLayers.add();
 
-lumiere.name="02 - LUMIERE";
+bloc.name="02 - ZONE VISUELLE";
 
 doc.selection.select([
 [0,0],
 [1080,0],
-[1080,430],
-[0,570]
+[1080,720],
+[0,560]
 ]);
 
 doc.selection.fill(second);
 
 doc.selection.deselect();
 
-lumiere.opacity=55;
+bloc.opacity=65;
 
 
-/* =================================================
-   BANDE HAUTE
-================================================= */
+/* =====================================================
+   BANDE ACCENT
+===================================================== */
 
 var bande=doc.artLayers.add();
 
@@ -492,8 +560,8 @@ bande.name="03 - BANDE ACCENT";
 doc.selection.select([
 [0,0],
 [1080,0],
-[1080,28],
-[0,28]
+[1080,25],
+[0,25]
 ]);
 
 doc.selection.fill(accent);
@@ -501,61 +569,83 @@ doc.selection.fill(accent);
 doc.selection.deselect();
 
 
-/* =================================================
+/* =====================================================
+   CERCLE DÉCORATIF
+===================================================== */
+
+var cercle=doc.artLayers.add();
+
+cercle.name="04 - DECORATION";
+
+doc.selection.select([
+[820,65],
+[1040,65],
+[1040,285],
+[820,285]
+]);
+
+doc.selection.fill(accent);
+
+doc.selection.deselect();
+
+cercle.opacity=35;
+
+
+/* =====================================================
    TITRE
-================================================= */
+===================================================== */
 
 var titre=doc.artLayers.add();
 
 titre.kind=LayerKind.TEXT;
 
-titre.name="04 - TITRE PRINCIPAL";
+titre.name="05 - TITRE PRINCIPAL";
 
 titre.textItem.contents=${JSON.stringify(d.title)};
 
-titre.textItem.size=82;
+titre.textItem.size=78;
 
 titre.textItem.font="Arial-BoldMT";
 
 titre.textItem.color=white;
 
-titre.textItem.position=[55,105];
+titre.textItem.position=[55,110];
 
 
-/* =================================================
-   SOUS TITRE
-================================================= */
+/* =====================================================
+   SOUS-TITRE
+===================================================== */
 
 var sous=doc.artLayers.add();
 
 sous.kind=LayerKind.TEXT;
 
-sous.name="05 - SOUS TITRE";
+sous.name="06 - SOUS TITRE";
 
 sous.textItem.contents=${JSON.stringify(d.subtitle)};
 
-sous.textItem.size=30;
+sous.textItem.size=27;
 
 sous.textItem.font="Arial-BoldMT";
 
 sous.textItem.color=accent;
 
-sous.textItem.position=[60,220];
+sous.textItem.position=[58,215];
 
 
-/* =================================================
+/* =====================================================
    BADGE
-================================================= */
+===================================================== */
 
 var badgeFond=doc.artLayers.add();
 
-badgeFond.name="06 - FOND BADGE";
+badgeFond.name="07 - FOND BADGE";
 
 doc.selection.select([
-[55,285],
-[360,400],
-[55,400],
-[55,285]
+[55,275],
+[365,275],
+[365,390],
+[55,390]
 ]);
 
 doc.selection.fill(accent);
@@ -567,32 +657,32 @@ var badge=doc.artLayers.add();
 
 badge.kind=LayerKind.TEXT;
 
-badge.name="07 - BADGE";
+badge.name="08 - BADGE";
 
 badge.textItem.contents=${JSON.stringify(d.badge)};
 
-badge.textItem.size=52;
+badge.textItem.size=48;
 
 badge.textItem.font="Arial-BoldMT";
 
 badge.textItem.color=white;
 
-badge.textItem.position=[80,305];
+badge.textItem.position=[82,300];
 
 
-/* =================================================
-   ZONE PHOTO
-================================================= */
+/* =====================================================
+   CADRE PHOTO
+===================================================== */
 
-var photoCadre=doc.artLayers.add();
+var cadre=doc.artLayers.add();
 
-photoCadre.name="08 - CADRE PHOTO PRODUIT";
+cadre.name="09 - CADRE PRODUIT";
 
 doc.selection.select([
-[575,300],
-[1020,300],
-[1020,820],
-[575,820]
+[560,285],
+[1025,285],
+[1025,760],
+[560,760]
 ]);
 
 doc.selection.fill(accent);
@@ -600,52 +690,60 @@ doc.selection.fill(accent);
 doc.selection.deselect();
 
 
+/* =====================================================
+   ZONE PHOTO
+===================================================== */
+
 var photo=doc.artLayers.add();
 
-photo.name="09 - PHOTO PRODUIT A REMPLACER";
+photo.name="10 - PHOTO PRODUIT A REMPLACER";
 
 doc.selection.select([
-[590,315],
-[1005,315],
-[1005,805],
-[590,805]
+[575,300],
+[1010,300],
+[1010,745],
+[575,745]
 ]);
 
-doc.selection.fill(dark);
+doc.selection.fill(black);
 
 doc.selection.deselect();
 
+
+/* =====================================================
+   TEXTE PHOTO
+===================================================== */
 
 var photoTexte=doc.artLayers.add();
 
 photoTexte.kind=LayerKind.TEXT;
 
-photoTexte.name="10 - ZONE PHOTO";
+photoTexte.name="11 - INDICATION PHOTO";
 
-photoTexte.textItem.contents="PHOTO\\nPRODUIT";
+photoTexte.textItem.contents="VOTRE\\nPHOTO";
 
-photoTexte.textItem.size=50;
+photoTexte.textItem.size=48;
 
 photoTexte.textItem.font="Arial-BoldMT";
 
 photoTexte.textItem.color=accent;
 
-photoTexte.textItem.position=[690,500];
+photoTexte.textItem.position=[705,480];
 
 
-/* =================================================
-   NOM PRODUIT
-================================================= */
+/* =====================================================
+   PRODUIT
+===================================================== */
 
 var produit=doc.artLayers.add();
 
 produit.kind=LayerKind.TEXT;
 
-produit.name="11 - PRODUIT";
+produit.name="12 - NOM DU PRODUIT";
 
 produit.textItem.contents=${JSON.stringify(d.product)};
 
-produit.textItem.size=60;
+produit.textItem.size=58;
 
 produit.textItem.font="Arial-BoldMT";
 
@@ -654,40 +752,40 @@ produit.textItem.color=white;
 produit.textItem.position=[55,500];
 
 
-/* =================================================
+/* =====================================================
    DESCRIPTION
-================================================= */
+===================================================== */
 
-var desc=doc.artLayers.add();
+var description=doc.artLayers.add();
 
-desc.kind=LayerKind.TEXT;
+description.kind=LayerKind.TEXT;
 
-desc.name="12 - DESCRIPTION";
+description.name="13 - DESCRIPTION";
 
-desc.textItem.contents=${JSON.stringify(d.description)};
+description.textItem.contents=${JSON.stringify(d.description)};
 
-desc.textItem.size=27;
+description.textItem.size=25;
 
-desc.textItem.font="Arial";
+description.textItem.font="Arial";
 
-desc.textItem.color=accent;
+description.textItem.color=accent;
 
-desc.textItem.position=[60,590];
+description.textItem.position=[58,585];
 
 
-/* =================================================
+/* =====================================================
    BLOC PRIX
-================================================= */
+===================================================== */
 
-var prixFond=doc.artLayers.add();
+var prixBloc=doc.artLayers.add();
 
-prixFond.name="13 - BLOC PRIX";
+prixBloc.name="14 - BLOC PRIX";
 
 doc.selection.select([
-[55,680],
+[55,665],
 [535,820],
 [55,820],
-[55,680]
+[55,665]
 ]);
 
 doc.selection.fill(second);
@@ -699,67 +797,60 @@ var prix=doc.artLayers.add();
 
 prix.kind=LayerKind.TEXT;
 
-prix.name="14 - PRIX";
+prix.name="15 - PRIX";
 
 prix.textItem.contents=${JSON.stringify(d.price)};
 
-prix.textItem.size=58;
+prix.textItem.size=55;
 
 prix.textItem.font="Arial-BoldMT";
 
 prix.textItem.color=white;
 
-prix.textItem.position=[80,700];
-
-
-/* =================================================
-   ANCIEN PRIX
-================================================= */
+prix.textItem.position=[82,700];
 
 `;
 
-if(d.old){
+    if(d.old){
 
-script+=`
+        script+=`
 
 var ancien=doc.artLayers.add();
 
 ancien.kind=LayerKind.TEXT;
 
-ancien.name="15 - ANCIEN PRIX";
+ancien.name="16 - ANCIEN PRIX";
 
 ancien.textItem.contents=${JSON.stringify(d.old)};
 
-ancien.textItem.size=24;
+ancien.textItem.size=23;
 
 ancien.textItem.font="Arial";
 
 ancien.textItem.color=accent;
 
-ancien.textItem.position=[82,775];
+ancien.textItem.position=[84,775];
 
 `;
 
-}
+    }
 
 
-/* SUITE */
+    script+=`
 
-script+=`
+/* =====================================================
+   CTA
+===================================================== */
 
-/* =================================================
-   BOUTON CTA
-================================================= */
+var ctaFond=doc.artLayers.add();
 
-var bouton=doc.artLayers.add();
-
-bouton.name="16 - BOUTON CTA";
+ctaFond.name="17 - FOND CTA";
 
 doc.selection.select([
-[55,900],
+[55,890],
 [535,1005],
 [55,1005],
-[55,900]
+[55,890]
 ]);
 
 doc.selection.fill(accent);
@@ -771,32 +862,32 @@ var cta=doc.artLayers.add();
 
 cta.kind=LayerKind.TEXT;
 
-cta.name="17 - TEXTE CTA";
+cta.name="18 - CTA";
 
 cta.textItem.contents=${JSON.stringify(d.cta)};
 
-cta.textItem.size=32;
+cta.textItem.size=30;
 
 cta.textItem.font="Arial-BoldMT";
 
 cta.textItem.color=white;
 
-cta.textItem.position=[82,925];
+cta.textItem.position=[80,925];
 
 
-/* =================================================
+/* =====================================================
    CONTACT
-================================================= */
+===================================================== */
 
 var contact=doc.artLayers.add();
 
 contact.kind=LayerKind.TEXT;
 
-contact.name="18 - CONTACT";
+contact.name="19 - CONTACT";
 
 contact.textItem.contents=${JSON.stringify(d.contact)};
 
-contact.textItem.size=38;
+contact.textItem.size=36;
 
 contact.textItem.font="Arial-BoldMT";
 
@@ -805,19 +896,19 @@ contact.textItem.color=white;
 contact.textItem.position=[55,1080];
 
 
-/* =================================================
+/* =====================================================
    DISPONIBILITÉ
-================================================= */
+===================================================== */
 
 var dispo=doc.artLayers.add();
 
 dispo.kind=LayerKind.TEXT;
 
-dispo.name="19 - DISPONIBILITE";
+dispo.name="20 - DISPONIBILITE";
 
 dispo.textItem.contents="Disponible maintenant";
 
-dispo.textItem.size=25;
+dispo.textItem.size=24;
 
 dispo.textItem.font="Arial";
 
@@ -826,18 +917,19 @@ dispo.textItem.color=accent;
 dispo.textItem.position=[58,1140];
 
 
-/* =================================================
-   ELEMENTS DECORATIFS
-================================================= */
+/* =====================================================
+   LIGNE DÉCORATIVE
+===================================================== */
 
-var decor=doc.artLayers.add();
+var ligne=doc.artLayers.add();
 
-decor.name="20 - DECORATIONS";
+ligne.name="21 - LIGNE DECORATIVE";
 
 doc.selection.select([
 [55,1210],
-[320,1220],
-[55,1230]
+[1025,1210],
+[1025,1224],
+[55,1224]
 ]);
 
 doc.selection.fill(accent);
@@ -845,15 +937,15 @@ doc.selection.fill(accent);
 doc.selection.deselect();
 
 
-/* =================================================
+/* =====================================================
    SIGNATURE
-================================================= */
+===================================================== */
 
 var sign=doc.artLayers.add();
 
 sign.kind=LayerKind.TEXT;
 
-sign.name="21 - SIGNATURE";
+sign.name="22 - SIGNATURE";
 
 sign.textItem.contents="Visuels Studio 226";
 
@@ -865,15 +957,21 @@ sign.textItem.color=white;
 
 sign.textItem.position=[790,1295];
 
+
+/* =====================================================
+   SÉLECTION DU FOND
+===================================================== */
+
+doc.activeLayer=fond;
+
 `;
 
-send(script);
-
+    send(script);
 }
 
 
 /* =====================================================
-   STICKERS
+   STICKER
 ===================================================== */
 
 function sticker(text){
@@ -897,7 +995,9 @@ layer.textItem.font="Arial-BoldMT";
 var c=new SolidColor();
 
 c.rgb.red=255;
+
 c.rgb.green=190;
+
 c.rgb.blue=25;
 
 layer.textItem.color=c;
@@ -910,7 +1010,7 @@ layer.textItem.position=[400,400];
 
 
 /* =====================================================
-   TEXTE
+   TEXTE NORMAL
 ===================================================== */
 
 function addText(){
@@ -918,8 +1018,11 @@ function addText(){
 let t=document.getElementById("texte").value;
 
 if(!t){
+
 alert("Écris ton texte.");
+
 return;
+
 }
 
 send(`
@@ -941,7 +1044,9 @@ layer.textItem.font="Arial-BoldMT";
 var c=new SolidColor();
 
 c.rgb.red=255;
+
 c.rgb.green=255;
+
 c.rgb.blue=255;
 
 layer.textItem.color=c;
@@ -962,8 +1067,11 @@ function bigText(){
 let t=document.getElementById("texte").value;
 
 if(!t){
+
 alert("Écris ton texte.");
+
 return;
+
 }
 
 send(`
@@ -985,7 +1093,9 @@ layer.textItem.font="Arial-BoldMT";
 var c=new SolidColor();
 
 c.rgb.red=255;
+
 c.rgb.green=190;
+
 c.rgb.blue=20;
 
 layer.textItem.color=c;
@@ -1006,8 +1116,11 @@ function text3D(){
 let t=document.getElementById("texte").value;
 
 if(!t){
+
 alert("Écris ton texte.");
+
 return;
+
 }
 
 send(`
@@ -1031,8 +1144,10 @@ depth.textItem.font="Arial-BoldMT";
 
 var dark=new SolidColor();
 
-dark.rgb.red=70;
-dark.rgb.green=30;
+dark.rgb.red=60;
+
+dark.rgb.green=25;
+
 dark.rgb.blue=5;
 
 depth.textItem.color=dark;
@@ -1057,7 +1172,9 @@ face.textItem.font="Arial-BoldMT";
 var gold=new SolidColor();
 
 gold.rgb.red=255;
+
 gold.rgb.green=190;
+
 gold.rgb.blue=20;
 
 face.textItem.color=gold;
@@ -1078,13 +1195,41 @@ function chromeText(){
 let t=document.getElementById("texte").value;
 
 if(!t){
+
 alert("Écris ton texte.");
+
 return;
+
 }
 
 send(`
 
 var doc=app.activeDocument;
+
+var shadow=doc.artLayers.add();
+
+shadow.kind=LayerKind.TEXT;
+
+shadow.name="CHROME - OMBRE";
+
+shadow.textItem.contents=${JSON.stringify(t)};
+
+shadow.textItem.size=110;
+
+shadow.textItem.font="Arial-BoldMT";
+
+var dark=new SolidColor();
+
+dark.rgb.red=70;
+
+dark.rgb.green=80;
+
+dark.rgb.blue=90;
+
+shadow.textItem.color=dark;
+
+shadow.textItem.position=[108,410];
+
 
 var layer=doc.artLayers.add();
 
@@ -1100,9 +1245,11 @@ layer.textItem.font="Arial-BoldMT";
 
 var c=new SolidColor();
 
-c.rgb.red=225;
-c.rgb.green=235;
-c.rgb.blue=245;
+c.rgb.red=235;
+
+c.rgb.green=240;
+
+c.rgb.blue=248;
 
 layer.textItem.color=c;
 
@@ -1140,7 +1287,9 @@ function center(){
 
 send(`
 
-var layer=app.activeDocument.activeLayer;
+var doc=app.activeDocument;
+
+var layer=doc.activeLayer;
 
 if(layer){
 
@@ -1150,9 +1299,9 @@ var w=b[2]-b[0];
 
 var h=b[3]-b[1];
 
-var x=(app.activeDocument.width-w)/2-b[0];
+var x=(doc.width-w)/2-b[0];
 
-var y=(app.activeDocument.height-h)/2-b[1];
+var y=(doc.height-h)/2-b[1];
 
 layer.translate(x,y);
 
@@ -1164,7 +1313,7 @@ layer.translate(x,y);
 
 
 /* =====================================================
-   FORMATS
+   FORMAT
 ===================================================== */
 
 function formatDoc(w,h){
@@ -1172,10 +1321,10 @@ function formatDoc(w,h){
 send(`
 
 app.activeDocument.resizeImage(
-UnitValue(${w},"px"),
-UnitValue(${h},"px"),
-null,
-ResampleMethod.BICUBIC
+    UnitValue(${w},"px"),
+    UnitValue(${h},"px"),
+    null,
+    ResampleMethod.BICUBIC
 );
 
 `);
@@ -1208,7 +1357,9 @@ layer.textItem.font="Arial";
 var c=new SolidColor();
 
 c.rgb.red=255;
+
 c.rgb.green=255;
+
 c.rgb.blue=255;
 
 layer.textItem.color=c;
@@ -1226,30 +1377,26 @@ layer.textItem.position=[780,1295];
 
 function exportFile(type){
 
-let format;
-
-if(type==="png"){
-format="png";
-}
+let format="png";
 
 if(type==="jpg"){
-format="jpg:0.9";
+    format="jpg:0.9";
 }
 
 if(type==="webp"){
-format="webp:0.9";
+    format="webp:0.9";
 }
 
 if(type==="psd"){
-format="psd:true";
+    format="psd:true";
 }
 
 send(`
 
 app.activeDocument.saveToOE(
-${JSON.stringify(format)},
-0,
-true
+    ${JSON.stringify(format)},
+    0,
+    true
 );
 
 `);
