@@ -1,215 +1,588 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>VISUELS STUDIO 226</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISUELS STUDIO 226 - Photopea Toolbox</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 14px;
-    background: #111;
-    color: white;
-    font-family: Arial, sans-serif;
-    width: 260px;
+* {
+    box-sizing: border-box;
 }
 
-h1 {
-    font-size: 17px;
+body {
     margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 250px;
+    background: #0b0f17;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    padding: 14px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    padding: 15px;
+    border-radius: 14px;
+    background:
+        linear-gradient(135deg, #101827, #0d2638);
+    border: 1px solid #1d536d;
+    box-shadow: 0 8px 25px rgba(0,0,0,.35);
+    margin-bottom: 14px;
+}
+
+.logo {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: .5px;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #19d9ff;
 }
 
 .subtitle {
-    color: #999;
-    font-size: 12px;
-    margin: 5px 0 15px;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #8fa5b5;
 }
 
-.section {
-    margin-top: 12px;
-    color: #aaa;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 10px;
+    margin-bottom: 13px;
+    background: #101923;
+    border: 1px solid #193342;
+    border-radius: 9px;
+    font-size: 10px;
+    color: #a9bac6;
 }
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #19e68c;
+    box-shadow: 0 0 8px #19e68c;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    margin-bottom: 14px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 7px;
+    color: #dceaf2;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+}
+
+.section-title::before {
+    content: "";
+    width: 3px;
+    height: 14px;
+    border-radius: 5px;
+    background: #19d9ff;
+}
+
+/* =========================
+   BUTTONS
+========================= */
 
 button {
     width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border: 0;
-    border-radius: 7px;
+    border: 1px solid #1d3341;
+    border-radius: 9px;
+    padding: 10px 11px;
+    margin-bottom: 6px;
+
+    background: #121a23;
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+
     cursor: pointer;
-    font-weight: bold;
-    background: #222;
-    color: white;
+    transition: .18s ease;
 }
 
 button:hover {
-    background: #333;
+    background: #172b38;
+    border-color: #19d9ff;
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: scale(.98);
+}
+
+.primary {
+    background: linear-gradient(135deg, #087fa0, #19c9ed);
+    border-color: #19d9ff;
+    color: #ffffff;
+}
+
+.primary:hover {
+    background: linear-gradient(135deg, #0a91b5, #25d8ff);
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.grid button {
+    margin-bottom: 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid #182530;
+    text-align: center;
+    font-size: 9px;
+    color: #617684;
+}
+
+.footer strong {
+    color: #19d9ff;
 }
 </style>
 </head>
 
 <body>
 
-<h1>VISUELS STUDIO 226</h1>
-<div class="subtitle">Photopea Toolbox</div>
+<div class="app">
 
-<div class="section">Signature</div>
-<button onclick="signature()">✍️ Ajouter ma signature</button>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="logo">
+            VISUELS <span>STUDIO 226</span>
+        </div>
 
-<div class="section">Effets</div>
-<button onclick="ombre()">🌑 Ombre</button>
-<button onclick="luminosite()">☀️ Luminosité</button>
+        <div class="subtitle">
+            Photopea Toolbox • Assistant graphique
+        </div>
+    </div>
 
-<div class="section">Formats</div>
-<button onclick="format1080()">📐 1080 × 1080</button>
-<button onclick="format1350()">📐 1080 × 1350</button>
-<button onclick="formatStory()">📱 1080 × 1920</button>
+    <!-- STATUS -->
+    <div class="status">
+        <div class="status-dot"></div>
+        <span>Connecté à Photopea</span>
+    </div>
 
-<div class="section">Texte</div>
-<button onclick="ajouterTexte()">🔤 Ajouter un texte</button>
+    <!-- SIGNATURE -->
+    <div class="section">
 
-<div class="section">Couleurs</div>
-<button onclick="noirBlanc()">⚫ Noir & blanc</button>
+        <div class="section-title">
+            Signature
+        </div>
 
-<div class="section">Export</div>
-<button onclick="exportPNG()">💾 Export PNG</button>
-<button onclick="exportJPG()">💾 Export JPG</button>
+        <button class="primary" onclick="signature()">
+            ✍️ Ajouter ma signature
+        </button>
+
+    </div>
+
+    <!-- FORMATS -->
+    <div class="section">
+
+        <div class="section-title">
+            Formats
+        </div>
+
+        <div class="grid">
+
+            <button onclick="formatCarre()">
+                ⬜ 1080 × 1080
+            </button>
+
+            <button onclick="formatPortrait()">
+                ▯ 1080 × 1350
+            </button>
+
+            <button onclick="formatStory()">
+                📱 1080 × 1920
+            </button>
+
+            <button onclick="formatPaysage()">
+                ▭ 1920 × 1080
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- TEXTE -->
+    <div class="section">
+
+        <div class="section-title">
+            Texte
+        </div>
+
+        <button onclick="ajouterTexte()">
+            🔤 Ajouter un texte
+        </button>
+
+        <button onclick="ajouterTitre()">
+            🔠 Ajouter un grand titre
+        </button>
+
+    </div>
+
+    <!-- COULEURS -->
+    <div class="section">
+
+        <div class="section-title">
+            Couleurs
+        </div>
+
+        <button onclick="couleurBleu()">
+            🔵 Bleu VISUELS
+        </button>
+
+        <button onclick="couleurNoir()">
+            ⚫ Noir
+        </button>
+
+        <button onclick="couleurBlanc()">
+            ⚪ Blanc
+        </button>
+
+    </div>
+
+    <!-- EFFETS -->
+    <div class="section">
+
+        <div class="section-title">
+            Effets
+        </div>
+
+        <button onclick="ombre()">
+            🌑 Ajouter une ombre
+        </button>
+
+        <button onclick="luminosite()">
+            ✨ Améliorer la luminosité
+        </button>
+
+    </div>
+
+    <!-- EXPORT -->
+    <div class="section">
+
+        <div class="section-title">
+            Export rapide
+        </div>
+
+        <button onclick="exportPNG()">
+            🖼️ Exporter en PNG
+        </button>
+
+        <button onclick="exportJPG()">
+            📸 Exporter en JPG
+        </button>
+
+    </div>
+
+    <div class="footer">
+        <strong>VISUELS STUDIO 226</strong><br>
+        Imaginez plus, créez mieux, restez inspiré.
+    </div>
+
+</div>
 
 
 <script>
+
+/* =====================================================
+   COMMUNICATION AVEC PHOTOPEA
+===================================================== */
 
 function envoyer(script) {
     window.parent.postMessage(script, "*");
 }
 
 
-/* =========================
+/* =====================================================
    SIGNATURE
-========================= */
+===================================================== */
 
 function signature() {
 
     envoyer(`
-        var doc = app.activeDocument;
+        if (app.documents.length > 0) {
 
-        var layer = doc.artLayers.add();
-        layer.kind = LayerKind.TEXT;
+            var doc = app.activeDocument;
 
-        layer.name = "Signature - Visuels Studio 226";
-        layer.textItem.contents = "Visuels Studio 226";
-        layer.textItem.size = 18;
-        layer.textItem.position = [40, 40];
+            var layer = doc.artLayers.add();
 
-        app.echoToOE("Signature ajoutée");
+            layer.kind = LayerKind.TEXT;
+
+            layer.name = "Signature - Visuels Studio 226";
+
+            layer.textItem.contents = "Visuels Studio 226";
+
+            layer.textItem.size = 18;
+
+            layer.textItem.position = [40, 40];
+
+        }
     `);
 }
 
 
-/* =========================
+/* =====================================================
    FORMATS
-========================= */
+===================================================== */
 
-function format1080() {
+function formatCarre() {
 
     envoyer(`
-        app.activeDocument.resizeImage(1080, 1080, null);
-        app.echoToOE("Format 1080x1080");
+        if (app.documents.length > 0) {
+            app.activeDocument.resizeImage(
+                UnitValue(1080, "px"),
+                UnitValue(1080, "px"),
+                null
+            );
+        }
     `);
 }
 
-function format1350() {
+
+function formatPortrait() {
 
     envoyer(`
-        app.activeDocument.resizeImage(1080, 1350, null);
-        app.echoToOE("Format 1080x1350");
+        if (app.documents.length > 0) {
+            app.activeDocument.resizeImage(
+                UnitValue(1080, "px"),
+                UnitValue(1350, "px"),
+                null
+            );
+        }
     `);
 }
+
 
 function formatStory() {
 
     envoyer(`
-        app.activeDocument.resizeImage(1080, 1920, null);
-        app.echoToOE("Format Story 1080x1920");
+        if (app.documents.length > 0) {
+            app.activeDocument.resizeImage(
+                UnitValue(1080, "px"),
+                UnitValue(1920, "px"),
+                null
+            );
+        }
     `);
 }
 
 
-/* =========================
+function formatPaysage() {
+
+    envoyer(`
+        if (app.documents.length > 0) {
+            app.activeDocument.resizeImage(
+                UnitValue(1920, "px"),
+                UnitValue(1080, "px"),
+                null
+            );
+        }
+    `);
+}
+
+
+/* =====================================================
    TEXTE
-========================= */
+===================================================== */
 
 function ajouterTexte() {
 
     envoyer(`
-        var doc = app.activeDocument;
+        if (app.documents.length > 0) {
 
-        var layer = doc.artLayers.add();
-        layer.kind = LayerKind.TEXT;
+            var doc = app.activeDocument;
 
-        layer.name = "Nouveau texte";
-        layer.textItem.contents = "VOTRE TEXTE";
-        layer.textItem.size = 60;
-        layer.textItem.position = [100, 100];
+            var layer = doc.artLayers.add();
 
-        app.echoToOE("Texte ajouté");
+            layer.kind = LayerKind.TEXT;
+
+            layer.name = "Texte - Visuels Studio 226";
+
+            layer.textItem.contents = "VOTRE TEXTE";
+
+            layer.textItem.size = 60;
+
+            layer.textItem.position = [100, 100];
+        }
     `);
 }
 
 
-/* =========================
-   NOIR ET BLANC
-========================= */
-
-function noirBlanc() {
+function ajouterTitre() {
 
     envoyer(`
-        var doc = app.activeDocument;
+        if (app.documents.length > 0) {
 
-        var layer = doc.artLayers.add();
-        layer.name = "Noir et blanc";
+            var doc = app.activeDocument;
 
-        app.echoToOE("Effet préparé");
+            var layer = doc.artLayers.add();
+
+            layer.kind = LayerKind.TEXT;
+
+            layer.name = "Grand titre";
+
+            layer.textItem.contents = "VOTRE GRAND TITRE";
+
+            layer.textItem.size = 100;
+
+            layer.textItem.position = [100, 150];
+        }
     `);
 }
 
 
-/* =========================
+/* =====================================================
+   COULEURS
+===================================================== */
+
+function couleurBleu() {
+
+    envoyer(`
+        app.foregroundColor = new SolidColor();
+
+        app.foregroundColor.rgb.red = 25;
+        app.foregroundColor.rgb.green = 217;
+        app.foregroundColor.rgb.blue = 255;
+    `);
+}
+
+
+function couleurNoir() {
+
+    envoyer(`
+        app.foregroundColor = new SolidColor();
+
+        app.foregroundColor.rgb.red = 0;
+        app.foregroundColor.rgb.green = 0;
+        app.foregroundColor.rgb.blue = 0;
+    `);
+}
+
+
+function couleurBlanc() {
+
+    envoyer(`
+        app.foregroundColor = new SolidColor();
+
+        app.foregroundColor.rgb.red = 255;
+        app.foregroundColor.rgb.green = 255;
+        app.foregroundColor.rgb.blue = 255;
+    `);
+}
+
+
+/* =====================================================
    EFFETS
-========================= */
+===================================================== */
 
 function ombre() {
 
     envoyer(`
-        app.echoToOE("Ombre : fonction en préparation");
+        if (app.documents.length > 0) {
+
+            var doc = app.activeDocument;
+
+            if (doc.activeLayer) {
+
+                app.runMenuItem(
+                    stringIDToTypeID("dropShadow")
+                );
+
+            }
+        }
     `);
 }
+
 
 function luminosite() {
 
     envoyer(`
-        app.echoToOE("Luminosité : fonction en préparation");
+        if (app.documents.length > 0) {
+
+            var doc = app.activeDocument;
+
+            app.runMenuItem(
+                stringIDToTypeID("brightnessContrast")
+            );
+
+        }
     `);
 }
 
 
-/* =========================
+/* =====================================================
    EXPORT
-========================= */
+===================================================== */
 
 function exportPNG() {
 
     envoyer(`
-        app.activeDocument.saveToOE("png");
+        if (app.documents.length > 0) {
+
+            app.activeDocument.saveToOE(
+                "png"
+            );
+
+        }
     `);
 }
+
 
 function exportJPG() {
 
     envoyer(`
-        app.activeDocument.saveToOE("jpg");
+        if (app.documents.length > 0) {
+
+            app.activeDocument.saveToOE(
+                "jpg"
+            );
+
+        }
     `);
 }
 
@@ -217,3 +590,5 @@ function exportJPG() {
 
 </body>
 </html>
+```
+
