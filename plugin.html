@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>VISUELS STUDIO 226 - Photopea Toolbox</title>
 
 <style>
@@ -73,10 +75,16 @@ button{
     font-size:10px;
     font-weight:800;
     cursor:pointer;
+    transition:.15s;
 }
 
 button:hover{
     background:#1d5275;
+    transform:translateY(-1px);
+}
+
+button:active{
+    transform:scale(.97);
 }
 
 .blue{
@@ -99,6 +107,10 @@ button:hover{
     background:linear-gradient(145deg,#ad4141,#6d2424);
 }
 
+.orange{
+    background:linear-gradient(145deg,#ed7d16,#a63e00);
+}
+
 input{
     width:100%;
     margin-bottom:7px;
@@ -111,10 +123,12 @@ input{
 }
 
 .status{
+    min-height:25px;
     padding:5px;
     text-align:center;
     color:#70e5a1;
     font-size:10px;
+    line-height:15px;
 }
 
 </style>
@@ -124,7 +138,9 @@ input{
 
 <div class="header">
     <div class="logo">VISUELS STUDIO 226</div>
-    <div class="sub">PHOTOPEA TOOLBOX • PRO POSTER ENGINE</div>
+    <div class="sub">
+        PHOTOPEA TOOLBOX • PRO POSTER ENGINE
+    </div>
 </div>
 
 
@@ -134,7 +150,9 @@ input{
 
 <div class="section">
 
-<div class="title">🔥 CRÉER UNE VRAIE AFFICHE</div>
+<div class="title">
+🔥 CRÉER UNE VRAIE AFFICHE
+</div>
 
 <div class="grid">
 
@@ -181,7 +199,9 @@ input{
 
 <div class="section">
 
-<div class="title">🖼️ IMAGE PRINCIPALE</div>
+<div class="title">
+🖼️ IMAGE PRINCIPALE
+</div>
 
 <div class="grid">
 
@@ -189,11 +209,19 @@ input{
 ➕ IMPORTER
 </button>
 
-<button onclick="replaceImage()">
+<button class="orange" onclick="document.getElementById('imageFile').click()">
 🔄 REMPLACER
 </button>
 
 </div>
+
+<input
+    id="imageFile"
+    type="file"
+    accept="image/png,image/jpeg,image/webp"
+    style="display:none"
+    onchange="replaceImage(this)"
+>
 
 </div>
 
@@ -204,11 +232,13 @@ input{
 
 <div class="section">
 
-<div class="title">🔤 TEXTE PROFESSIONNEL</div>
+<div class="title">
+🔤 TEXTE PROFESSIONNEL
+</div>
 
 <input
-id="texte"
-placeholder="Écris ton texte..."
+    id="texte"
+    placeholder="Écris ton texte..."
 >
 
 <div class="grid">
@@ -240,7 +270,9 @@ placeholder="Écris ton texte..."
 
 <div class="section">
 
-<div class="title">🏷️ BADGES PUBLICITAIRES</div>
+<div class="title">
+🏷️ BADGES PUBLICITAIRES
+</div>
 
 <div class="grid">
 
@@ -271,7 +303,9 @@ NOUVEAU
 
 <div class="section">
 
-<div class="title">✨ OUTILS</div>
+<div class="title">
+✨ OUTILS
+</div>
 
 <div class="grid">
 
@@ -302,7 +336,9 @@ NOUVEAU
 
 <div class="section">
 
-<div class="title">✍️ IDENTITÉ</div>
+<div class="title">
+✍️ IDENTITÉ
+</div>
 
 <button
 class="green"
@@ -321,7 +357,9 @@ onclick="signature()"
 
 <div class="section">
 
-<div class="title">💾 EXPORT</div>
+<div class="title">
+💾 EXPORT
+</div>
 
 <div class="grid">
 
@@ -355,48 +393,45 @@ PSD
 
 
 /* =====================================================
-   COMMUNICATION AVEC PHOTOPEA
+   VARIABLES
 ===================================================== */
 
-function send(code){
+let currentPosterName = "";
 
-    window.parent.postMessage(code,"*");
+let currentType = "";
 
-    document.getElementById("status").innerText =
-        "● Composition envoyée à Photopea";
-
-}
+let isLoading = false;
 
 
 /* =====================================================
-   IMAGES RÉELLES
+   IMAGES INTÉGRÉES DANS L'EXTENSION
 ===================================================== */
 
-const IMAGES={
+const IMAGES = {
 
-promo:
-"https://images.unsplash.com/photo-1607082349566-187342175e2f?auto=format&fit=crop&w=1400&q=90",
+    promo:
+    "images/promo.jpg",
 
-formation:
-"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=90",
+    formation:
+    "images/formation.jpg",
 
-restaurant:
-"https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=90",
+    restaurant:
+    "images/restaurant.jpg",
 
-business:
-"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=90",
+    business:
+    "images/business.jpg",
 
-telephone:
-"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1400&q=90",
+    telephone:
+    "images/telephone.jpg",
 
-event:
-"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=90",
+    event:
+    "images/evenement.jpg",
 
-birthday:
-"https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1400&q=90",
+    birthday:
+    "images/anniversaire.jpg",
 
-tech:
-"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1400&q=90"
+    tech:
+    "images/tech.jpg"
 
 };
 
@@ -405,600 +440,968 @@ tech:
    DONNÉES DES AFFICHES
 ===================================================== */
 
-const DATA={
+const DATA = {
 
 promo:{
-title:"GRANDE PROMO",
-subtitle:"DES OFFRES EXCEPTIONNELLES",
-badge:"-50%",
-product:"OFFRE SPÉCIALE",
-description:"QUALITÉ • STYLE • PERFORMANCE",
-price:"7 500 F",
-cta:"COMMANDER MAINTENANT",
-phone:"+226 79 03 94 62",
-accent:[255,102,20],
-dark:[8,12,25]
+    title:"GRANDE PROMO",
+    subtitle:"DES OFFRES EXCEPTIONNELLES",
+    badge:"-50%",
+    product:"OFFRE SPÉCIALE",
+    description:"QUALITÉ • STYLE • PERFORMANCE",
+    price:"7 500 F",
+    cta:"COMMANDER MAINTENANT",
+    phone:"+226 79 03 94 62",
+    accent:[255,102,20],
+    dark:[8,12,25]
 },
 
 formation:{
-title:"FORMATION PRO",
-subtitle:"APPRENEZ • PRATIQUEZ • CRÉEZ",
-badge:"NOUVEAU",
-product:"PHOTOSHOP",
-description:"DESIGN GRAPHIQUE PROFESSIONNEL",
-price:"FORMATION",
-cta:"INSCRIVEZ-VOUS",
-phone:"+226 79 03 94 62",
-accent:[0,190,255],
-dark:[5,12,30]
+    title:"FORMATION PRO",
+    subtitle:"APPRENEZ • PRATIQUEZ • CRÉEZ",
+    badge:"NOUVEAU",
+    product:"PHOTOSHOP",
+    description:"DESIGN GRAPHIQUE PROFESSIONNEL",
+    price:"FORMATION",
+    cta:"INSCRIVEZ-VOUS",
+    phone:"+226 79 03 94 62",
+    accent:[0,190,255],
+    dark:[5,12,30]
 },
 
 restaurant:{
-title:"MENU DU JOUR",
-subtitle:"SAVEURS • QUALITÉ • PLAISIR",
-badge:"CHEF",
-product:"PLAT SPÉCIAL",
-description:"UNE EXPÉRIENCE GOURMANDE",
-price:"2 500 F",
-cta:"COMMANDER",
-phone:"+226 79 03 94 62",
-accent:[255,139,25],
-dark:[35,8,4]
+    title:"MENU DU JOUR",
+    subtitle:"SAVEURS • QUALITÉ • PLAISIR",
+    badge:"CHEF",
+    product:"PLAT SPÉCIAL",
+    description:"UNE EXPÉRIENCE GOURMANDE",
+    price:"2 500 F",
+    cta:"COMMANDER",
+    phone:"+226 79 03 94 62",
+    accent:[255,139,25],
+    dark:[35,8,4]
 },
 
 business:{
-title:"VOTRE ENTREPRISE",
-subtitle:"DES SOLUTIONS POUR VOTRE ACTIVITÉ",
-badge:"PRO",
-product:"NOS SERVICES",
-description:"DESIGN • WEB • COMMUNICATION",
-price:"SUR MESURE",
-cta:"CONTACTEZ-NOUS",
-phone:"+226 79 03 94 62",
-accent:[0,190,255],
-dark:[5,10,22]
+    title:"VOTRE ENTREPRISE",
+    subtitle:"DES SOLUTIONS POUR VOTRE ACTIVITÉ",
+    badge:"PRO",
+    product:"NOS SERVICES",
+    description:"DESIGN • WEB • COMMUNICATION",
+    price:"SUR MESURE",
+    cta:"CONTACTEZ-NOUS",
+    phone:"+226 79 03 94 62",
+    accent:[0,190,255],
+    dark:[5,10,22]
 },
 
 telephone:{
-title:"SMARTPHONES",
-subtitle:"TECHNOLOGIE • PERFORMANCE • STYLE",
-badge:"NEW",
-product:"SMARTPHONES",
-description:"IPHONE • SAMSUNG • TECNO • INFINIX",
-price:"PRIX ATTRACTIFS",
-cta:"ACHETER MAINTENANT",
-phone:"+226 46 45 27 57",
-accent:[0,210,255],
-dark:[2,10,20]
+    title:"SMARTPHONES",
+    subtitle:"TECHNOLOGIE • PERFORMANCE • STYLE",
+    badge:"NEW",
+    product:"SMARTPHONES",
+    description:"IPHONE • SAMSUNG • TECNO • INFINIX",
+    price:"PRIX ATTRACTIFS",
+    cta:"ACHETER MAINTENANT",
+    phone:"+226 46 45 27 57",
+    accent:[0,210,255],
+    dark:[2,10,20]
 },
 
 event:{
-title:"GRAND ÉVÉNEMENT",
-subtitle:"UN MOMENT À NE PAS MANQUER",
-badge:"LIVE",
-product:"ÉVÉNEMENT 2026",
-description:"FADA N'GOURMA",
-price:"ENTRÉE LIBRE",
-cta:"RÉSERVEZ VOTRE PLACE",
-phone:"+226 79 03 94 62",
-accent:[255,50,190],
-dark:[25,4,35]
+    title:"GRAND ÉVÉNEMENT",
+    subtitle:"UN MOMENT À NE PAS MANQUER",
+    badge:"LIVE",
+    product:"ÉVÉNEMENT 2026",
+    description:"FADA N'GOURMA",
+    price:"ENTRÉE LIBRE",
+    cta:"RÉSERVEZ VOTRE PLACE",
+    phone:"+226 79 03 94 62",
+    accent:[255,50,190],
+    dark:[25,4,35]
 },
 
 birthday:{
-title:"JOYEUX ANNIVERSAIRE",
-subtitle:"UNE JOURNÉE EXCEPTIONNELLE",
-badge:"12 ANS",
-product:"MOHAMED",
-description:"UNE FÊTE • DES SOUVENIRS • DE LA JOIE",
-price:"2026",
-cta:"CÉLÉBRONS ENSEMBLE",
-phone:"+226 79 03 94 62",
-accent:[255,70,150],
-dark:[38,5,28]
+    title:"JOYEUX ANNIVERSAIRE",
+    subtitle:"UNE JOURNÉE EXCEPTIONNELLE",
+    badge:"12 ANS",
+    product:"MOHAMED",
+    description:"UNE FÊTE • DES SOUVENIRS • DE LA JOIE",
+    price:"2026",
+    cta:"CÉLÉBRONS ENSEMBLE",
+    phone:"+226 79 03 94 62",
+    accent:[255,70,150],
+    dark:[38,5,28]
 },
 
 tech:{
-title:"TECHNOLOGIE",
-subtitle:"INNOVATION • PERFORMANCE",
-badge:"NEXT",
-product:"NOUVELLE GÉNÉRATION",
-description:"ORDINATEURS • SMARTPHONES • ACCESSOIRES",
-price:"DÉCOUVRIR",
-cta:"ACHETER MAINTENANT",
-phone:"+226 79 03 94 62",
-accent:[0,220,255],
-dark:[2,7,17]
+    title:"TECHNOLOGIE",
+    subtitle:"INNOVATION • PERFORMANCE",
+    badge:"NEXT",
+    product:"NOUVELLE GÉNÉRATION",
+    description:"ORDINATEURS • SMARTPHONES • ACCESSOIRES",
+    price:"DÉCOUVRIR",
+    cta:"ACHETER MAINTENANT",
+    phone:"+226 79 03 94 62",
+    accent:[0,220,255],
+    dark:[2,7,17]
 }
 
 };
 
 
 /* =====================================================
-   CRÉER L'AFFICHE
+   STATUT
 ===================================================== */
 
-function createPoster(type){
+function setStatus(message){
 
-    const d=DATA[type];
-    const image=IMAGES[type];
+    document.getElementById("status").innerText =
+        message;
 
-    if(!d || !image){
-        alert("Modèle introuvable.");
-        return;
+}
+
+
+/* =====================================================
+   ENVOYER UN SCRIPT À PHOTOPEA
+===================================================== */
+
+function send(code){
+
+    window.parent.postMessage(
+        code,
+        "*"
+    );
+
+}
+
+
+/* =====================================================
+   CHARGER UNE IMAGE LOCALE
+===================================================== */
+
+async function loadBundledImage(path){
+
+    const response =
+        await fetch(path);
+
+    if(!response.ok){
+
+        throw new Error(
+            "Image introuvable : " + path
+        );
+
     }
 
+    return await response.arrayBuffer();
 
-    let r=d.accent[0];
-    let g=d.accent[1];
-    let b=d.accent[2];
-
-    let dr=d.dark[0];
-    let dg=d.dark[1];
-    let db=d.dark[2];
-
-
-    let script=`
-
-/* =====================================================
-   DOCUMENT
-===================================================== */
-
-app.documents.add(
-1080,
-1350,
-72,
-${JSON.stringify(d.title)}
-);
-
-var doc=app.activeDocument;
+}
 
 
 /* =====================================================
-   COULEURS
+   CRÉER UNE AFFICHE
 ===================================================== */
 
-var bg=new SolidColor();
+async function createPoster(type){
 
-bg.rgb.red=${dr};
-bg.rgb.green=${dg};
-bg.rgb.blue=${db};
+    if(isLoading){
 
+        return;
 
-var accent=new SolidColor();
+    }
 
-accent.rgb.red=${r};
-accent.rgb.green=${g};
-accent.rgb.blue=${b};
+    const d =
+        DATA[type];
 
+    const imagePath =
+        IMAGES[type];
 
-var white=new SolidColor();
+    if(!d || !imagePath){
 
-white.rgb.red=255;
-white.rgb.green=255;
-white.rgb.blue=255;
+        alert(
+            "Ce modèle est introuvable."
+        );
 
+        return;
 
-var black=new SolidColor();
+    }
 
-black.rgb.red=3;
-black.rgb.green=5;
-black.rgb.blue=9;
+    currentType =
+        type;
+
+    currentPosterName =
+        "VISUELS STUDIO 226 - " +
+        type.toUpperCase() +
+        " - " +
+        Date.now();
+
+    isLoading = true;
+
+    setStatus(
+        "⏳ Chargement de l'image..."
+    );
+
+    try{
+
+        /*
+         * Charger l'image depuis
+         * le dossier images/
+         */
+
+        const buffer =
+            await loadBundledImage(
+                imagePath
+            );
+
+        /*
+         * Envoyer l'image à Photopea.
+         * Photopea ouvre le fichier.
+         */
+
+        window.parent.postMessage(
+            buffer,
+            "*"
+        );
+
+        setStatus(
+            "⏳ Création de l'affiche..."
+        );
+
+        /*
+         * Laisser Photopea ouvrir
+         * l'image avant d'exécuter
+         * le script de composition.
+         */
+
+        setTimeout(
+            function(){
+
+                buildPoster(d);
+
+                isLoading = false;
+
+            },
+            1200
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        setStatus(
+            "❌ Image introuvable : " +
+            imagePath
+        );
+
+        isLoading = false;
+
+        alert(
+            "Impossible de charger :\n\n" +
+            imagePath +
+            "\n\nVérifie que l'image existe dans le dossier images."
+        );
+
+    }
+
+}
 
 
 /* =====================================================
-   FOND
+   CONSTRUIRE L'AFFICHE AUTOUR DE L'IMAGE
 ===================================================== */
 
-var background=doc.artLayers.add();
+function buildPoster(d){
 
-background.name="01 • FOND PREMIUM";
+    const r =
+        d.accent[0];
 
-doc.selection.selectAll();
+    const g =
+        d.accent[1];
 
-doc.selection.fill(bg);
+    const b =
+        d.accent[2];
 
-doc.selection.deselect();
+    const dr =
+        d.dark[0];
 
+    const dg =
+        d.dark[1];
 
-/* =====================================================
-   IMAGE PRINCIPALE
-===================================================== */
+    const db =
+        d.dark[2];
 
-app.open(
-${JSON.stringify(image)}
-);
 
-var source=app.activeDocument;
+    const script = `
 
-source.activeLayer.copy();
+(function(){
 
-source.close(SaveOptions.DONOTSAVECHANGES);
+    /*
+     * L'image envoyée par le plugin
+     * est actuellement le document actif.
+     */
 
-doc.activate();
+    var source =
+        app.activeDocument;
 
-doc.paste();
+    /*
+     * Renommer temporairement
+     * le document image.
+     */
 
-var hero=doc.activeLayer;
+    source.name =
+        "IMAGE SOURCE";
 
-hero.name="02 • IMAGE PRINCIPALE";
 
+    /*
+     * Créer le document final.
+     */
 
-/* =====================================================
-   REDIMENSIONNEMENT IMAGE
-===================================================== */
+    app.documents.add(
+        1080,
+        1350,
+        72,
+        ${JSON.stringify(currentPosterName)}
+    );
 
-var bounds=hero.bounds;
 
-var iw=bounds[2]-bounds[0];
+    var doc =
+        app.activeDocument;
 
-var ih=bounds[3]-bounds[1];
 
-var scaleX=850/iw*100;
+    /*
+     * COULEURS
+     */
 
-var scaleY=780/ih*100;
+    var bg =
+        new SolidColor();
 
-var scale=Math.max(scaleX,scaleY);
+    bg.rgb.red =
+        ${dr};
 
-hero.resize(scale,scale,AnchorPosition.MIDDLECENTER);
+    bg.rgb.green =
+        ${dg};
 
-hero.translate(
-760-(hero.bounds[0]+hero.bounds[2])/2,
-430-(hero.bounds[1]+hero.bounds[3])/2
-);
+    bg.rgb.blue =
+        ${db};
 
 
-/* =====================================================
-   PANNEAU SOMBRE GAUCHE
-===================================================== */
+    var accent =
+        new SolidColor();
 
-var panel=doc.artLayers.add();
+    accent.rgb.red =
+        ${r};
 
-panel.name="03 • PANNEAU TEXTE";
+    accent.rgb.green =
+        ${g};
 
-doc.selection.select([
-[0,0],
-[650,0],
-[650,1350],
-[0,1350]
-]);
+    accent.rgb.blue =
+        ${b};
 
-doc.selection.fill(black);
 
-doc.selection.deselect();
+    var white =
+        new SolidColor();
 
-panel.opacity=88;
+    white.rgb.red =
+        255;
 
+    white.rgb.green =
+        255;
 
-/* =====================================================
-   BANDE ACCENT
-===================================================== */
+    white.rgb.blue =
+        255;
 
-var top=doc.artLayers.add();
 
-top.name="04 • BANDE ACCENT";
+    var black =
+        new SolidColor();
 
-doc.selection.select([
-[0,0],
-[1080,0],
-[1080,20],
-[0,20]
-]);
+    black.rgb.red =
+        3;
 
-doc.selection.fill(accent);
+    black.rgb.green =
+        5;
 
-doc.selection.deselect();
+    black.rgb.blue =
+        9;
 
 
-/* =====================================================
-   BADGE
-===================================================== */
+    /*
+     * FOND
+     */
 
-var badgeBg=doc.artLayers.add();
+    var background =
+        doc.artLayers.add();
 
-badgeBg.name="05 • BADGE";
+    background.name =
+        "01 • FOND PREMIUM";
 
-doc.selection.select([
-[55,90],
-[300,90],
-[300,155],
-[55,155]
-]);
+    doc.selection.selectAll();
 
-doc.selection.fill(accent);
+    doc.selection.fill(bg);
 
-doc.selection.deselect();
+    doc.selection.deselect();
 
 
-var badge=doc.artLayers.add();
+    /*
+     * COPIER L'IMAGE SOURCE
+     */
 
-badge.kind=LayerKind.TEXT;
+    source.activate();
 
-badge.name="06 • TEXTE BADGE";
+    source.activeLayer.copy();
 
-badge.textItem.contents=${JSON.stringify(d.badge)};
 
-badge.textItem.size=32;
+    /*
+     * Fermer le document source
+     */
 
-badge.textItem.font="Arial-BoldMT";
+    source.close(
+        SaveOptions.DONOTSAVECHANGES
+    );
 
-badge.textItem.color=white;
 
-badge.textItem.position=[75,108];
+    /*
+     * Revenir au poster
+     */
 
+    doc.activate();
 
-/* =====================================================
-   TITRE
-===================================================== */
+    doc.paste();
 
-var title=doc.artLayers.add();
 
-title.kind=LayerKind.TEXT;
+    var hero =
+        doc.activeLayer;
 
-title.name="07 • TITRE PRINCIPAL";
+    hero.name =
+        "02 • IMAGE PRINCIPALE";
 
-title.textItem.contents=${JSON.stringify(d.title)};
 
-title.textItem.size=67;
+    /*
+     * AGRANDIR L'IMAGE
+     */
 
-title.textItem.font="Arial-BoldMT";
+    try{
 
-title.textItem.color=white;
+        var bounds =
+            hero.bounds;
 
-title.textItem.position=[55,225];
+        var iw =
+            bounds[2] -
+            bounds[0];
 
+        var ih =
+            bounds[3] -
+            bounds[1];
 
-/* =====================================================
-   LIGNE ACCENT
-===================================================== */
+        var scaleX =
+            850 / iw * 100;
 
-var line=doc.artLayers.add();
+        var scaleY =
+            820 / ih * 100;
 
-line.name="08 • LIGNE ACCENT";
+        var scale =
+            Math.max(
+                scaleX,
+                scaleY
+            );
 
-doc.selection.select([
-[55,335],
-[420,335],
-[420,348],
-[55,348]
-]);
+        hero.resize(
+            scale,
+            scale,
+            AnchorPosition.MIDDLECENTER
+        );
 
-doc.selection.fill(accent);
+        /*
+         * Positionner l'image
+         * dans la partie droite.
+         */
 
-doc.selection.deselect();
+        var bnd =
+            hero.bounds;
 
+        var cx =
+            (bnd[0] + bnd[2]) / 2;
 
-/* =====================================================
-   SOUS-TITRE
-===================================================== */
+        var cy =
+            (bnd[1] + bnd[3]) / 2;
 
-var subtitle=doc.artLayers.add();
+        hero.translate(
+            760 - cx,
+            520 - cy
+        );
 
-subtitle.kind=LayerKind.TEXT;
+    }
+    catch(e){}
 
-subtitle.name="09 • SOUS TITRE";
 
-subtitle.textItem.contents=${JSON.stringify(d.subtitle)};
+    /*
+     * PANNEAU SOMBRE À GAUCHE
+     */
 
-subtitle.textItem.size=25;
+    var panel =
+        doc.artLayers.add();
 
-subtitle.textItem.font="Arial-BoldMT";
+    panel.name =
+        "03 • PANNEAU TEXTE";
 
-subtitle.textItem.color=accent;
+    doc.selection.select([
+        [0,0],
+        [570,0],
+        [570,1350],
+        [0,1350]
+    ]);
 
-subtitle.textItem.position=[55,375];
+    doc.selection.fill(
+        black
+    );
 
+    doc.selection.deselect();
 
-/* =====================================================
-   PRODUIT
-===================================================== */
+    panel.opacity =
+        82;
 
-var product=doc.artLayers.add();
 
-product.kind=LayerKind.TEXT;
+    /*
+     * BANDE SUPÉRIEURE
+     */
 
-product.name="10 • PRODUIT";
+    var top =
+        doc.artLayers.add();
 
-product.textItem.contents=${JSON.stringify(d.product)};
+    top.name =
+        "04 • ACCENT";
 
-product.textItem.size=48;
+    doc.selection.select([
+        [0,0],
+        [1080,0],
+        [1080,18],
+        [0,18]
+    ]);
 
-product.textItem.font="Arial-BoldMT";
+    doc.selection.fill(
+        accent
+    );
 
-product.textItem.color=white;
+    doc.selection.deselect();
 
-product.textItem.position=[55,510];
 
+    /*
+     * BADGE
+     */
 
-/* =====================================================
-   DESCRIPTION
-===================================================== */
+    var badgeBg =
+        doc.artLayers.add();
 
-var description=doc.artLayers.add();
+    badgeBg.name =
+        "05 • BADGE FOND";
 
-description.kind=LayerKind.TEXT;
+    doc.selection.select([
+        [55,80],
+        [285,80],
+        [285,145],
+        [55,145]
+    ]);
 
-description.name="11 • DESCRIPTION";
+    doc.selection.fill(
+        accent
+    );
 
-description.textItem.contents=${JSON.stringify(d.description)};
+    doc.selection.deselect();
 
-description.textItem.size=22;
 
-description.textItem.font="Arial";
+    var badge =
+        doc.artLayers.add();
 
-description.textItem.color=white;
+    badge.kind =
+        LayerKind.TEXT;
 
-description.textItem.position=[55,575];
+    badge.name =
+        "06 • BADGE";
 
+    badge.textItem.contents =
+        ${JSON.stringify(d.badge)};
 
-/* =====================================================
-   PRIX
-===================================================== */
+    badge.textItem.size =
+        30;
 
-var priceBox=doc.artLayers.add();
+    badge.textItem.font =
+        "Arial-BoldMT";
 
-priceBox.name="12 • BLOC PRIX";
+    badge.textItem.color =
+        white;
 
-doc.selection.select([
-[55,650],
-[455,765],
-[55,765],
-[55,650]
-]);
+    badge.textItem.position =
+        [75,98];
 
-doc.selection.fill(accent);
 
-doc.selection.deselect();
+    /*
+     * TITRE
+     */
 
+    var title =
+        doc.artLayers.add();
 
-var price=doc.artLayers.add();
+    title.kind =
+        LayerKind.TEXT;
 
-price.kind=LayerKind.TEXT;
+    title.name =
+        "07 • TITRE PRINCIPAL";
 
-price.name="13 • PRIX";
+    title.textItem.contents =
+        ${JSON.stringify(d.title)};
 
-price.textItem.contents=${JSON.stringify(d.price)};
+    title.textItem.size =
+        63;
 
-price.textItem.size=49;
+    title.textItem.font =
+        "Arial-BoldMT";
 
-price.textItem.font="Arial-BoldMT";
+    title.textItem.color =
+        white;
 
-price.textItem.color=white;
+    title.textItem.position =
+        [55,215];
 
-price.textItem.position=[78,685];
 
+    /*
+     * LIGNE
+     */
 
-/* =====================================================
-   CTA
-===================================================== */
+    var line =
+        doc.artLayers.add();
 
-var ctaBox=doc.artLayers.add();
+    line.name =
+        "08 • LIGNE ACCENT";
 
-ctaBox.name="14 • BOUTON CTA";
+    doc.selection.select([
+        [55,330],
+        [420,330],
+        [420,342],
+        [55,342]
+    ]);
 
-doc.selection.select([
-[55,805],
-[500,900],
-[55,900],
-[55,805]
-]);
+    doc.selection.fill(
+        accent
+    );
 
-doc.selection.fill(white);
+    doc.selection.deselect();
 
-doc.selection.deselect();
 
+    /*
+     * SOUS-TITRE
+     */
 
-var cta=doc.artLayers.add();
+    var subtitle =
+        doc.artLayers.add();
 
-cta.kind=LayerKind.TEXT;
+    subtitle.kind =
+        LayerKind.TEXT;
 
-cta.name="15 • CTA";
+    subtitle.name =
+        "09 • SOUS TITRE";
 
-cta.textItem.contents=${JSON.stringify(d.cta)};
+    subtitle.textItem.contents =
+        ${JSON.stringify(d.subtitle)};
 
-cta.textItem.size=24;
+    subtitle.textItem.size =
+        23;
 
-cta.textItem.font="Arial-BoldMT";
+    subtitle.textItem.font =
+        "Arial-BoldMT";
 
-cta.textItem.color=black;
+    subtitle.textItem.color =
+        accent;
 
-cta.textItem.position=[80,835];
+    subtitle.textItem.position =
+        [55,370];
 
 
-/* =====================================================
-   CONTACT
-===================================================== */
+    /*
+     * PRODUIT
+     */
 
-var contact=doc.artLayers.add();
+    var product =
+        doc.artLayers.add();
 
-contact.kind=LayerKind.TEXT;
+    product.kind =
+        LayerKind.TEXT;
 
-contact.name="16 • CONTACT";
+    product.name =
+        "10 • PRODUIT";
 
-contact.textItem.contents=${JSON.stringify(d.phone)};
+    product.textItem.contents =
+        ${JSON.stringify(d.product)};
 
-contact.textItem.size=31;
+    product.textItem.size =
+        45;
 
-contact.textItem.font="Arial-BoldMT";
+    product.textItem.font =
+        "Arial-BoldMT";
 
-contact.textItem.color=white;
+    product.textItem.color =
+        white;
 
-contact.textItem.position=[55,1010];
+    product.textItem.position =
+        [55,500];
 
 
-/* =====================================================
-   APPEL
-===================================================== */
+    /*
+     * DESCRIPTION
+     */
 
-var call=doc.artLayers.add();
+    var description =
+        doc.artLayers.add();
 
-call.kind=LayerKind.TEXT;
+    description.kind =
+        LayerKind.TEXT;
 
-call.name="17 • APPEL";
+    description.name =
+        "11 • DESCRIPTION";
 
-call.textItem.contents="CONTACTEZ-NOUS";
+    description.textItem.contents =
+        ${JSON.stringify(d.description)};
 
-call.textItem.size=19;
+    description.textItem.size =
+        21;
 
-call.textItem.font="Arial";
+    description.textItem.font =
+        "Arial";
 
-call.textItem.color=accent;
+    description.textItem.color =
+        white;
 
-call.textItem.position=[57,1055];
+    description.textItem.position =
+        [55,560];
 
 
-/* =====================================================
-   PETIT CADRE DÉCORATIF
-===================================================== */
+    /*
+     * BLOC PRIX
+     */
 
-var deco=doc.artLayers.add();
+    var priceBox =
+        doc.artLayers.add();
 
-deco.name="18 • DÉCORATION";
+    priceBox.name =
+        "12 • BLOC PRIX";
 
-doc.selection.select([
-[875,1120],
-[1025,1120],
-[1025,1270],
-[875,1270]
-]);
+    doc.selection.select([
+        [55,640],
+        [455,640],
+        [455,750],
+        [55,750]
+    ]);
 
-doc.selection.fill(accent);
+    doc.selection.fill(
+        accent
+    );
 
-doc.selection.deselect();
+    doc.selection.deselect();
 
-deco.opacity=35;
 
+    var price =
+        doc.artLayers.add();
 
-/* =====================================================
-   SIGNATURE
-===================================================== */
+    price.kind =
+        LayerKind.TEXT;
 
-var signature=doc.artLayers.add();
+    price.name =
+        "13 • PRIX";
 
-signature.kind=LayerKind.TEXT;
+    price.textItem.contents =
+        ${JSON.stringify(d.price)};
 
-signature.name="19 • SIGNATURE";
+    price.textItem.size =
+        46;
 
-signature.textItem.contents="Visuels Studio 226";
+    price.textItem.font =
+        "Arial-BoldMT";
 
-signature.textItem.size=20;
+    price.textItem.color =
+        white;
 
-signature.textItem.font="Arial-BoldMT";
+    price.textItem.position =
+        [78,675];
 
-signature.textItem.color=white;
 
-signature.textItem.position=[770,1290];
+    /*
+     * CTA
+     */
 
+    var ctaBox =
+        doc.artLayers.add();
 
-/* =====================================================
-   ORDRE FINAL
-===================================================== */
+    ctaBox.name =
+        "14 • BOUTON CTA";
 
-doc.activeLayer=background;
+    doc.selection.select([
+        [55,790],
+        [500,790],
+        [500,885],
+        [55,885]
+    ]);
+
+    doc.selection.fill(
+        white
+    );
+
+    doc.selection.deselect();
+
+
+    var cta =
+        doc.artLayers.add();
+
+    cta.kind =
+        LayerKind.TEXT;
+
+    cta.name =
+        "15 • CTA";
+
+    cta.textItem.contents =
+        ${JSON.stringify(d.cta)};
+
+    cta.textItem.size =
+        23;
+
+    cta.textItem.font =
+        "Arial-BoldMT";
+
+    cta.textItem.color =
+        black;
+
+    cta.textItem.position =
+        [78,820];
+
+
+    /*
+     * CONTACT
+     */
+
+    var contact =
+        doc.artLayers.add();
+
+    contact.kind =
+        LayerKind.TEXT;
+
+    contact.name =
+        "16 • CONTACT";
+
+    contact.textItem.contents =
+        ${JSON.stringify(d.phone)};
+
+    contact.textItem.size =
+        29;
+
+    contact.textItem.font =
+        "Arial-BoldMT";
+
+    contact.textItem.color =
+        white;
+
+    contact.textItem.position =
+        [55,990];
+
+
+    /*
+     * APPEL
+     */
+
+    var call =
+        doc.artLayers.add();
+
+    call.kind =
+        LayerKind.TEXT;
+
+    call.name =
+        "17 • APPEL";
+
+    call.textItem.contents =
+        "CONTACTEZ-NOUS";
+
+    call.textItem.size =
+        18;
+
+    call.textItem.font =
+        "Arial";
+
+    call.textItem.color =
+        accent;
+
+    call.textItem.position =
+        [57,1035];
+
+
+    /*
+     * DÉCORATION
+     */
+
+    var deco =
+        doc.artLayers.add();
+
+    deco.name =
+        "18 • DÉCORATION";
+
+    doc.selection.select([
+        [850,1050],
+        [1040,1050],
+        [1040,1240],
+        [850,1240]
+    ]);
+
+    doc.selection.fill(
+        accent
+    );
+
+    doc.selection.deselect();
+
+    deco.opacity =
+        18;
+
+
+    /*
+     * SIGNATURE
+     */
+
+    var signature =
+        doc.artLayers.add();
+
+    signature.kind =
+        LayerKind.TEXT;
+
+    signature.name =
+        "19 • SIGNATURE";
+
+    signature.textItem.contents =
+        "Visuels Studio 226";
+
+    signature.textItem.size =
+        18;
+
+    signature.textItem.font =
+        "Arial-BoldMT";
+
+    signature.textItem.color =
+        white;
+
+    signature.textItem.position =
+        [785,1290];
+
+
+    /*
+     * FIN
+     */
+
+    app.echoToOE(
+        "VISUELS_POSTER_READY"
+    );
+
+})();
 
 `;
 
     send(script);
+
+    setStatus(
+        "✅ Affiche créée avec son image intégrée."
+    );
 
 }
 
@@ -1009,36 +1412,261 @@ doc.activeLayer=background;
 
 function openImage(){
 
-    send(`
-
-app.open(
-"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1400&q=90"
-);
-
-`);
+    document.getElementById(
+        "imageFile"
+    ).click();
 
 }
 
 
 /* =====================================================
-   REMPLACER IMAGE
+   REMPLACER L'IMAGE
 ===================================================== */
 
-function replaceImage(){
+async function replaceImage(input){
 
-    send(`
+    const file =
+        input.files[0];
 
-var doc=app.activeDocument;
+    if(!file){
 
-if(doc.activeLayer){
+        return;
 
-    app.open(
-    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=90"
+    }
+
+    if(!currentPosterName){
+
+        alert(
+            "Crée d'abord une affiche."
+        );
+
+        input.value = "";
+
+        return;
+
+    }
+
+    setStatus(
+        "⏳ Chargement de ta nouvelle image..."
     );
+
+    try{
+
+        const buffer =
+            await file.arrayBuffer();
+
+        /*
+         * Envoyer la nouvelle image
+         * à Photopea.
+         */
+
+        window.parent.postMessage(
+            buffer,
+            "*"
+        );
+
+        setStatus(
+            "⏳ Remplacement de l'image..."
+        );
+
+        setTimeout(
+            function(){
+
+                replaceImageInPoster();
+
+            },
+            1200
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        setStatus(
+            "❌ Impossible de charger l'image."
+        );
+
+    }
+
+    input.value = "";
 
 }
 
-`);
+
+/* =====================================================
+   REMPLACEMENT DANS LE POSTER
+===================================================== */
+
+function replaceImageInPoster(){
+
+    const script = `
+
+(function(){
+
+    var newDoc =
+        app.activeDocument;
+
+    var poster =
+        null;
+
+
+    /*
+     * Rechercher le poster
+     */
+
+    for(
+        var i=0;
+        i<app.documents.length;
+        i++
+    ){
+
+        if(
+            app.documents[i].name ===
+            ${JSON.stringify(currentPosterName)}
+        ){
+
+            poster =
+                app.documents[i];
+
+            break;
+
+        }
+
+    }
+
+
+    /*
+     * Si le poster n'existe pas
+     */
+
+    if(!poster){
+
+        newDoc.name =
+            ${JSON.stringify(currentPosterName)};
+
+        app.echoToOE(
+            "IMAGE_REPLACED"
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Copier la nouvelle image
+     */
+
+    newDoc.activeLayer.copy();
+
+
+    /*
+     * Fermer le document temporaire
+     */
+
+    newDoc.close(
+        SaveOptions.DONOTSAVECHANGES
+    );
+
+
+    /*
+     * Revenir au poster
+     */
+
+    poster.activate();
+
+    poster.paste();
+
+
+    var newImage =
+        poster.activeLayer;
+
+    newImage.name =
+        "IMAGE REMPLACÉE";
+
+
+    /*
+     * Supprimer l'ancienne
+     * image principale
+     */
+
+    for(
+        var j=poster.layers.length-1;
+        j>=0;
+        j--
+    ){
+
+        if(
+            poster.layers[j].name ===
+            "02 • IMAGE PRINCIPALE"
+        ){
+
+            poster.layers[j].remove();
+
+        }
+
+    }
+
+
+    /*
+     * Renommer la nouvelle
+     */
+
+    newImage.name =
+        "02 • IMAGE PRINCIPALE";
+
+
+    /*
+     * Redimensionner
+     */
+
+    try{
+
+        var b =
+            newImage.bounds;
+
+        var iw =
+            b[2]-b[0];
+
+        var ih =
+            b[3]-b[1];
+
+        var scaleX =
+            850/iw*100;
+
+        var scaleY =
+            820/ih*100;
+
+        var scale =
+            Math.max(
+                scaleX,
+                scaleY
+            );
+
+        newImage.resize(
+            scale,
+            scale,
+            AnchorPosition.MIDDLECENTER
+        );
+
+    }
+    catch(e){}
+
+
+    app.echoToOE(
+        "IMAGE_REPLACED"
+    );
+
+})();
+
+`;
+
+    send(script);
+
+    setStatus(
+        "✅ Image remplacée."
+    );
 
 }
 
@@ -1051,51 +1679,79 @@ function sticker(text){
 
 send(`
 
-var doc=app.activeDocument;
+(function(){
 
-var bg=doc.artLayers.add();
+    var doc =
+        app.activeDocument;
 
-bg.name="BADGE • ${text}";
+    var bg =
+        doc.artLayers.add();
 
-doc.selection.select([
-[760,100],
-[1010,100],
-[1010,190],
-[760,190]
-]);
+    bg.name =
+        "BADGE • ${text}";
 
-var c=new SolidColor();
+    doc.selection.select([
+        [760,100],
+        [1010,100],
+        [1010,190],
+        [760,190]
+    ]);
 
-c.rgb.red=255;
-c.rgb.green=90;
-c.rgb.blue=20;
+    var c =
+        new SolidColor();
 
-doc.selection.fill(c);
+    c.rgb.red =
+        255;
 
-doc.selection.deselect();
+    c.rgb.green =
+        90;
+
+    c.rgb.blue =
+        20;
+
+    doc.selection.fill(c);
+
+    doc.selection.deselect();
 
 
-var layer=doc.artLayers.add();
+    var layer =
+        doc.artLayers.add();
 
-layer.kind=LayerKind.TEXT;
+    layer.kind =
+        LayerKind.TEXT;
 
-layer.name="STICKER • ${text}";
+    layer.name =
+        "STICKER • ${text}";
 
-layer.textItem.contents=${JSON.stringify(text)};
+    layer.textItem.contents =
+        ${JSON.stringify(text)};
 
-layer.textItem.size=42;
+    layer.textItem.size =
+        42;
 
-layer.textItem.font="Arial-BoldMT";
+    layer.textItem.font =
+        "Arial-BoldMT";
 
-var white=new SolidColor();
 
-white.rgb.red=255;
-white.rgb.green=255;
-white.rgb.blue=255;
+    var white =
+        new SolidColor();
 
-layer.textItem.color=white;
+    white.rgb.red =
+        255;
 
-layer.textItem.position=[790,125];
+    white.rgb.green =
+        255;
+
+    white.rgb.blue =
+        255;
+
+    layer.textItem.color =
+        white;
+
+    layer.textItem.position =
+        [790,125];
+
+})();
 
 `);
 
@@ -1108,11 +1764,16 @@ layer.textItem.position=[790,125];
 
 function addText(){
 
-    let t=document.getElementById("texte").value;
+    const t =
+        document.getElementById(
+            "texte"
+        ).value;
 
     if(!t){
 
-        alert("Écris ton texte.");
+        alert(
+            "Écris ton texte."
+        );
 
         return;
 
@@ -1120,31 +1781,49 @@ function addText(){
 
     send(`
 
-var doc=app.activeDocument;
+(function(){
 
-var layer=doc.artLayers.add();
+    var doc =
+        app.activeDocument;
 
-layer.kind=LayerKind.TEXT;
+    var layer =
+        doc.artLayers.add();
 
-layer.name="TEXTE • PERSONNALISÉ";
+    layer.kind =
+        LayerKind.TEXT;
 
-layer.textItem.contents=${JSON.stringify(t)};
+    layer.name =
+        "TEXTE • PERSONNALISÉ";
 
-layer.textItem.size=48;
+    layer.textItem.contents =
+        ${JSON.stringify(t)};
 
-layer.textItem.font="Arial-BoldMT";
+    layer.textItem.size =
+        48;
 
-var c=new SolidColor();
+    layer.textItem.font =
+        "Arial-BoldMT";
 
-c.rgb.red=255;
 
-c.rgb.green=255;
+    var c =
+        new SolidColor();
 
-c.rgb.blue=255;
+    c.rgb.red =
+        255;
 
-layer.textItem.color=c;
+    c.rgb.green =
+        255;
 
-layer.textItem.position=[100,300];
+    c.rgb.blue =
+        255;
+
+    layer.textItem.color =
+        c;
+
+    layer.textItem.position =
+        [100,300];
+
+})();
 
 `);
 
@@ -1152,16 +1831,21 @@ layer.textItem.position=[100,300];
 
 
 /* =====================================================
-   XXL
+   TEXTE XXL
 ===================================================== */
 
 function bigText(){
 
-    let t=document.getElementById("texte").value;
+    const t =
+        document.getElementById(
+            "texte"
+        ).value;
 
     if(!t){
 
-        alert("Écris ton texte.");
+        alert(
+            "Écris ton texte."
+        );
 
         return;
 
@@ -1169,31 +1853,49 @@ function bigText(){
 
     send(`
 
-var doc=app.activeDocument;
+(function(){
 
-var layer=doc.artLayers.add();
+    var doc =
+        app.activeDocument;
 
-layer.kind=LayerKind.TEXT;
+    var layer =
+        doc.artLayers.add();
 
-layer.name="TEXTE • XXL";
+    layer.kind =
+        LayerKind.TEXT;
 
-layer.textItem.contents=${JSON.stringify(t)};
+    layer.name =
+        "TEXTE • XXL";
 
-layer.textItem.size=105;
+    layer.textItem.contents =
+        ${JSON.stringify(t)};
 
-layer.textItem.font="Arial-BoldMT";
+    layer.textItem.size =
+        105;
 
-var c=new SolidColor();
+    layer.textItem.font =
+        "Arial-BoldMT";
 
-c.rgb.red=255;
 
-c.rgb.green=190;
+    var c =
+        new SolidColor();
 
-c.rgb.blue=20;
+    c.rgb.red =
+        255;
 
-layer.textItem.color=c;
+    c.rgb.green =
+        190;
 
-layer.textItem.position=[70,450];
+    c.rgb.blue =
+        20;
+
+    layer.textItem.color =
+        c;
+
+    layer.textItem.position =
+        [70,450];
+
+})();
 
 `);
 
@@ -1201,16 +1903,21 @@ layer.textItem.position=[70,450];
 
 
 /* =====================================================
-   3D
+   TEXTE 3D
 ===================================================== */
 
 function text3D(){
 
-    let t=document.getElementById("texte").value;
+    const t =
+        document.getElementById(
+            "texte"
+        ).value;
 
     if(!t){
 
-        alert("Écris ton texte.");
+        alert(
+            "Écris ton texte."
+        );
 
         return;
 
@@ -1218,61 +1925,88 @@ function text3D(){
 
     send(`
 
-var doc=app.activeDocument;
+(function(){
+
+    var doc =
+        app.activeDocument;
 
 
-/* PROFONDEUR */
+    var depth =
+        doc.artLayers.add();
 
-var depth=doc.artLayers.add();
+    depth.kind =
+        LayerKind.TEXT;
 
-depth.kind=LayerKind.TEXT;
+    depth.name =
+        "3D • PROFONDEUR";
 
-depth.name="3D • PROFONDEUR";
+    depth.textItem.contents =
+        ${JSON.stringify(t)};
 
-depth.textItem.contents=${JSON.stringify(t)};
+    depth.textItem.size =
+        100;
 
-depth.textItem.size=100;
-
-depth.textItem.font="Arial-BoldMT";
-
-var dark=new SolidColor();
-
-dark.rgb.red=70;
-
-dark.rgb.green=25;
-
-dark.rgb.blue=5;
-
-depth.textItem.color=dark;
-
-depth.textItem.position=[120,420];
+    depth.textItem.font =
+        "Arial-BoldMT";
 
 
-/* FACE */
+    var dark =
+        new SolidColor();
 
-var face=doc.artLayers.add();
+    dark.rgb.red =
+        70;
 
-face.kind=LayerKind.TEXT;
+    dark.rgb.green =
+        25;
 
-face.name="3D • FACE";
+    dark.rgb.blue =
+        5;
 
-face.textItem.contents=${JSON.stringify(t)};
+    depth.textItem.color =
+        dark;
 
-face.textItem.size=100;
+    depth.textItem.position =
+        [120,420];
 
-face.textItem.font="Arial-BoldMT";
 
-var gold=new SolidColor();
+    var face =
+        doc.artLayers.add();
 
-gold.rgb.red=255;
+    face.kind =
+        LayerKind.TEXT;
 
-gold.rgb.green=190;
+    face.name =
+        "3D • FACE";
 
-gold.rgb.blue=20;
+    face.textItem.contents =
+        ${JSON.stringify(t)};
 
-face.textItem.color=gold;
+    face.textItem.size =
+        100;
 
-face.textItem.position=[100,400];
+    face.textItem.font =
+        "Arial-BoldMT";
+
+
+    var gold =
+        new SolidColor();
+
+    gold.rgb.red =
+        255;
+
+    gold.rgb.green =
+        190;
+
+    gold.rgb.blue =
+        20;
+
+    face.textItem.color =
+        gold;
+
+    face.textItem.position =
+        [100,400];
+
+})();
 
 `);
 
@@ -1285,11 +2019,16 @@ face.textItem.position=[100,400];
 
 function chromeText(){
 
-    let t=document.getElementById("texte").value;
+    const t =
+        document.getElementById(
+            "texte"
+        ).value;
 
     if(!t){
 
-        alert("Écris ton texte.");
+        alert(
+            "Écris ton texte."
+        );
 
         return;
 
@@ -1297,56 +2036,88 @@ function chromeText(){
 
     send(`
 
-var doc=app.activeDocument;
+(function(){
 
-var shadow=doc.artLayers.add();
-
-shadow.kind=LayerKind.TEXT;
-
-shadow.name="CHROME • OMBRE";
-
-shadow.textItem.contents=${JSON.stringify(t)};
-
-shadow.textItem.size=100;
-
-shadow.textItem.font="Arial-BoldMT";
-
-var dark=new SolidColor();
-
-dark.rgb.red=70;
-
-dark.rgb.green=80;
-
-dark.rgb.blue=95;
-
-shadow.textItem.color=dark;
-
-shadow.textItem.position=[108,410];
+    var doc =
+        app.activeDocument;
 
 
-var face=doc.artLayers.add();
+    var shadow =
+        doc.artLayers.add();
 
-face.kind=LayerKind.TEXT;
+    shadow.kind =
+        LayerKind.TEXT;
 
-face.name="CHROME • FACE";
+    shadow.name =
+        "CHROME • OMBRE";
 
-face.textItem.contents=${JSON.stringify(t)};
+    shadow.textItem.contents =
+        ${JSON.stringify(t)};
 
-face.textItem.size=100;
+    shadow.textItem.size =
+        100;
 
-face.textItem.font="Arial-BoldMT";
+    shadow.textItem.font =
+        "Arial-BoldMT";
 
-var silver=new SolidColor();
 
-silver.rgb.red=235;
+    var dark =
+        new SolidColor();
 
-silver.rgb.green=240;
+    dark.rgb.red =
+        70;
 
-silver.rgb.blue=250;
+    dark.rgb.green =
+        80;
 
-face.textItem.color=silver;
+    dark.rgb.blue =
+        95;
 
-face.textItem.position=[100,400];
+    shadow.textItem.color =
+        dark;
+
+    shadow.textItem.position =
+        [108,410];
+
+
+    var face =
+        doc.artLayers.add();
+
+    face.kind =
+        LayerKind.TEXT;
+
+    face.name =
+        "CHROME • FACE";
+
+    face.textItem.contents =
+        ${JSON.stringify(t)};
+
+    face.textItem.size =
+        100;
+
+    face.textItem.font =
+        "Arial-BoldMT";
+
+
+    var silver =
+        new SolidColor();
+
+    silver.rgb.red =
+        235;
+
+    silver.rgb.green =
+        240;
+
+    silver.rgb.blue =
+        250;
+
+    face.textItem.color =
+        silver;
+
+    face.textItem.position =
+        [100,400];
+
+})();
 
 `);
 
@@ -1361,9 +2132,12 @@ function duplicate(){
 
 send(`
 
-if(app.activeDocument.activeLayer){
+if(
+    app.activeDocument &&
+    app.activeDocument.activeLayer
+){
 
-app.activeDocument.activeLayer.duplicate();
+    app.activeDocument.activeLayer.duplicate();
 
 }
 
@@ -1380,25 +2154,41 @@ function center(){
 
 send(`
 
-var doc=app.activeDocument;
+(function(){
 
-var layer=doc.activeLayer;
+    var doc =
+        app.activeDocument;
 
-if(layer){
+    var layer =
+        doc.activeLayer;
 
-var b=layer.bounds;
+    if(!layer){
 
-var w=b[2]-b[0];
+        return;
 
-var h=b[3]-b[1];
+    }
 
-var x=(doc.width-w)/2-b[0];
+    var b =
+        layer.bounds;
 
-var y=(doc.height-h)/2-b[1];
+    var w =
+        b[2]-b[0];
 
-layer.translate(x,y);
+    var h =
+        b[3]-b[1];
 
-}
+    var x =
+        (doc.width-w)/2-b[0];
+
+    var y =
+        (doc.height-h)/2-b[1];
+
+    layer.translate(
+        x,
+        y
+    );
+
+})();
 
 `);
 
@@ -1406,7 +2196,7 @@ layer.translate(x,y);
 
 
 /* =====================================================
-   FORMAT
+   FORMAT POST / STORY
 ===================================================== */
 
 function formatDoc(w,h){
@@ -1414,10 +2204,10 @@ function formatDoc(w,h){
 send(`
 
 app.activeDocument.resizeImage(
-UnitValue(${w},"px"),
-UnitValue(${h},"px"),
-null,
-ResampleMethod.BICUBIC
+    UnitValue(${w},"px"),
+    UnitValue(${h},"px"),
+    null,
+    ResampleMethod.BICUBIC
 );
 
 `);
@@ -1433,31 +2223,49 @@ function signature(){
 
 send(`
 
-var doc=app.activeDocument;
+(function(){
 
-var layer=doc.artLayers.add();
+    var doc =
+        app.activeDocument;
 
-layer.kind=LayerKind.TEXT;
+    var layer =
+        doc.artLayers.add();
 
-layer.name="Visuels Studio 226";
+    layer.kind =
+        LayerKind.TEXT;
 
-layer.textItem.contents="Visuels Studio 226";
+    layer.name =
+        "Visuels Studio 226";
 
-layer.textItem.size=20;
+    layer.textItem.contents =
+        "Visuels Studio 226";
 
-layer.textItem.font="Arial-BoldMT";
+    layer.textItem.size =
+        20;
 
-var c=new SolidColor();
+    layer.textItem.font =
+        "Arial-BoldMT";
 
-c.rgb.red=255;
 
-c.rgb.green=255;
+    var c =
+        new SolidColor();
 
-c.rgb.blue=255;
+    c.rgb.red =
+        255;
 
-layer.textItem.color=c;
+    c.rgb.green =
+        255;
 
-layer.textItem.position=[770,1290];
+    c.rgb.blue =
+        255;
+
+    layer.textItem.color =
+        c;
+
+    layer.textItem.position =
+        [770,1290];
+
+})();
 
 `);
 
@@ -1470,31 +2278,80 @@ layer.textItem.position=[770,1290];
 
 function exportFile(type){
 
-    let format="png";
+    let format =
+        "png";
 
-    if(type==="jpg"){
-        format="jpg:0.9";
+
+    if(type === "jpg"){
+
+        format =
+            "jpg:0.9";
+
     }
 
-    if(type==="webp"){
-        format="webp:0.9";
+
+    if(type === "webp"){
+
+        format =
+            "webp:0.9";
+
     }
 
-    if(type==="psd"){
-        format="psd:true";
+
+    if(type === "psd"){
+
+        format =
+            "psd:true";
+
     }
+
 
     send(`
 
 app.activeDocument.saveToOE(
-${JSON.stringify(format)},
-0,
-true
+    ${JSON.stringify(format)},
+    0,
+    true
 );
 
 `);
 
 }
+
+
+/* =====================================================
+   MESSAGE PHOTOPEA
+===================================================== */
+
+window.addEventListener(
+    "message",
+    function(event){
+
+        if(
+            event.data ===
+            "VISUELS_POSTER_READY"
+        ){
+
+            setStatus(
+                "✅ Affiche prête."
+            );
+
+        }
+
+
+        if(
+            event.data ===
+            "IMAGE_REPLACED"
+        ){
+
+            setStatus(
+                "✅ Nouvelle image installée."
+            );
+
+        }
+
+    }
+);
 
 </script>
 
